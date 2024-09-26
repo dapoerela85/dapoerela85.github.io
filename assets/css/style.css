@@ -1,0 +1,20 @@
+body, html {
+ height: 100%; 
+ display: flex;
+ flex-direction: column;
+ background: #f4f0ec !important;
+ color: #272727 !important;
+ font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+p, .card-body {
+ color: #272727;
+}
+.btn-custom {
+ background-color: #272727 !important;
+ color: #fff !important;
+}
+a, .btn-link {
+ text-decoration: none !important;
+ color: #272727;
+ font-weight: 600;
+}
