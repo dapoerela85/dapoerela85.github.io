@@ -3,19 +3,23 @@ product:
     id: DPRE85-BS
     img: basreng-pedas.jpg
     desc: "Basreng rasa daun jeruk 150gr."
-    price: "Rp. 20.000"
+    price: "Rp.20.000"
+    url: https://wa.me/p/8337016673008834/6285172211985
   - title: Makaroni
     id: DPRE85-MK
     img: makaroni-pedas.jpg
     desc: "Makaroni goreng gurih 300gr"
-    price: "Rp. 25.000"
-  - title: Rengginang Toples
+    price: "Rp.25.000"
+    url: https://wa.me/p/8221293531250457/6285172211985
+  - title: Rengginang
     id: DPRE85-RGT
     img: basreng-pedas.jpg
     desc: "Rengginang renyah kemasan toples 10 liter."   
-    price: "Rp. 75.000"
+    price: "Rp.75.000"
+    url: https://wa.me/p/8224056527630589/6285172211985
   - title: Comring
     id: DPRE85-CMR
     img: comring.jpg
     desc: "Comring garing renyah & gurih."
-    price: "Rp. 20.000"
+    price: "Rp.20.000"
+    disabled: disabled
