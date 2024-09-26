@@ -1,0 +1,8 @@
+banners:
+  - title: Toko Kami
+    img: toko.png
+    weight: 150gr
+    url: /store/
+  - title: Testimoni Pelanggan
+    img: testimoni.png
+    url: /testimonies/
