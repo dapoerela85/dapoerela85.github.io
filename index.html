@@ -1,4 +1,9 @@
 ---
 layout: default
 ---
-{% include products.html %} 
+
+{% for item in site.data.settings.banners %}
+<div class="mb-3">
+ <a href="{{ item.url }}"><img class="img-fluid" src="{{ site.url }}/assets/img/{{ item.img }}"/></a>
+</div>
+{% endfor %}
