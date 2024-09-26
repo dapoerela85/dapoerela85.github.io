@@ -48,7 +48,7 @@ defaults:
       type: posts
     values:
       layout: post
-      permalink: /product/:title/
+      permalink: /store/product/:title/
   - scope:
       path: "_pages"
       type: "pages"
