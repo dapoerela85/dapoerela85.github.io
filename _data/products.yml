@@ -1,0 +1,17 @@
+product:
+  - name: Basreng
+    img: basreng-pedas.jpg
+    desc: "Basreng rasa daun jeruk 150gr."
+    price: "Rp. 20.000"
+  - name: Makaroni
+    img: makaroni-pedas.jpg
+    desc: "Makaroni goreng gurih 300gr"
+    price: "Rp. 25.000"
+  - name: Rengginang Toples
+    img: basreng-pedas.jpg
+    desc: "Rengginang renyah kemasan toples 10 liter."   
+    price: "Rp. 75.000"
+  - name: Comring
+    img: comring.jpg
+    desc: "Comring garing renyah & gurih."
+    price: "Rp. 20.000"
