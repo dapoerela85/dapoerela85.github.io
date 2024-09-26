@@ -4,6 +4,6 @@ layout: default
 
 {% for item in site.data.settings.banners %}
 <div class="mb-3">
- <a href="{{ item.url }}"><img class="img-fluid" src="{{ site.url }}/assets/img/{{ item.img }}"/></a>
+ <a href="{{ item.url }}"><img alt="{{ item.title }}" class="img-fluid img-thumbbail" src="{{ site.url }}/assets/img/{{ item.img }}"/></a>
 </div>
 {% endfor %}
