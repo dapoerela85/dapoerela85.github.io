@@ -22,12 +22,12 @@
     <button class="btn btn-link me-auto" type="button" data-bs-toggle="collapse" data-bs-target="#{{ item.id }}" aria-expanded="false" aria-controls="{{ item.id }}">
     Detil Produk
   </button>
-  <a href="https://wa.me/p/8224056527630589/6285172211985" role="button" class="btn btn-custom"><span class="bi bi-whatsapp"></span> Order Sekarang</a>
+  <a href="{{ item.url }}" role="button" class="btn btn-custom" {{ item.disabled }}><span class="bi bi-whatsapp"></span> Order Sekarang</a>
 </div>
 <!-- /produk btn action -->
 </div><!-- card body -->
 <!-- produk detil collapse -->
-<div class="collapse" id="rengginangDetil">
+<div class="collapse" id="{{ item.id }}">
 <ul class="list-group list-group-flush">
  <li class="list-group-item">
   Nama Produk: <b>{{ item.title }}</b>
