@@ -6,3 +6,23 @@ layout: default
 <div class="mt-4">
 {{ content }}
 </div>
+<ul class="list-group list-group-flush mt-4">
+ <li class="list-group-item">
+  Nama Produk: <b>{{ page.title }}</b>
+ </li>   
+ <li class="list-group-item">
+  Halal ID: <b>{{ page.halalID }}</b>
+ </li>
+ <li class="list-group-item">
+  Produk ID : <b>{{ page.productID }}</b>
+ </li>
+ <li class="list-group-item">
+  Harga : <b>{{ page.price }}</b>
+ </li> 
+ <li class="list-group-item">
+  Berat : <b>{{ page.weight }}</b>
+ </li>
+</ul>
+<div class="d-grid gap-2 mt-4 text-center">
+  <a href="{{ page.url }}" class="btn btn-custom" role="button"><span class="bi bi-whatsapp"></span> Pesan Sekarang</a>
+</div>
