@@ -5,9 +5,10 @@ layout: compress
 <html 
  lang="{{ site.locale | default: 'id-ID' }}" class="h-100">
 <head>
+{% include meta.html %} 
 </head>
 <body role="document" itemscope itemtype="https://schema.org/WebPage" class="d-flex flex-column h-100">
-<main role="main" style="margin-top: 110px !important;"><!-- main -->
+<main role="main"><!-- main -->
  <div class="container-md">
  {{ content }}
  </div>
