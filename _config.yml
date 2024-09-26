@@ -3,3 +3,56 @@ description         : ""
 baseurl             : "/"
 keywords            : ""
 url                 : "https://dapoerela85.github.io"
+locale              : "id-ID"
+github_username     : dapoerela85
+permalink           : pretty
+markdown            : kramdown
+paginate            : 5
+paginate_path       : "/products/:num/"
+include:
+  - _pages
+
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+exclude:
+  - bin
+  - config
+  - vite.config.ts
+  - tmp
+  - Procfile.dev
+  - docs/
+  - vendor/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - Makefile
+  - README.md
+  - sample*.png
+  - .gitignore
+  - README
+  - gemfile
+  - Gemfile.lock
+  - node_modules
+  - jekyll-cache
+  - LICENSE
+  - CODE_OF-CONDUCT
+
+defaults:
+  - scope:
+      path: "_posts/**"
+      type: posts
+    values:
+      layout: post
+      permalink: /products/:title/
+  - scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: "Page"
+
+  
