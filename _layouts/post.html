@@ -1,6 +1,13 @@
 ---
 layout: default
 ---
+<nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ site.url }}">Beranda</a></li>
+    <li class="breadcrumb-item"><a href="/store/">Toko</a></li>
+    <li class="breadcrumb-item active" aria-current="page">{{ page.title }}</li>
+  </ol>
+</nav>
 <h2 class="display-3">{{ page.title }}</h2>
 <img class="img-fluid img-thumbnail" alt="{{ page.title }}" src="{{ site.url }}/assets/img/products/{{ page.img }}"/>
 <div class="mt-4">
