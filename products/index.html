@@ -1,0 +1,54 @@
+---
+layout: default
+title: Toko
+---
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+{% for item in paginator.posts %}
+<!-- Products -->    
+<div class="col"><!-- col -->
+<div class="card h-100 shadow-sm"><!-- card -->
+<img src="{{ site.url}}/assets/img/products/{{ item.img }}" class="card-img-top" alt="{{ item.title }}">
+<div class="card-body"><!-- card body -->
+<!-- produk title & price -->
+<div class="hstack gap-3">
+  <div class="p-2">
+   <h3 class="fs-2 fw-bold text-uppercase">{{ item.title }}</h3>   
+  </div>
+  <div class="p-2 ms-auto"></div>
+  <div class="p-2 text-danger fw-bold text-uppercase">{{ item.price }}</div>
+</div>
+<!-- /produk title & price -->   
+<!-- produk desc -->       
+<p class="card-text">{{ item.desc }}</p>
+<!-- /produk desc -->
+<!-- produk btn action -->
+<div class="hstack gap-3">
+    <a href="" class="btn btn-link me-auto" role="button">
+    Detil Produk
+  </button>
+  <a href="{{ item.url }}" role="button" class="btn btn-custom" {{ item.disabled }}><span class="bi bi-whatsapp"></span> Order Sekarang</a>
+</div>
+<!-- /produk btn action -->
+</div><!-- card body -->
+</div><!-- /card -->
+</div><!-- col -->
+<!-- /Products -->
+{% endfor %}
+</div>
+<div class="mt-5">
+{% if paginator.previous_page %}
+ <a href="{{ paginator.previous_page_path }}">
+ Prev
+ </a>
+{% else %}
+ <span>Prev</span>
+{% endif %}
+{% if paginator.next_page %}
+ <a href="{{ paginator.next_page_path }}">
+ Next
+ </a>
+{% else %}
+<span>Next</span>
+{% endif %}
+</div>
