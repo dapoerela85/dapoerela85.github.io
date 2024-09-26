@@ -7,8 +7,8 @@ locale              : "id-ID"
 github_username     : dapoerela85
 permalink           : pretty
 markdown            : kramdown
-paginate            : 5
-paginate_path       : "/products/:num/"
+paginate            : 3
+paginate_path       : "/store/:num/"
 include:
   - _pages
 
@@ -48,7 +48,7 @@ defaults:
       type: posts
     values:
       layout: post
-      permalink: /products/:title/
+      permalink: /product/:title/
   - scope:
       path: "_pages"
       type: "pages"
