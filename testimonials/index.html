@@ -5,7 +5,7 @@ permalink: /testi/
 ---
 
 {% for item in site.data.testimonials.testi %}
-<div class="card card-body d-block w-100 h-100 mt-5 mb-3 shadow-sm">
+<div class="card card-body d-block w-100 h-100 mt-5 mb-1 shadow-sm">
  <h3>{{ item.nama }} ({{ item.jabatan }})</h3>
  <p>{{ item.text }}</p>
  <p><a href="{{ site.url }}/assets/img/testimonials/{{ item.img }}" data-toggle="lightbox" data-caption="{{ item.nama }}">Lihat</a></p>
