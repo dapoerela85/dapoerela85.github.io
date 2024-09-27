@@ -8,6 +8,6 @@ permalink: /testi/
 <div class="card card-body d-block w-100 h-100 mb-2 shadow-sm">
  <h3>{{ item.nama }} ({{ item.jabatan }})</h3>
  <p>{{ item.text }}</p>
- <p><a href="{{ site.url }}/assets/img/testimonials/{{ item.img }}" data-toggle="lightbox" data-caption="{{ item.nama }}">Lihat</a></p>
+ <p><a class="btn btn-custom btn-sm" role="button" href="{{ site.url }}/assets/img/testimonials/{{ item.img }}" data-toggle="lightbox" data-caption="{{ item.nama }}">Lihat</a></p>
 </div>
 {% endfor %}
