@@ -15,7 +15,6 @@ include:
 plugins:
   - jekyll-feed
   - jekyll-paginate
-  - jekyll-seo-tag
   - jekyll-sitemap
 
 exclude:
@@ -53,5 +52,5 @@ defaults:
       path: "_pages"
       type: "pages"
     values:
-      layout: "page"
+      layout: page
 
