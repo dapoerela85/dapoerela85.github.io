@@ -50,27 +50,15 @@ title: Toko
         class="page-link icon-link shadow-none border-danger bg-transparent text-danger" 
         itemprop="relatedLink/pagination" 
         rel="prev">
-        {% if page.locale == 'en' %}
-         <i class="bi bi-chevron-double-left text-danger"></i> 
-        {% elsif page.locale == 'ar' %}
-          <i class="bi bi-chevron-double-right text-danger"></i> 
-        {% else %}
-         <i class="bi bi-chevron-double-left text-danger"></i> 
-        {% endif %}
-        {% if page.locale == 'en' %}{{ site.data.locales[page.locale].page.prev }}{% elsif page.locale == 'ar' %}{{ site.data.locales[page.locale].page.prev }}{% else %}Prev{% endif %}
+        <i class="bi bi-chevron-double-right"></i>
+        Sebelumnya
       </a>
     </li>
     {% else %}
     <li class="page-item disabled">
       <span class="page-link border-danger">
-        {% if page.locale == 'en' %}
-         <i class="bi bi-chevron-double-left"></i> 
-        {% elsif page.locale == 'ar' %}
-         <i class="bi bi-chevron-double-right"></i>
-        {% else %}
-         <i class="bi bi-chevron-double-left"></i>
-        {% endif %}
-        {% if page.locale == 'en' %}{{ site.data.locales[page.locale].page.prev }}{% elsif page.locale == 'ar' %}{{ site.data.locales[page.locale].page.prev }}{% else %}Prev{% endif %}
+        <i class="bi bi-chevron-double-right"></i>
+        Sebelumnya
       </span>
     </li>
    {% endif %}
@@ -81,27 +69,13 @@ title: Toko
         itemprop="relatedLink/pagination" 
         rel="next" 
         class="page-link icon-link shadow-none border-danger bg-transparent text-danger"> 
-        {% if page.locale == 'en' %}{{ site.data.locales[page.locale].page.next }}{% elsif page.locale == 'ar' %}{{ site.data.locales[page.locale].page.next }}{% else %}Next{% endif %}        
-        {% if page.locale == 'en' %}
-         <i class="bi bi-chevron-double-right"></i>
-        {% elsif page.locale == 'ar' %}
-         <i class="bi bi-chevron-double-left"></i>
-        {% else %}
-         <i class="bi bi-chevron-double-right"></i>
-        {% endif %}
+        Selanjutnya <i class="bi bi-chevron-double-right"></i>
       </a>
     </li>
     {% else %}
     <li class="page-item disabled">
       <span class="page-link border-danger">
-        {% if page.locale == 'en' %}{{ site.data.locales[page.locale].page.next }}{% elsif page.locale == 'ar' %}{{ site.data.locales[page.locale].page.next }}{% else %}Next{% endif %} 
-        {% if page.locale == 'en' %}
-         <i class="bi bi-chevron-double-right"></i>
-        {% elsif page.locale == 'ar' %}
-         <i class="bi bi-chevron-double-left"></i>
-        {% else %}
-         <i class="bi bi-chevron-double-right"></i>
-        {% endif %}
+        Selanjutnya <i class="bi bi-chevron-double-right"></i>
       </span>
     </li>
    {% endif %}   
