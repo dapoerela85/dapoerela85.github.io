@@ -54,5 +54,4 @@ defaults:
       type: "pages"
     values:
       layout: "Page"
-
-  
+      output: true
