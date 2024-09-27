@@ -31,6 +31,10 @@
 <meta name='robots' content='index,follow'>
 <meta name="title" content="{% if page.title %}{{ page.title | escape }}{% elsif post.title %}{{ post.title | escape }}{% else %}{{ site.title | escape | default: 'Al-Salafiyyah' }}{% endif %}">
 <meta name='abstract' content='{% if page.excerpt %}{{ page.excerpt }}{% else %}{{ site.description }}{% endif %}'>
+<link rel="apple-touch-icon" sizes="180x180" href="{{ '/assets/img/icons/apple-touch-icon.png' | absolute_url }}">
+<link rel="icon" type="image/png" sizes="32x32" href="{{ '/assets/img/icons/favicon-32x32.png' | absolute_url }}">
+<link rel="icon" type="image/png" sizes="16x16" href="{{ '/assets/img/icons/favicon-16x16.png' | asolute_url }}">
+<link rel="manifest" href="{{ '/assets/img/icons/site.webmanifest' | absolute_url }}">
 {% if page.url =='/' %}
 <link rel="canonical" href="{{ site.url }}" />
 <link rel='shortlink' href='{{ site.url }}'>
