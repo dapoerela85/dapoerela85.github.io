@@ -3,7 +3,11 @@ layout: page
 title: Testimonials
 permalink: /testi/
 ---
-
+<div class="card card-body d-block w-100 h-100 mb-2 shadow-sm">
+<video class="w-100" autoplay loop muted>
+  <source src="{{ '/assets/img/testimonials/kabid.mp4' | absolute_url }}" type="video/mp4" />
+</video>
+</div>
 {% for item in site.data.testimonials.testi %}
 <div class="card card-body d-block w-100 h-100 mb-2 shadow-sm">
  <h3>{{ item.nama }} ({{ item.jabatan }})</h3>
