@@ -54,3 +54,7 @@ defaults:
     values:
       layout: page
 
+collections:
+  testimonials:
+    output: true
+    permalink: /:collection/testi/:slug
