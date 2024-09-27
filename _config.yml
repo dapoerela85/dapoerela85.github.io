@@ -53,5 +53,5 @@ defaults:
       path: "_pages"
       type: "pages"
     values:
-      layout: "Page"
-      output: true
+      layout: "page"
+
