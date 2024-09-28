@@ -17,22 +17,18 @@ title: Toko
 <img src="{{ site.url}}/assets/img/products/{{ item.img-display }}" class="card-img-top" alt="{{ item.title }}">
 <div class="card-body"><!-- card body -->
 <!-- produk title & price -->
-<div class="hstack gap-3">
-  <div class="p-2">
-   <h3 class="fs-2 fw-bold text-uppercase">{{ item.title }}</h3>   
-  </div>
-  <div class="p-2 ms-auto"></div>
-  <div class="p-2 text-danger fw-bold text-uppercase">{{ item.price }}</div>
-</div>
+<h3 class="fs-2 fw-bold text-uppercase"><a href="{{ item.url }}">{{ item.title }}</a></h3>
 <!-- /produk title & price -->   
 <!-- produk desc -->       
 <p class="card-text">{{ item.desc }}</p>
 <!-- /produk desc -->
 <!-- produk btn action -->
 <div class="hstack gap-3">
-  <a href="{{ item.url }}" class="btn btn-link me-auto" role="button">
-    Produk Detail
-  </a>
+  <div class="p-2"><a href="{{ item.url }}" class="btn btn-link me-auto" role="button">
+    Detail
+  </a></div>
+  <div class="p-2 ms-auto"></div>
+  <div class="p-2 text-danger fw-bold text-uppercase">{{ item.price }}</div>
 </div>
 <!-- /produk btn action -->
 </div><!-- card body -->
