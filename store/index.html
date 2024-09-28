@@ -24,11 +24,13 @@ title: Toko
 <!-- /produk desc -->
 <!-- produk btn action -->
 <div class="hstack gap-3">
-  <div class="p-2"><a href="{{ item.url }}" class="btn btn-link me-auto" role="button">
-    Detail
-  </a></div>
-  <div class="p-2 ms-auto"></div>
   <div class="p-2 text-danger fw-bold text-uppercase">{{ item.price }}</div>
+  <div class="p-2 ms-auto"></div>
+  <div class="p-2">
+    <a href="{{ item.url }}" class="btn btn-custom me-auto" role="button">
+    Beli
+  </a>
+  </div>
 </div>
 <!-- /produk btn action -->
 </div><!-- card body -->
