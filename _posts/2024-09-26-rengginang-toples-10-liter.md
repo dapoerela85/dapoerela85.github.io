@@ -9,7 +9,7 @@ link: "https://wa.me/p/8224056527630589/6285172211985"
 weight: "868gr"
 price: "Rp.75.000"
 halalID: ""
-productID: "DPRE85-RG-8224056527630589"
+productID: "DPRE85-RG10-8224056527630589"
 excerpt: "Rengginang rasa terasi, gurih dan renyah, dalam kemasan toples plastik 10 liter."
 ---
 Rengginang rasa terasi, gurih dan renyah, dalam kemasan toples plastik 10 liter dan digoreng mendadak sesuai pesanan.
