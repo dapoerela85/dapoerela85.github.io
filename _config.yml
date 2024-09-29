@@ -7,7 +7,7 @@ locale              : "id-ID"
 github_username     : dapoerela85
 permalink           : pretty
 markdown            : kramdown
-paginate            : 3
+paginate            : 6
 paginate_path       : "/store/:num/"
 include:
   - _pages
