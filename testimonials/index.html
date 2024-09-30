@@ -13,14 +13,13 @@ permalink: /testi/
 {% for item in site.data.testimonials.testi %}
 <div class="card d-block w-100 h-100 mb-2 shadow-sm">
   <div class="card-body">
-    <h5 class="card-title">{{ item.nama }}</h5>
-    <p class="card-text">
+    <p class="card-text fs-3 fst-italic">
       {{ item.text }}  
     </p>
   </div>
   <ul class="list-group list-group-flush">
-    <li class="list-group-item">
-      <h3>{{ item.nama }}</h3>
+    <li class="list-group-item fw-bold">
+      {{ item.nama }}
     </li>
     <li class="list-group-item">
       {{ item.jabatan }}
