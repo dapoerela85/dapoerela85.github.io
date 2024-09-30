@@ -11,12 +11,26 @@ permalink: /testi/
 </video>
 </div>
 {% for item in site.data.testimonials.testi %}
-<div class="card card-body d-block w-100 h-100 mb-2 shadow-sm">
- <h3>{{ item.nama }} ({{ item.jabatan }})</h3>
- <p>{{ item.text }}</p>
- <p><a class="btn btn-custom btn-sm" role="button" href="{{ site.url }}/assets/img/testimonials/{{ item.img }}" data-toggle="lightbox" data-caption="{{ item.nama }}">Lihat</a></p>
+<div class="card d-block w-100 h-100 mb-2 shadow-sm">
+  <div class="card-body">
+    <h5 class="card-title">{{ item.nama }}</h5>
+    <p class="card-text">
+      {{ item.text }}  
+    </p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <h3>{{ item.nama }}</h3>
+    </li>
+    <li class="list-group-item">
+      {{ item.jabatan }}
+    </li>
+  </ul>
+  <div class="card-body">
+    <a class="btn btn-custom btn-sm" role="button" href="{{ site.url }}/assets/img/testimonials/{{ item.img }}" data-toggle="lightbox" data-caption="{{ item.nama }}">Lihat Photo/Video</a>
+  </div>
 </div>
 {% endfor %}
 <div class="mt-4 mb-5">
-  <p>Tanpa mengurangi rasa hormat, mohon maaf and maklum apabila ada kesalahan dalam pengetikan nama atau gelar. Terimakasih sudah berbelanja di toko kami.</p>
+  <p>Tanpa mengurangi rasa hormat, kami memohon maaf and maklum apabila ada kesalahan dalam pengetikan nama atau gelar. Terimakasih sudah berbelanja di toko kami.</p>
 </div>
