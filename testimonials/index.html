@@ -10,9 +10,12 @@ permalink: /testi/
 </video>
 </div>
 {% for item in site.data.testimonials.testi %}
-<div class="card card-body d-block w-100 h-100 mb-5 shadow-sm">
+<div class="card card-body d-block w-100 h-100 shadow-sm">
  <h3>{{ item.nama }} ({{ item.jabatan }})</h3>
  <p>{{ item.text }}</p>
  <p><a class="btn btn-custom btn-sm" role="button" href="{{ site.url }}/assets/img/testimonials/{{ item.img }}" data-toggle="lightbox" data-caption="{{ item.nama }}">Lihat</a></p>
 </div>
 {% endfor %}
+<div class="mt-4 mb-5">
+  <p>Tanpa mengurangi rasa hormat, kami memohon maaf apabila ada kesalahan dalam pengetikan nama atau gelar.</p>
+</div>
