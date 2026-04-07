@@ -3,7 +3,7 @@ layout: post
 date: "2026-04-07"
 title: "Kremes Ubi Pouch"
 price: "13.000"
-category: [hampers]
+category: [camilan]
 weight: "20 Butir"
 img: "/assets/products/kremes-ubi.jpg"
 ---
