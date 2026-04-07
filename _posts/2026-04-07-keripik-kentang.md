@@ -1,7 +1,7 @@
 ---
 layout: post
 date: "2026-04-07"
-title: "Kerpik Kentang Pouch"
+title: "Keripik Kentang Pouch"
 price: "20.000"
 category: [camilan]
 weight: "80 grams"
