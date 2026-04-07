@@ -1,0 +1,27 @@
+---
+layout: default
+---
+        <header class="mb-12 border-b border-base-content pb-10">
+            <nav class="text-[10px] uppercase tracking-[0.3em] opacity-40 mb-4">
+                <a href="{{ site.url }}" class="hover:opacity-100">Beranda</a> / <span class="opacity-100 font-bold">Category</span>
+            </nav>
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
+                <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter">{{ page.title }}</h1>
+                <p class="text-sm font-mono opacity-60"></p>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-6">
+          {% for post in site.categories[page.category] %}
+            <a href="{{ post.url }]" class="category-item group block">
+                <div class="aspect-[4/5] overflow-hidden bg-base-200 mb-4 border border-base-content/5">
+                    <img src="{{ post.img }}" alt="{{ post.title }}" class="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-500" />
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-xs font-bold uppercase tracking-widest">{{ post.title }}</h3>
+                    <p class="text-[10px] opacity-50 uppercase tracking-tighter">{{ post.weight }] {{ post.packaging }}</p>
+                    <p class="text-sm font-mono mt-2">IDR {{ post.price }}</p>
+                </div>
+            </a>
+          {% endfor %}
+        </div>
