@@ -1,0 +1,21 @@
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+           {% for post in paginator.posts %}
+            <div class="product-card group cursor-pointer">
+                <div class="relative aspect-square bg-base-200 overflow-hidden mb-4 border border-base-content/5">
+                    <a href="{{ post.url }}">
+                      <img src="{{ post.img }}" alt="{{ post.title }}" class="object-cover w-full h-full" />
+                    </a>
+                    <div class="absolute bottom-4 left-4">
+                        <span class="bg-base-100 text-xs font-bold px-2 py-1 uppercase border border-base-content">{{ post.category }}</span>
+                    </div>
+                </div>
+                <div class="flex justify-between items-start">
+                    <div>
+                        <a href="product.html"><h3 class="text-lg font-bold uppercase tracking-tight">{{ post.title }}</h3></a>
+                        <p class="text-sm opacity-50">{{ post.weight }}</p>
+                    </div>
+                    <p class="font-mono text-lg font-bold">IDR {{ post.price }}</p>
+                </div>
+            </div>
+           {% endfor %}
+        </div>
