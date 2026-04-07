@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ site.title }}</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        /* Custom B&W overrides for a true minimalist feel */
+        :root[data-theme="light"] {
+            --b1: 100% 0 0; /* Pure White */
+            --bc: 0% 0 0;   /* Pure Black Text */
+        }
+        :root[data-theme="dark"] {
+            --b1: 0% 0 0;   /* Pure Black */
+            --bc: 100% 0 0; /* Pure White Text */
+        }
+        .product-card img {
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
+        }
+        .product-card:hover img {
+            filter: grayscale(0%);
+        }
+    </style>
+</head>
+<body class="min-h-screen bg-base-100 text-base-content font-sans transition-colors duration-300">
+  {% include navbar.html %} 
+<main class="max-w-7xl mx-auto p-4 md:p-12">
+  {{ content }}
+</main>
+  {% include footer.html %} 
+</body>
+</html>
