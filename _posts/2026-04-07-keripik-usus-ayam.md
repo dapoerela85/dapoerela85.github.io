@@ -1,7 +1,7 @@
 ---
 layout: post
 date: "2026-04-07"
-title: "Kerpik Usus Ayam Pouch"
+title: "Keripik Usus Ayam Pouch"
 price: "15.000"
 category: [camilan]
 weight: "80 grams"
