@@ -1,0 +1,67 @@
+title               : "Dapoer Ela 85"
+desc                : "Camilan Tangsel"
+baseurl             : "/"
+keywords            : "basreng"
+url                 : "https://dapoerela85.github.io"
+github_username     : dapoerela85
+permalink           : pretty
+markdown            : kramdown
+paginate            : 6
+paginate_path       : "/:num/"
+
+include:
+  - _pages
+
+compress_html:
+  clippings: false
+
+plugins:
+  - jekyll-feed
+  - jekyll-paginate
+  - jekyll-sitemap
+
+exclude:
+  - bin
+  - config
+  - vite.config.ts
+  - tmp
+  - Procfile.dev
+  - docs/
+  - vendor/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - Makefile
+  - README.md
+  - sample*.png
+  - .gitignore
+  - README
+  - gemfile
+  - Gemfile.lock
+  - node_modules
+  - jekyll-cache
+  - LICENSE
+  - CODE_OF-CONDUCT
+
+defaults:
+  - scope:
+      path: "_posts/**"
+      type: posts
+    values:
+      layout: post
+      permalink: /:title/
+  - scope:
+      path: "_pages"
+      type: "pages"
+    values:
+      layout: page
+  - scope:
+      path: ""
+      type: "category"
+    values:
+      layout: category
+      
+collections:
+  category:
+    output: true
