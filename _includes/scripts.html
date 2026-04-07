@@ -1,0 +1,19 @@
+    <script>
+        const themeToggle = document.querySelector('#theme-toggle');
+        const html = document.querySelector('html');
+
+        // 1. Load theme from localStorage or system preference
+        const currentTheme = localStorage.getItem('theme') || 
+                            (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+
+        // 2. Set initial state
+        html.setAttribute('data-theme', currentTheme);
+        themeToggle.checked = currentTheme === 'dark';
+
+        // 3. Listen for changes
+        themeToggle.addEventListener('change', (e) => {
+            const newTheme = e.target.checked ? 'dark' : 'light';
+            html.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
