@@ -1,9 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ site.title }}</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="MobileOptimized" content="320" />
+<meta name="generator" content="Jekyll v{{ jekyll.version }}" />
+<meta name="HandheldFriendly" content="True">
+<meta name='date' content='{{ site.time }}'>
+<link rel="manifest" href="/manifest.json">
+<link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
+<meta name="theme-color" content="#000000">
+{% if page.url =='/' %}
+<link rel="canonical" href="{{ site.url }}" />
+<link rel='shortlink' href='{{ site.url }}'>
+{% else %}
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
+<link rel='shortlink' href='{{ page.url | absolute_url }}'>
+{% endif %}
+{% if page.title %}
+<title>{{ page.title | escape }}</title>
+{% elsif post.title %}
+<title>{{ post.title | escape }}</title>
+{% else %}
+<title>{{ site.title | escape | default: 'Dapoer Ela 85' }}</title>
+{% endif %}
+<meta name="description" content="{{ site.desc }}">
+<meta name="directory" content="submission">
+<meta name="news_keywords" content="{{ site.keywords }}">
+<meta name="keywords" content="{{ site.keywords }}"/>
+<meta name="author" content="{{ site.author }}">
+<meta name="theme-color" content="Canvas">
+<meta name='coverage' content='Worldwide'>
+<meta name='distribution' content='Global'>
+<meta name='rating' content='General'>
+<meta name='revisit-after' content='3 days'>
+<meta name='subtitle' content='Dapoer Ela 85'>
+<meta name='target' content='all'>
+<meta name='identifier-URL' content='{{ site.url }}'>
+<meta name='directory' content='submission'>
+<meta itemprop='name' content='{{ site.title }}'>
+<meta name='url' content='{{ site.url }}'>
+<meta name='robots' content='index,follow'>
+<meta name="title" content="{% if page.title %}{{ page.title | escape }}{% elsif post.title %}{{ post.title | escape }}{% else %}{{ site.title | escape | default: 'Dapoer Ela 85' }}{% endif %}">
+<meta name='abstract' content='{% if page.excerpt %}{{ page.excerpt }}{% else %}{{ site.desc }}{% endif %}'>
+<meta name="google-site-verification" content="" />
+<link rel="alternate" type="application/rss+xml" href="{{ site.url }}/feed.xml">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <style>
