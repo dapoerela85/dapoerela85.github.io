@@ -1,0 +1,9 @@
+---
+layout: post
+date: "2026-04-07"
+title: "Es Mambo Pelangi"
+price: "2500"
+category: [frozen]
+weight: "70g"
+img: "/assets/products/es-pelangi.jpg"
+---
