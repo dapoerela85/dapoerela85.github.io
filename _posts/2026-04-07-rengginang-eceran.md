@@ -1,7 +1,7 @@
 ---
 layout: post
 date: "2026-04-07"
-title: "Rngginang Ecer"
+title: "Rengginang Eceran"
 price: "6000"
 category: [camilan]
 weight: "2 Butir"
