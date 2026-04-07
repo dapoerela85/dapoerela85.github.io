@@ -7,4 +7,7 @@ category: [hampers]
 weight: "-"
 img: "/assets/products/hamper-basreng-2-toples.jpg"
 ---
+
 Hamper basreng 2 toples (1 liter) dengan tas mika, pita, dll, dengan dua rasa pedas dan original.
+
+Berat masing-masing kurang lebih 200-250gr tergantung irisan.
