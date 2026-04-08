@@ -3,9 +3,9 @@ layout: post
 date: "2026-04-07"
 title: "Tekwan Frozen"
 price: "20.000"
-category: [forzen]
+category: [frozen]
 weight: "-"
-in_stock: true
+in_stock: false
 packaging: "Standing Pouch"
 img: "/assets/products/tekwan.jpg"
 ---
