@@ -1,21 +1,27 @@
 {
   "short_name": "DapoerEla85",
   "name": "Dapoer Ela 85",
+  "description": "Jajanan Tradisional Dapoer Ela 85",
   "icons": [
     {
       "src": "/assets/icon-192.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "192x192",
+      "purpose": "any"
     },
     {
       "src": "/assets/icon-512.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "512x512",
+      "purpose": "maskable"
     }
   ],
-  "start_url": "/",
+  "start_url": "/?utm_source=pwa",
   "background_color": "#ffffff",
   "display": "standalone",
+  "display_override": ["window-controls-overlay", "minimal-ui"],
   "scope": "/",
-  "theme_color": "#000000"
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "categories": ["food", "shopping"]
 }

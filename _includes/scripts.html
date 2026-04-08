@@ -23,42 +23,52 @@
         });
     </script>
 <script>
-// Get a reference to your footer button
-const installBtn = document.getElementById('install-button');
+const pwaBtn = document.getElementById('pwa-control-btn');
 let deferredPrompt;
 
+// Function to check if the user is currently using the app version
+const isStandalone = () => {
+  return window.matchMedia('(display-mode: standalone)').matches || window.navigator.standalone;
+};
+
+// 1. Initial State Check
+if (isStandalone()) {
+  // User is already IN the app, so hide the button entirely
+  pwaBtn.classList.add('hidden');
+}
+
+// 2. Listen for Installability (Not yet installed)
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
-  // Stash the event so it can be triggered later.
   deferredPrompt = e;
-  // Unhide the button in your footer
-  installBtn.classList.remove('hidden');
+  
+  pwaBtn.innerText = "Install App"; // Set text to Install
+  pwaBtn.classList.remove('hidden');
 });
 
-installBtn.addEventListener('click', async () => {
+// 3. Handle Button Click
+pwaBtn.addEventListener('click', async () => {
   if (deferredPrompt) {
-    // Show the browser's install prompt
+    // TRIGGER INSTALL
     deferredPrompt.prompt();
-    
-    // Wait for the user to respond to the prompt
     const { outcome } = await deferredPrompt.userChoice;
-    
     if (outcome === 'accepted') {
-      console.log('User accepted the install prompt');
-    } else {
-      console.log('User dismissed the install prompt');
+      deferredPrompt = null;
+      pwaBtn.classList.add('hidden');
     }
-    
-    // We've used the prompt, so we hide the button again
-    deferredPrompt = null;
-    installBtn.classList.add('hidden');
+  } else {
+    // FALLBACK: OPEN IN APP
+    // If there is no install prompt, but the button is visible,
+    // we assume it's installed or they are on a mobile browser.
+    // Redirecting to the start_url often triggers the "Open in App" banner.
+    window.location.href = '/'; 
   }
 });
 
-// Hide the button if the app is already installed
+// 4. Handle successful installation
 window.addEventListener('appinstalled', () => {
-  installBtn.classList.add('hidden');
-  deferredPrompt = null;
+  pwaBtn.innerText = "Open in App";
+  // Optional: hide it after installation to avoid confusion
+  pwaBtn.classList.add('hidden'); 
 });
 </script>
