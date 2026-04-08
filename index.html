@@ -53,6 +53,7 @@ layout: default
         </div>
         <div class="lg:w-3/4 flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 custom-scrollbar">
             {% for post in site.categories.masakan limit:5 %}
+            {% if post.in_stock == true %}
             <div class="snap-start shrink-0 w-[260px] md:w-[300px] group">
                 <div class="aspect-square overflow-hidden bg-base-200 border border-base-content/5 group-hover:border-base-content transition-all duration-500 mb-4">
                     <a href="{{ post.url }}"><img src="{{ post.img }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="{{ post.title }}"></a>
@@ -62,6 +63,17 @@ layout: default
                     <p class="text-xs font-mono">IDR {{ post.price }}</p>
                 </div>
             </div>
+            {% else %}
+            <div class="snap-start shrink-0 w-[260px] md:w-[300px] group opacity-60 grayscale">
+                <div class="aspect-square overflow-hidden bg-base-200 border border-base-content/5 group-hover:border-base-content transition-all duration-500 mb-4">
+                    <img src="{{ post.img }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="{{ post.title }}">
+                </div>
+                <div class="flex justify-between items-start">
+                    <h3 class="text-xs font-bold uppercase tracking-widest">{{ post.title }}</h3>
+                    <p class="text-xs font-mono">IDR {{ post.price }}</p>
+                </div>
+            </div>
+            {% endif %}
             {% endfor %}
             <a href="/category/masakan/" class="snap-start shrink-0 w-[200px] flex flex-col items-center justify-center border border-dashed border-base-content/20 hover:border-base-content transition-all group">
                 <span class="text-2xl group-hover:translate-x-2 transition-transform">→</span>
