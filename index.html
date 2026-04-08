@@ -1,5 +1,37 @@
 ---
 layout: default
 ---
+<section class="">
+    
+    <div class="flex flex-col lg:flex-row gap-12">
+        <div class="lg:w-1/4 lg:sticky lg:top-24 h-fit">
+            <h2 class="text-5xl font-black uppercase tracking-tighter mb-4">Aneka<br>Cemilan</h2>
+            <p class="text-xs uppercase tracking-[0.3em] opacity-50 mb-8">Camilan tradisional kurasi terbaik.</p>
+            <a href="/category/camilan/" class="group inline-flex items-center gap-2 border-b border-base-content pb-1 font-bold uppercase text-xs tracking-widest hover:gap-4 transition-all">
+                Lihat Semua
+                <span>→</span>
+            </a>
+        </div>
+
+        <div class="lg:w-3/4 overflow-x-auto no-scrollbar snap-x snap-mandatory flex gap-6 pb-6">
+            {% for post in site.categories.YourCategoryName limit:5 %}
+            <div class="snap-start shrink-0 w-[280px] group">
+                <div class="aspect-[3/4] overflow-hidden bg-base-200 border border-base-content/5 group-hover:border-base-content transition-all duration-500 mb-4">
+                    <img src="{{ post.img }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="Produk">
+                </div>
+                <h3 class="text-xs font-bold uppercase tracking-widest">{{ post.title }}</h3>
+                <p class="text-sm font-mono opacity-70">IDR {{ post.price }}</p>
+            </div>
+            {% endfor %}
+
+            <a href="{{ post.url | relative_url }}" class="snap-start shrink-0 w-[280px] flex flex-col items-center justify-center border border-dashed border-base-content/20 hover:border-base-content transition-colors group">
+                <span class="text-4xl group-hover:translate-x-2 transition-transform">→</span>
+                <span class="text-[10px] uppercase tracking-[0.3em] mt-4 font-bold">Lainnya</span>
+            </a>
+        </div>
+    </div>
+
+</section>
+
 {% include posts.html %} 
 {% include pagination.html %} 
