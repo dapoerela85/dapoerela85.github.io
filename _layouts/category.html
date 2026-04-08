@@ -2,12 +2,14 @@
 layout: default
 ---
         <header class="mb-12 border-b border-base-content pb-10">
-            <nav class="text-[10px] uppercase tracking-[0.3em] opacity-40 mb-4">
-                <a href="{{ site.url }}" class="hover:opacity-100">Beranda</a> / <span class="opacity-100 font-bold">Category</span>
+            <nav class="text-xs uppercase tracking-widest mb-12 opacity-50">
+                <a href="{{ site.url }}" class="hover:opacity-100 transition">Beranda</a> / 
+                <a href="/products/" class="hover:opacity-100 transition">Products</a> / 
+                <span>{{ page.title }}</span>
             </nav>
             <div class="flex flex-col md:flex-row md:items-end justify-between gap-4">
                 <h1 class="text-6xl md:text-8xl font-black uppercase tracking-tighter">{{ page.title }}</h1>
-                <p class="text-sm font-mono opacity-60">Products under category: "<b>{{ page.title }}</b>"</p>
+                <p class="text-sm font-mono opacity-60 hidden">Products under category: "<b>{{ page.title }}</b>"</p>
             </div>
         </header>
 
