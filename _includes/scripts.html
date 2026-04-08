@@ -1,4 +1,9 @@
-    <script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/sw.js');
+    }
+  </script>
+   <script>
         const themeToggle = document.querySelector('#theme-toggle');
         const html = document.querySelector('html');
 
