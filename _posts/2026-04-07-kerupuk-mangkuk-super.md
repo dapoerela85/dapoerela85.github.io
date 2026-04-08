@@ -7,5 +7,5 @@ category: [camilan]
 weight: "200gr"
 in_stock: false
 packaging: "Plastik PP"
-img: "/assets/products/kerupuk-mangkuk-super.jpg"
+img: "/assets/products/kerupuk-mangkok-super.jpg"
 ---
