@@ -50,7 +50,13 @@ defaults:
       type: posts
     values:
       layout: post
-      permalink: /:title/
+      permalink: /store/:title/
+  - scope:
+      path: "_store"
+      type: posts
+    values:
+      layout: post
+      permalink: /store/:title/
   - scope:
       path: "_pages"
       type: "pages"
