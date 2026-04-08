@@ -25,7 +25,7 @@ layout: default
           </div>
       </a>
     {% else %}
-      <div class="product-card block opacity-60 cursor-not-allowed">
+      <div class="product-card block opacity-60">
           <div class="product-container aspect-[4/5] overflow-hidden bg-base-200 mb-4 border border-base-content/10 grayscale">
               <img src="{{ post.img }}" alt="{{ post.title }}" class="object-cover w-full h-full" />
               <div class="absolute inset-0 flex items-center justify-center">
@@ -35,7 +35,7 @@ layout: default
           <div class="space-y-1">
               <h3 class="text-xs font-bold uppercase tracking-widest">{{ post.title }}</h3>
               <p class="text-[10px] opacity-50 uppercase">{{ post.packaging }} • {{ post.weight }}</p>
-              <p class="text-sm font-mono mt-2 text-error">Out of Stock</p>
+              <p class="text-sm font-mono mt-2 text-error">{{ post.price }}</p>
           </div>
       </div>
     {% endif %}
