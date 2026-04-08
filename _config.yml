@@ -6,7 +6,7 @@ url                 : "https://dapoerela85.github.io"
 github_username     : dapoerela85
 permalink           : pretty
 markdown            : kramdown
-paginate            : 6
+paginate            : 9
 paginate_path       : "/products/:num/"
 
 include:
