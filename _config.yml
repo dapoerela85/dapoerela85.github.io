@@ -52,12 +52,6 @@ defaults:
       layout: post
       permalink: /store/:title/
   - scope:
-      path: "_store"
-      type: posts
-    values:
-      layout: post
-      permalink: /store/:title/
-  - scope:
       path: "_pages"
       type: "pages"
     values:
@@ -73,3 +67,4 @@ collections:
     output: true
   store:
     output: true
+    permalink: /store/:path/
