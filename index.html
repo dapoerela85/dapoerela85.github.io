@@ -14,7 +14,7 @@ layout: default
             {% for post in site.categories.camilan limit:5 %}
             <div class="snap-start shrink-0 w-[260px] md:w-[300px] group">
                 <div class="aspect-square overflow-hidden bg-base-200 border border-base-content/5 group-hover:border-base-content transition-all duration-500 mb-4">
-                    <img src="{{ post.img }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="{{ post.title }}">
+                    <a href="{{ post.url }}"><img src="{{ post.img }}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt="{{ post.title }}"></a>
                 </div>
                 <div class="flex justify-between items-start">
                     <h3 class="text-xs font-bold uppercase tracking-widest">{{ post.title }}</h3>
