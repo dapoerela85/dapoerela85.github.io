@@ -3,7 +3,7 @@ layout: post
 date: "2026-04-07"
 title: "Kremes Ubi Toples"
 price: "25.000"
-category: [frozen]
+category: [camilan]
 weight: "20 Butir"
 in_stock: true
 packaging: "Toples Tabung 1 Liter"
