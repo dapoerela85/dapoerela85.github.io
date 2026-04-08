@@ -59,18 +59,32 @@
             --bc: 100% 0 0; /* Pure White Text */
         }
         .product-card img {
-            filter: grayscale(100%);
+            filter: grayscale(0%);
             transition: filter 0.3s ease;
         }
         .product-card:hover img {
-            filter: grayscale(0%);
+            filter: grayscale(100%);
         }
-    .no-scrollbar::-webkit-scrollbar {
-        display: none;
+    /* Custom Scrollbar untuk Desktop agar user tahu bisa di-scroll */
+    .custom-scrollbar::-webkit-scrollbar {
+        height: 2px; /* Sangat tipis dan minimalis */
     }
-    .no-scrollbar {
-        -ms-overflow-style: none;
-        scrollbar-width: none;
+    .custom-scrollbar::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.05);
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: currentColor; /* Mengikuti warna teks (hitam di light, putih di dark) */
+    }
+
+    /* Sembunyikan scrollbar di mobile untuk tampilan lebih clean */
+    @media (max-width: 768px) {
+        .custom-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .custom-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
     }
     </style>
 </head>
