@@ -29,9 +29,11 @@
   </div>
   {% else %}
 <div class="product-card group opacity-60">
-    <div class="relative aspect-square bg-base-200 overflow-hidden mb-4 border border-base-content/5 group-hover:border-base-content transition-all duration-500">
+    <div class="relative aspect-square grayscale bg-base-200 overflow-hidden mb-4 border border-base-content/5 group-hover:border-base-content transition-all duration-500">
             <img src="{{ post.img }}" alt="{{ post.title }}" class="object-cover w-full h-full transition-transform duration-700 group-hover:scale-110" />
-        
+              <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="bg-black/60 text-white -[10px] px-2 py-1 font-bold">OUT OF STOCK</span>
+              </div>text
         <div class="absolute bottom-4 left-4 flex gap-2">
             {% for category in post.categories %}
                 <span class="bg-base-100 text-[10px] font-bold px-2 py-1 uppercase border border-base-content shadow-sm hover:bg-base-content hover:text-base-100 transition-colors">
