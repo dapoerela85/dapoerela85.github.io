@@ -5,6 +5,8 @@ title: "Peyek Eceran"
 price: "6000"
 category: [camilan]
 weight: "50g"
+in_stock: true
+packaging: "Plastik PP"
 img: "/assets/products/peyek-kacang-hijau.jpg"
 ---
 Rempeyek kacang hijau gurih dan renyah kemasan eceran.

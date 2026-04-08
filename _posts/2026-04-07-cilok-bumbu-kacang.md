@@ -5,6 +5,8 @@ title: "Cilok Bumbu Kacang"
 price: "25.000"
 category: [masakan]
 weight: "10 Butir"
+in_stock: true
+packaging: Thinwall 1000ml
 img: "/assets/products/cilok.jpg"
 ---
 

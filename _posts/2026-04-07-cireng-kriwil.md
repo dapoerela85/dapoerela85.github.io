@@ -5,6 +5,8 @@ title: "Cireng Kriwil"
 price: "12.000"
 category: [frozen]
 weight: "10 Butir"
+in_stock: true
+packaging: Plastik Vacum
 img: "/assets/products/cireng-kriwil.jpg"
 ---
 Cireng kriwil frozen siap goreng isi 10 butir dengan kuah cuko/rujak

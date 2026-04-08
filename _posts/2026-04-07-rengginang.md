@@ -5,6 +5,8 @@ title: "Rengginang"
 price: "80.000"
 category: [camilan]
 weight: "20 Butir"
+in_stock: true
+packaging: "Toples 10L"
 img: "/assets/products/rengginang.jpg"
 ---
 Rengginang matang kemasan toples 10liter isi 20 butir.

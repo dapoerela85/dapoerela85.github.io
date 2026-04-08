@@ -5,6 +5,8 @@ title: "Sambal Cumi Pete"
 price: "45.000"
 category: [masakan, frozen]
 weight: "300g"
+in_stock: true
+packaging: "Thinwall Bulat 450ml"
 img: "/assets/products/sambal-cumi-pete.jpg"
 ---
 300gr sambal cumi petai/pete kemasan thinwall bulat.

@@ -5,6 +5,8 @@ title: "Kremes Ubi Pouch"
 price: "13.000"
 category: [camilan]
 weight: "20 Butir"
+in_stock: true
+packaging: "Standing Pouch"
 img: "/assets/products/kremes-ubi.jpg"
 ---
 Kremes ubi manis kemasan pouch isi 20 butir. Harga per bungkus. 

@@ -5,6 +5,8 @@ title: "Tekwan Frozen"
 price: "20.000"
 category: [forzen]
 weight: "-"
+in_stock: true
+packaging: "Standing Pouch"
 img: "/assets/products/tekwan.jpg"
 ---
 Tekwan frozen siap saji untuk dimasak. 

@@ -5,6 +5,8 @@ title: "Makaroni Besar"
 price: "25.000"
 category: [camilan]
 weight: "3000g"
+in_stock: true
+packaging: "Plastik Klip"
 img: "/assets/products/makaroni-besar.jpg"
 ---
 Makaroni besar goreng 300g kemasan plastik.

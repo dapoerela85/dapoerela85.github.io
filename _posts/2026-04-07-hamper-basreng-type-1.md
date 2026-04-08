@@ -5,6 +5,8 @@ title: "Hamper Basreng Type 1"
 price: "45.000"
 category: [hampers]
 weight: "200g"
+in_stock: true
+packaging: "-"
 img: "/assets/products/hamper-basreng-satuan.jpg"
 ---
 

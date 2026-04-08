@@ -5,6 +5,8 @@ title: "Hamper Rengginang"
 price: "100.000"
 category: [hampers]
 weight: "10 Butir"
+in_stock: true
+packaging: "-"
 img: "/assets/products/hamper-rengginang.jpg"
 ---
 Hamper rengginang toples 10 liter, lengkap dengan tas mika, pita random, hangtag, dll.

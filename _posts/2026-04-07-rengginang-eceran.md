@@ -5,6 +5,8 @@ title: "Rengginang Eceran"
 price: "6000"
 category: [camilan]
 weight: "2 Butir"
+in_stock: true
+packaging: "Plastik PP"
 img: "/assets/products/rengginang-ecer.jpg"
 ---
 Rengginang matang eceran kemasan plastik isi 2 butir.

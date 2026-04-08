@@ -5,6 +5,8 @@ title: "Hamper Basreng Type 2"
 price: "75.000"
 category: [hampers]
 weight: "-"
+in_stock: true
+packaging: "-"
 img: "/assets/products/hamper-basreng-2-toples.jpg"
 ---
 

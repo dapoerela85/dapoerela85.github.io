@@ -5,5 +5,7 @@ title: "Es Mambo Pelangi"
 price: "2500"
 category: [frozen]
 weight: "70g"
+in_stock: true
+packaging: Plastik Es
 img: "/assets/products/es-pelangi.jpg"
 ---
