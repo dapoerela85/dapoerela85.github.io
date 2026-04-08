@@ -7,7 +7,7 @@ github_username     : dapoerela85
 permalink           : pretty
 markdown            : kramdown
 paginate            : 6
-paginate_path       : "/:num/"
+paginate_path       : "/store/:num/"
 
 include:
   - _pages
