@@ -23,36 +23,42 @@
         });
     </script>
 <script>
-let deferredPrompt;
+// Get a reference to your footer button
 const installBtn = document.getElementById('install-button');
+let deferredPrompt;
 
-// 1. Listen for the browser's install signal
 window.addEventListener('beforeinstallprompt', (e) => {
-  // Prevent the mini-infobar from appearing on mobile
+  // Prevent Chrome 67 and earlier from automatically showing the prompt
   e.preventDefault();
   // Stash the event so it can be triggered later.
   deferredPrompt = e;
-  // Update UI notify the user they can install the PWA
-  installBtn.style.display = 'block';
+  // Unhide the button in your footer
+  installBtn.classList.remove('hidden');
 });
 
-// 2. Trigger the prompt when the user clicks your button
 installBtn.addEventListener('click', async () => {
   if (deferredPrompt) {
-    // Show the install prompt
+    // Show the browser's install prompt
     deferredPrompt.prompt();
+    
     // Wait for the user to respond to the prompt
     const { outcome } = await deferredPrompt.userChoice;
-    console.log(`User response to the install prompt: ${outcome}`);
-    // We've used the prompt, and can't use it again
+    
+    if (outcome === 'accepted') {
+      console.log('User accepted the install prompt');
+    } else {
+      console.log('User dismissed the install prompt');
+    }
+    
+    // We've used the prompt, so we hide the button again
     deferredPrompt = null;
-    // Hide our install button
-    installBtn.style.display = 'none';
+    installBtn.classList.add('hidden');
   }
 });
 
-// 3. (Optional) Log when the app is successfully installed
-window.addEventListener('appinstalled', (event) => {
-  console.log('PWA was installed successfully!');
-}); 
+// Hide the button if the app is already installed
+window.addEventListener('appinstalled', () => {
+  installBtn.classList.add('hidden');
+  deferredPrompt = null;
+});
 </script>
