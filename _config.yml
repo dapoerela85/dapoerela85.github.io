@@ -65,6 +65,3 @@ defaults:
 collections:
   category:
     output: true
-  store:
-    output: true
-    permalink: /store/:path/
