@@ -13,6 +13,18 @@ layout: default
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-6">
           {% for post in site.categories[page.category] %}
+           {% if page.in_stock %}
+            <a class="product-card group block">
+                <div class="product-container aspect-[4/5] overflow-hidden bg-base-200 mb-4 border border-base-content/10 group-hover:border-base-content transition-all duration-500">
+                    <img src="{{ post.img }}" alt="{{ post.title }}" class="object-cover w-full h-full" />
+                </div>
+                <div class="space-y-1">
+                    <h3 class="text-xs font-bold uppercase tracking-widest">{{ post.title }}</h3>
+                    <p class="text-[10px] opacity-50 uppercase">{{ post.packaging }} • {{ post.weight }}</p>
+                    <p class="text-sm font-mono mt-2">IDR {{ post.price }}</p>
+                </div>
+            </a>
+            {% else %}
             <a href="{{ post.url }}" class="product-card group block">
                 <div class="product-container aspect-[4/5] overflow-hidden bg-base-200 mb-4 border border-base-content/10 group-hover:border-base-content transition-all duration-500">
                     <img src="{{ post.img }}" alt="{{ post.title }}" class="object-cover w-full h-full" />
@@ -23,5 +35,6 @@ layout: default
                     <p class="text-sm font-mono mt-2">IDR {{ post.price }}</p>
                 </div>
             </a>
+           {% endif %}
           {% endfor %}
         </div>
