@@ -6,7 +6,8 @@ permalink: /katalog/
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
           
-            {% for post in site.categories[page.category] %}
+            {% for category in site.categories %}
+            {% for post in category[1] %}
             {% if post.in_stock == true %}
             <div class="item-card group flex flex-col">
                 <div class="aspect-square bg-base-200 overflow-hidden border border-base-content/5 group-hover:border-base-content transition-all duration-300 relative">
@@ -24,6 +25,7 @@ permalink: /katalog/
             </div>
             {% else %}
             {% endif %}
+            {% endfor %}
             {% endfor %}
           
         </div>
