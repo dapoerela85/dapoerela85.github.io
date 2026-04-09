@@ -1,6 +1,5 @@
 ---
 layout: default
-title : Cara Install Aplikasi
 permalink: /app/
 ---
 
