@@ -11,9 +11,9 @@ permalink: /katalog/
             {% if post.in_stock == true %}
             <div class="item-card group flex flex-col">
                 <div class="aspect-square bg-base-200 overflow-hidden border border-base-content/5 group-hover:border-base-content transition-all duration-300 relative">
-                    <img src="https://images.unsplash.com/photo-1621447508323-271221c80041?auto=format&fit=crop&w=800" class="w-full h-full object-cover">
+                    <img src="{{ post.img }}" class="w-full h-full object-cover">
                     <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/10 backdrop-blur-[2px] hidden md:flex">
-                        <a href="https://wa.me/..." class="btn btn-sm rounded-none bg-base-content text-base-100 border-none px-6 text-[9px] uppercase font-bold tracking-widest">Chat Admin</a>
+                        <a href="{{ post.url }]" class="btn btn-sm rounded-none bg-base-content text-base-100 border-none px-6 text-[9px] uppercase font-bold tracking-widest">Chat Admin</a>
                     </div>
                 </div>
                 <div class="py-4 space-y-1">
