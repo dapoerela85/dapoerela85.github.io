@@ -1,7 +1,7 @@
 ---
 layout: default
-title : Catalog
-permalink: /calalog/
+title : Katalog
+permalink: /katalog/
 ---
 
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
@@ -16,9 +16,9 @@ permalink: /calalog/
                     </div>
                 </div>
                 <div class="py-4 space-y-1">
-                    <h2 class="text-xs font-bold uppercase tracking-widest truncate">Keripik Singkong Pedas</h2>
-                    <p class="text-[10px] opacity-50">150g • Cemilan</p>
-                    <p class="font-mono text-sm font-bold">IDR 15.000</p>
+                    <h2 class="text-xs font-bold uppercase tracking-widest truncate">{{ post.title }}</h2>
+                    <p class="text-[10px] opacity-50">{{ post.weight }} • {{ post.category }}</p>
+                    <p class="font-mono text-sm font-bold">IDR {{ post.price }} </p>
                     <a href="https://wa.me/..." class="btn btn-xs btn-outline rounded-none w-full mt-2 md:hidden text-[9px] border-base-content/20">Order via WA</a>
                 </div>
             </div>
