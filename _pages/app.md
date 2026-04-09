@@ -3,7 +3,7 @@ layout: default
 permalink: /app/
 ---
 
-Cara install aplikasi PWA (Progressive Web App) "{{ site.title }] di Android.
+Cara install aplikasi PWA (Progressive Web App) "{{ site.title }} di Android.
 
 Android :
 - Buka url/link situs di Google Chrome.
