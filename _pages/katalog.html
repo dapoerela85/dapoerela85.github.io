@@ -4,26 +4,35 @@ title : Katalog
 permalink: /katalog/
 ---
 
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 gap-x-6">
           
             {% for category in site.categories %}
             {% for post in category[1] %}
             {% if post.in_stock == true %}
-            <div class="item-card group flex flex-col">
-                <div class="aspect-square bg-base-200 overflow-hidden border border-base-content/5 group-hover:border-base-content transition-all duration-300 relative">
-                    <img src="{{ post.img }}" class="w-full h-full object-cover">
-                    <div class="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-white/10 backdrop-blur-[2px] hidden md:flex">
-                        <a href="{{ post.url }}" class="btn btn-sm rounded-none bg-base-content text-base-100 border-none px-6 text-[9px] uppercase font-bold tracking-widest">Chat Admin</a>
-                    </div>
-                </div>
-                <div class="py-4 space-y-1">
-                    <h2 class="text-xs font-bold uppercase tracking-widest truncate">{{ post.title }}</h2>
-                    <p class="text-[10px] opacity-50">{{ post.weight }} • {{ post.category }}</p>
-                    <p class="font-mono text-sm font-bold">IDR {{ post.price }} </p>
-                    <a href="https://wa.me/..." class="btn btn-xs btn-outline rounded-none w-full mt-2 md:hidden text-[9px] border-base-content/20">Order via WA</a>
-                </div>
-            </div>
+            <a href="{{ post.url }}" class="product-card group block">
+              <div class="product-container aspect-[4/5] overflow-hidden bg-base-200 mb-4 border border-base-content/10 group-hover:border-base-content transition-all duration-500">
+                <img src="{{ post.img }}" alt="{{ post.title }}" class="object-cover w-full h-full" />
+              </div> 
+              <div class="space-y-1">
+                <h3 class="text-xs font-bold uppercase tracking-widest">{{ post.title }}</h3>
+                <p class="text-[10px] opacity-50 uppercase">{{ post.packaging }} • {{ post.weight }}</p>
+                <p class="text-sm font-mono mt-2">{{ post.price }}</p>
+              </div>
+            </a>
             {% else %}
+            <div class="product-card block opacity-60">
+              <div class="product-container aspect-[4/5] overflow-hidden bg-base-200 mb-4 border border-base-content/10 grayscale">
+                <img src="{{ post.img }}" alt="{{ post.title }}" class="object-cover w-full h-full" />
+                <div class="absolute inset-0 flex items-center justify-center">
+                  <span class="bg-black/60 text-white text-[10px] px-2 py-1 font-bold">STOK HABIS</span>
+                </div>
+              </div>
+              <div class="space-y-1">
+                <h3 class="text-xs font-bold uppercase tracking-widest">{{ post.title }}</h3>
+                <p class="text-[10px] opacity-50 uppercase">{{ post.packaging }} • {{ post.weight }}</p>
+                <p class="text-sm font-mono mt-2 text-error">IDR {{ post.price }}</p>
+              </div>
+            </div>
             {% endif %}
             {% endfor %}
             {% endfor %}
