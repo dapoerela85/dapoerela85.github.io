@@ -21,7 +21,7 @@
 <meta name='revisit-after' content='3 days'>
 <meta name='subtitle' content='{{ page.title | default: site.title | escape }}'>
 <meta name='target' content='all'>
-<meta name='identifier-URL' content='{{ site.url }}'>
+<meta name="identifier-URL" content="{{ page.url | replace:'/index.html','/' | absolute_url }}">
 <meta name='directory' content='submission'>
 <meta name='abstract' content='{{ page.summary | default: site.desc | strip_html | normalize_whitespace | truncate: 160 | escape }}'>
 <meta name="google-site-verification" content="iBQODYCusO1W6iCkWAhah1OaOiD78DLGwngJT4SUMTs" />
