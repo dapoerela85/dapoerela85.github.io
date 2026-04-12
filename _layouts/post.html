@@ -33,22 +33,16 @@ layout: default
                 </div>
 
                 <div class="mt-auto pt-8 border-t border-base-content/10">
-<table class="table-auto">
-  <tbody>
-    <tr>
-      {% if page.varian %}
-      {% for rasa in page.rasa %}
-        <tr><td>Rasa : {{ rasa.name }} {% unless forloop.last %},{% endunless %}</td></tr>
-      {% endfor %}
-      {% else %}
-        <tr><td>Rasa : - </td></tr>
-      {% endif %}
-      {% for varian in page.varian %}
-        <tr><td>Varian: {{ varian.name }} {% unless forloop.last %},{% endunless %}</td></tr>
-      {% endfor %}
-    </tr>
-  </tbody>
-</table>
+<ul class="divide-y divide-gray-200 border border-gray-200 rounded-lg mb-3">
+  {% if page.varian %}
+   {% for rasa in page.rasa %}
+     <li class="p-4">{{ rasa.name }} {% unless forloop.last %},{% endunless %}</li>
+   {% endfor %}
+   {% else %}
+     <li class="p-4">Tidak ada</li>
+  {% endif %}
+</ul>
+                        
                         
                     <div class="collapse collapse-plus rounded-none">
                         <input type="radio" name="details-accordion" checked="checked" /> 
