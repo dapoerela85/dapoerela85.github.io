@@ -29,14 +29,23 @@ layout: default
                 <div class="py-8 space-y-6">
                     <p class="leading-relaxed opacity-70">
                         {{ content }}
-                        {% for rasa in page.rasa %}
-                         {{ rasa.name }}
-                         {% unless forloop.last %},{% endunless %}
-                        {% endfor %}
                     </p>
                 </div>
 
                 <div class="mt-auto pt-8 border-t border-base-content/10">
+<table class="table-auto">
+  <tbody>
+    <tr>
+      {% for rasa in page.rasa %}
+        <td>Rasa : {{ rasa.name }} {% unless forloop.last %},{% endunless %}</td>
+      {% endfor %}
+      {% for varian in page.varian %}
+        <td>Varian: {{ varian.name }} {% unless forloop.last %},{% endunless %}</td>
+      {% endfor %}
+    </tr>
+  </tbody>
+</table>
+                        
                     <div class="collapse collapse-plus rounded-none">
                         <input type="radio" name="details-accordion" checked="checked" /> 
                         <div class="collapse-title text-sm uppercase tracking-widest font-bold">Cara Pesan</div>
