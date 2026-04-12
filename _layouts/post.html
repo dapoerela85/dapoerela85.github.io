@@ -33,27 +33,34 @@ layout: default
                 </div>
 
                 <div class="mt-auto pt-8 border-t border-base-content/10">
-<ul class="divide-y divide-gray-200 border border-gray-200 rounded-lg mb-3">
-  {% if page.varian %} Varian: 
-     <li class="p-4">
-      {% for varian in page.varian %}
-       {{ varian.name }} {% unless forloop.last %},{% endunless %}
-      {% endfor %}
-     </li>
-   {% else %}
-     <li class="p-4">Tidak ada</li>
-  {% endif %}
-  {% if page.rasa %} Rasa: 
-     <li class="p-4">
-      {% for rasa in page.rasa %}
-       {{ rasa.name }} {% unless forloop.last %},{% endunless %}
-      {% endfor %}
-     </li>
-   {% else %}
-     <li class="p-4">Tidak ada</li>
-  {% endif %}
+
+<ul class="divide-y divide-gray-200 border border-gray-200 rounded-lg mb-3 overflow-hidden">
+  <li class="p-4">
+    <span class="font-bold block mb-1">Varian:</span>
+    {% if page.varian %}
+      <span class="text-gray-700">
+        {% for varian in page.varian %}
+          {{ varian.name }}{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak ada</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Rasa:</span>
+    {% if page.rasa %}
+      <span class="text-gray-700">
+        {% for rasa in page.rasa %}
+          {{ rasa.name }}{% unless forloop.last %}, {% endunless %}
+        {% endfor %}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak ada</span>
+    {% endif %}
+  </li>
 </ul>
-                        
                         
                     <div class="collapse collapse-plus rounded-none">
                         <input type="radio" name="details-accordion" checked="checked" /> 
