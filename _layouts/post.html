@@ -65,7 +65,7 @@ layout: default
     <span class="font-bold block mb-1">Merk/Brand:</span>
     {% if page.brand %}
       <span class="text-gray-700">
-        {{ page.brand }}
+        {{ page.brand | default: "Dapoer Ela 85" }}
       </span>
     {% else %}
       <span class="text-gray-400 italic">Dapoer Ela 85</span>
@@ -87,7 +87,7 @@ layout: default
     <span class="font-bold block mb-1">Sertifikasi Halal:</span>
     {% if page.halal_id %}
       <span class="text-gray-700">
-        {{ page.halal_id }}
+        {{ page.halal_id | default: "ID36410025276910825" }}
       </span>
     {% else %}
       <span class="text-gray-400 italic">ID36410025276910825</span>
@@ -98,13 +98,24 @@ layout: default
     <span class="font-bold block mb-1">Sertifikasi Merk:</span>
     {% if page.merk_id %}
       <span class="text-gray-700">
-        {{ page.merk_id }}
+        {{ page.merk_id | default: "DID2024133737" }}
       </span>
     {% else %}
       <span class="text-gray-400 italic">DID2024133737</span>
     {% endif %}
   </li>
 
+  <li class="p-4">
+    <span class="font-bold block mb-1">NIB:</span>
+    {% if page.nib_id %}
+      <span class="text-gray-700">
+        {{ page.nib_id | default: "1005240054558" }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">1005240054558</span>
+    {% endif %}
+  </li>
+        
 </ul>
                         
                     <div class="collapse collapse-plus rounded-none">
