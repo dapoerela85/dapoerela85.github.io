@@ -2,9 +2,10 @@
 layout: post
 date: "2026-04-07"
 in_stock: true
-halal_id: ""
+halal_id: "36410025276910825"
+merk_id: "DID2024133737"
+nib_id" "1005240054558"
 pirt_id: ""
-merk_id: ""
 brand: "Dapoer Ela 85"
 title: "Basreng Toples 1 Liter"
 price: "35.000"
