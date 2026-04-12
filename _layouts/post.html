@@ -60,6 +60,51 @@ layout: default
       <span class="text-gray-400 italic">Tidak ada</span>
     {% endif %}
   </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Merk/Brand:</span>
+    {% if page.brand %}
+      <span class="text-gray-700">
+        {{ page.brand }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Dapoer Ela 85</span>
+    {% endif %}
+  </li>
+        
+  <li class="p-4">
+    <span class="font-bold block mb-1">Sertifikasi PIRT:</span>
+    {% if page.pirt_id %}
+      <span class="text-gray-700">
+        {{ page.pirt_id }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak ada</span>
+    {% endif %}
+  </li>
+        
+  <li class="p-4">
+    <span class="font-bold block mb-1">Sertifikasi Halal:</span>
+    {% if page.halal_id %}
+      <span class="text-gray-700">
+        {{ page.halal_id }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">ID36410025276910825</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Sertifikasi Merk:</span>
+    {% if page.merk_id %}
+      <span class="text-gray-700">
+        {{ page.merk_id }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">DID2024133737</span>
+    {% endif %}
+  </li>
+
 </ul>
                         
                     <div class="collapse collapse-plus rounded-none">
