@@ -29,6 +29,9 @@ layout: default
                 <div class="py-8 space-y-6">
                     <p class="leading-relaxed opacity-70">
                         {{ content }}
+                        {% for p in page.rasa %}
+                         {{ p.name }}
+                        {% endfor %}
                     </p>
                 </div>
 
