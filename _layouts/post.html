@@ -36,11 +36,15 @@ layout: default
 <table class="table-auto">
   <tbody>
     <tr>
+      {% if page.varian %}
       {% for rasa in page.rasa %}
-        <td>Rasa : {{ rasa.name }} {% unless forloop.last %},{% endunless %}</td>
+        <tr><td>Rasa : {{ rasa.name }} {% unless forloop.last %},{% endunless %}</td></tr>
       {% endfor %}
+      {% else %}
+        <tr><td>Rasa : - </td></tr>
+      {% endif %}
       {% for varian in page.varian %}
-        <td>Varian: {{ varian.name }} {% unless forloop.last %},{% endunless %}</td>
+        <tr><td>Varian: {{ varian.name }} {% unless forloop.last %},{% endunless %}</td></tr>
       {% endfor %}
     </tr>
   </tbody>
