@@ -22,7 +22,7 @@ paper_doily: Ya
 silica_gel: Ya
 shrink_seal: Ya
 pita: Tidak
-hangtag_Tidak
+hangtag" Tidak
 kresek: Ya
 kartu_ucapan: Tidak
 img: "/assets/products/basreng-toples-1000.jpg"
