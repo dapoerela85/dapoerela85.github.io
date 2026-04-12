@@ -34,10 +34,21 @@ layout: default
 
                 <div class="mt-auto pt-8 border-t border-base-content/10">
 <ul class="divide-y divide-gray-200 border border-gray-200 rounded-lg mb-3">
-  {% if page.varian %}
-   {% for rasa in page.rasa %}
-     <li class="p-4">{{ rasa.name }} {% unless forloop.last %},{% endunless %}</li>
-   {% endfor %}
+  {% if page.varian %} Varian: 
+     <li class="p-4">
+      {% for varian in page.varian %}
+       {{ varian.name }} {% unless forloop.last %},{% endunless %}
+      {% endfor %}
+     </li>
+   {% else %}
+     <li class="p-4">Tidak ada</li>
+  {% endif %}
+  {% if page.rasa %} Rasa: 
+     <li class="p-4">
+      {% for rasa in page.rasa %}
+       {{ rasa.name }} {% unless forloop.last %},{% endunless %}
+      {% endfor %}
+     </li>
    {% else %}
      <li class="p-4">Tidak ada</li>
   {% endif %}
