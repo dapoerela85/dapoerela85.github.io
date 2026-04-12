@@ -35,7 +35,3 @@ rasa:
   - name: Original
 ---
 Berat 150-200g tergantung irisan, kemasan toples 1000ml.
-
-Pilihan rasa:
-- Original
-- Pedas
