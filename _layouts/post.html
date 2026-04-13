@@ -95,6 +95,50 @@ layout: default
   </li>
 
   <li class="p-4">
+    <span class="font-bold block mb-1">Kantong Plastik/Kresek:</span>
+    {% if page.kresek %}
+      <span class="text-gray-700">
+        {{ page.kresek }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Random</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Segel Shrink:</span>
+    {% if page.shrink_seal %}
+      <span class="text-gray-700">
+        {{ page.shrink_seal}}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Hangtag:</span>
+    {% if page.hangtag %}
+      <span class="text-gray-700">
+        {{ page.hangtag }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Pita:</span>
+    {% if page.pita %}
+      <span class="text-gray-700">
+        {{ page.pita }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
     <span class="font-bold block mb-1">Paper Doily:</span>
     {% if page.paper_doily %}
       <span class="text-gray-700">
