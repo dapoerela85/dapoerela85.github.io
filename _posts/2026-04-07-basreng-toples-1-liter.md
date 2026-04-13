@@ -5,7 +5,7 @@ in_stock: true
 halal_id: "36410025276910825"
 merk_id: "DID2024133737"
 nib_id: "1005240054558"
-pirt_id: ""
+pirt_id: "Tidak ada"
 brand: "Dapoer Ela 85"
 title: "Basreng Toples 1 Liter"
 price: "35.000"
@@ -18,7 +18,7 @@ packaging: "Toples Tabung 1 Liter"
 uk_kemasan: "D 9cm, T 17cm"
 berat_kemasan: "70g"
 warna_kemasan: "Bening"
-merk_kemasan: ""
+merk_kemasan: "Random"
 paper_doily: Ya
 silica_gel: Ya
 shrink_seal: Ya
