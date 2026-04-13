@@ -62,6 +62,61 @@ layout: default
   </li>
 
   <li class="p-4">
+    <span class="font-bold block mb-1">Berat/Isi:</span>
+    {% if page.weight %}
+      <span class="text-gray-700">
+        {{ page.weight }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">-</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Packaging/Kemasan:</span>
+    {% if page.packaging %}
+      <span class="text-gray-700">
+        {{ page.packaging }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">-</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Warna Kemasan:</span>
+    {% if page.warna_kemasa %}
+      <span class="text-gray-700">
+        {{ page.warna_kemasan }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">-</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Paper Doily:</span>
+    {% if page.paper_doily %}
+      <span class="text-gray-700">
+        {{ page.paper_doily }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Silica Gel:</span>
+    {% if page.silica_gel %}
+      <span class="text-gray-700">
+        {{ page.silica_gel }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
     <span class="font-bold block mb-1">Merk/Brand:</span>
     {% if page.brand %}
       <span class="text-gray-700">
