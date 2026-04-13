@@ -12,7 +12,6 @@ price: "80.000"
 category: [camilan]
 weight: "20 Butir"
 packaging: "Toples 10L"
-img: "/assets/products/rengginang.jpg"
 uk_kemasan: ""
 berat_kemasan: ""
 warna_kemasan: "Random"
