@@ -24,7 +24,7 @@ pita: Tidak
 hangtag: Tidak
 kresek: Ya
 kartu_ucapan: Tidak
-img: "/assets/products/basreng-toples-1000.jpg"
+img: "/assets/products/rengginang.jpg"
 varian:
   - name: Terasi
   - name: Original
