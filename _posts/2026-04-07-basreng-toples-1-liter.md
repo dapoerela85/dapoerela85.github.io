@@ -19,6 +19,7 @@ uk_kemasan: "D 9cm, T 17cm"
 berat_kemasan: "70g"
 warna_kemasan: "Bening"
 merk_kemasan: "Random"
+label: Ya
 paper_doily: Ya
 silica_gel: Ya
 shrink_seal: Ya

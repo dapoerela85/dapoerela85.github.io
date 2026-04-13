@@ -16,6 +16,7 @@ uk_kemasan: ""
 berat_kemasan: ""
 warna_kemasan: "Random"
 merk_kemasan: "Random"
+label: Ya
 paper_doily: Ya
 silica_gel: Ya
 shrink_seal: Ya

@@ -128,6 +128,28 @@ layout: default
   </li>
 
   <li class="p-4">
+    <span class="font-bold block mb-1">Sticker Label:</span>
+    {% if page.label %}
+      <span class="text-gray-700">
+        {{ page.label }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
+    <span class="font-bold block mb-1">Kartu Ucapan:</span>
+    {% if page.kartu_ucapan %}
+      <span class="text-gray-700">
+        {{ page.kartu_ucapan }}
+      </span>
+    {% else %}
+      <span class="text-gray-400 italic">Tidak</span>
+    {% endif %}
+  </li>
+
+  <li class="p-4">
     <span class="font-bold block mb-1">Pita:</span>
     {% if page.pita %}
       <span class="text-gray-700">
