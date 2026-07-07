@@ -8,39 +8,93 @@ permalink: /catalog/
   <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
     
     {% for product in site.data.products.products %}
+      {% if product.detail_produk %}
+        {% assign default_item = product.detail_produk[0] %}
+        {% assign initial_price = default_item.harga_jual %}
+        {% assign initial_weight = default_item.berat %}
+        {% assign initial_img = default_item.img %}
+        {% if default_item.nama_produk %}
+          {% assign initial_title = default_item.nama_produk %}
+        {% else %}
+          {% assign initial_title = product.title %}
+        {% endif %}
+      {% else %}
+        {% assign initial_price = product.harga_jual %}
+        {% assign initial_weight = product.berat %}
+        {% assign initial_img = product.img %}
+        {% assign initial_title = product.title %}
+      {% endif %}
+
       <div class="product-card bg-white rounded-xl shadow-md border border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl" id="product-{{ product.id }}">
         
         <div>
           <div class="relative bg-slate-100 aspect-video w-full overflow-hidden flex items-center justify-center text-slate-400">
             <img 
-              src="/assets/products/{{ product.detail_produk[0].img }}" 
+              src="/assets/img/{{ initial_img }}" 
               alt="{{ product.title }}" 
-              class="w-full h-full object-cover"
+              class="product-image w-full h-full object-cover"
               onerror="this.onerror=null; this.src='https://placehold.co/600x400?text={{ product.title | url_encode }}';"
             >
           </div>
 
           <div class="p-5">
             <div class="mb-4">
-              <span class="text-xs font-semibold tracking-wider text-indigo-600 uppercase">Camilan</span>
-              <h2 class="text-xl font-bold text-slate-800 mt-1 line-clamp-2">{{ product.title }}</h2>
+              <span class="text-xs font-semibold tracking-wider text-indigo-600 uppercase">{{ product.kategori | default: "Camilan" }}</span>
+              <h2 class="product-title-display text-xl font-bold text-slate-800 mt-1 line-clamp-2">{{ initial_title }}</h2>
+              {% if product.detail_produk and default_item.nama_produk %}
+                <p class="text-xs text-slate-400 mt-0.5">Seri: {{ product.title }}</p>
+              {% endif %}
             </div>
 
             <div class="bg-slate-50 rounded-lg p-3 mb-4 flex justify-between items-center">
               <div>
                 <p class="text-xs text-slate-500 uppercase tracking-wider font-medium">Harga</p>
-                <h3 class="price-display text-lg font-bold text-emerald-600">{{ product.detail_produk[0].harga_jual }}</h3>
+                <h3 class="price-display text-lg font-bold text-emerald-600">{{ initial_price }}</h3>
               </div>
               <div class="text-right">
-                <p class="text-xs text-slate-500 uppercase tracking-wider font-medium">Isi / Berat</p>
-                <p class="weight-display text-sm font-semibold text-slate-700">{{ product.detail_produk[0].berat }}</p>
+                <p class="text-xs text-slate-500 uppercase tracking-wider font-medium">Isi / Ukuran</p>
+                <p class="weight-display text-sm font-semibold text-slate-700">{{ initial_weight }}</p>
               </div>
             </div>
 
             <div class="space-y-3">
+              
+              {% if product.detail_produk %}
+                <div>
+                  <label for="select-{{ product.id }}" class="block text-xs font-semibold text-slate-600 uppercase mb-1">
+                    {% if product.id == 'es-mambo' %}Pilih Rasa Es:{% else %}Pilih Jenis / Kemasan:{% endif %}
+                  </label>
+                  <select 
+                    id="select-{{ product.id }}" 
+                    class="w-full bg-white border border-slate-200 text-slate-700 text-sm rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 p-2.5 transition-colors"
+                    onchange="updateProductDetails(this)"
+                  >
+                    {% for detail in product.detail_produk %}
+                      {% if detail.nama_produk and product.id == 'es-mambo' %}
+                        {% assign option_label = detail.nama_produk %}
+                      {% elsif detail.nama_produk and detail.jenis_kemasan %}
+                        {% assign option_label = detail.jenis_kemasan | append: ' (' | append: detail.nama_produk | append: ')' %}
+                      {% else %}
+                        {% assign option_label = detail.jenis_kemasan %}
+                      {% endif %}
+
+                      <option 
+                        value="{{ option_label }}" 
+                        data-title="{{ detail.nama_produk | default: product.title }}"
+                        data-harga="{{ detail.harga_jual }}" 
+                        data-berat="{{ detail.berat }}"
+                        data-img="/assets/img/{{ detail.img }}"
+                      >
+                        {{ option_label }}
+                      </option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endif %}
+
               {% if product.varian %}
                 <div>
-                  <label for="varian-{{ product.id }}" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Varian Rasa</label>
+                  <label for="varian-{{ product.id }}" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Varian</label>
                   <select id="varian-{{ product.id }}" class="w-full bg-white border border-slate-200 text-slate-700 text-sm rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 p-2.5 transition-colors">
                     {% for v in product.varian %}
                       <option value="{{ v.varian_name }}">{{ v.varian_name }}</option>
@@ -49,25 +103,17 @@ permalink: /catalog/
                 </div>
               {% endif %}
 
-              <div>
-                <label for="kemasan-{{ product.id }}" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Jenis Kemasan</label>
-                <select 
-                  id="kemasan-{{ product.id }}" 
-                  class="w-full bg-white border border-slate-200 text-slate-700 text-sm rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 p-2.5 transition-colors"
-                  onchange="updateProductDetails(this)"
-                >
-                  {% for detail in product.detail_produk %}
-                    <option 
-                      value="{{ detail.jenis_kemasan }}" 
-                      data-harga="{{ detail.harga_jual }}" 
-                      data-berat="{{ detail.berat }}"
-                      data-img="/assets/img/{{ detail.img }}"
-                    >
-                      {{ detail.jenis_kemasan }}
-                    </option>
-                  {% endfor %}
-                </select>
-              </div>
+              {% if product.varian_rasa %}
+                <div>
+                  <label for="rasa-{{ product.id }}" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Level / Rasa</label>
+                  <select id="rasa-{{ product.id }}" class="w-full bg-white border border-slate-200 text-slate-700 text-sm rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 p-2.5 transition-colors">
+                    {% for r in product.varian_rasa %}
+                      <option value="{{ r.varian_name }}">{{ r.varian_name }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endif %}
+
             </div>
           </div>
         </div>
@@ -89,23 +135,24 @@ function updateProductDetails(selectElement) {
   const productCard = selectElement.closest('.product-card');
   const selectedOption = selectElement.options[selectElement.selectedIndex];
   
-  // Extract data attributes
+  // Ambil data atribut dari option yang dipilih
+  const newTitle = selectedOption.getAttribute('data-title');
   const newHarga = selectedOption.getAttribute('data-harga');
   const newBerat = selectedOption.getAttribute('data-berat');
   const newImgPath = selectedOption.getAttribute('data-img');
   
-  // Update Price and Weight text
+  // Perbarui UI Teks (Harga, Berat, Nama Spesifik Produk)
   productCard.querySelector('.price-display').textContent = newHarga;
   productCard.querySelector('.weight-display').textContent = newBerat;
+  productCard.querySelector('.product-title-display').textContent = newTitle;
   
-  // Bonus: Dynamic image swap if the image file exists
-  const imgElement = productCard.querySelector('img');
+  // Perbarui Gambar secara dinamis
+  const imgElement = productCard.querySelector('.product-image');
   if (imgElement && newImgPath) {
-    // Save fallback string if image breaks
-    const title = imgElement.alt;
+    const fallbackTitle = imgElement.alt;
     imgElement.onerror = function() {
       this.onerror = null;
-      this.src = `https://placehold.co/600x400?text=${encodeURIComponent(title)}`;
+      this.src = `https://placehold.co/600x400?text=${encodeURIComponent(fallbackTitle)}`;
     };
     imgElement.src = newImgPath;
   }
