@@ -354,10 +354,11 @@ products:
 aset_tetap:
 
   - id: mesin-spinner
-    title: Mesin Spinner Peniris Minyak
+    title: Mesin Spinner Peniris Minyak 4L
     harga_beli: Rp. 681.775
     jumlah: 1
     type: Peralatan Mesin
+    merk: Karya Wonogiri
     img: mesin-spinner.jpg
 
   - id: mesin-vacum
