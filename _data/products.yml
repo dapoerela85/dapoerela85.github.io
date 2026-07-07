@@ -203,3 +203,8 @@ products:
       - varian_name: "Kelapa"
       - varian_name: "Lengkuas"
   
+  - id: "tekwan-frozen"
+    title: "Tekwan Frozen"
+    kategori: "Frozen Food"
+    img: "tekwan.jpg"
+    harga_jual: "Rp. 20.000"
