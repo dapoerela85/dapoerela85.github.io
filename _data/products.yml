@@ -402,7 +402,7 @@ aset_tetap:
     type: Peralatan Dapur
     merk: Tifale
     tgl_beli: 08-08-2025
-    img: wajan-tifale-60.jpg
+    img: wajan-tifale.jpg
 
   - id: wajan-tifale-32
     title: Wajan Tifale 32cm
@@ -411,7 +411,7 @@ aset_tetap:
     type: Peralatan Dapur
     merk: Tifale
     tgl_beli: 05-03-2025
-    img: wajan-tifale-32.jpg
+    img: wajan-tifale.jpg
 
   - id: wajan-tifale-30
     title: Wajan Tifale 30cm
@@ -420,7 +420,7 @@ aset_tetap:
     type: Peralatan Dapur
     merk: Tifale
     tgl_beli: 05-03-2025
-    img: wajan-tifale-30.jpg
+    img: wajan-tifale.jpg
 
   - id: timbangan-digital-scale
     title: Timbangan Digital Scale
