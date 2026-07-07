@@ -13,6 +13,9 @@ products:
     varian: 
       - varian_name: "Ikan"
       - varian_name: "Daging Kombinasi Ayam & Sapi"
+    varian_rasa: 
+      - varian_name: "Pedas"
+      - varian_name: "Original"
 
   - id: "rengginang"
     title: "Rengginang"
@@ -33,3 +36,34 @@ products:
       - varian_name: "Terasi"
       - varian_name: "Original (Ketan Putih)"
       - varian_name: "Ketan Hitam"
+
+  - id: "es-mambo"
+    title: "Es Mambo/Lilin"
+    detail_produk:
+      - nama_produk: "Es Glaze"
+        jenis_kemasan: "Plastik Es"
+        harga_jual: "Rp. 2000"
+        berat: "70g"
+        img: "es-glaze.jpg"
+      - nama_produk: "Es Susu Choki Choki"
+        jenis_kemasan: "Plastik Es"
+        harga_jual: "Rp. 2000"
+        berat: "70g"
+        img: "es-choki.jpg"
+      - nama_produk: "Es Susu Meses"
+        jenis_kemasan: "Plastik Es"
+        harga_jual: "Rp. 2000"
+        berat: "70g"
+        img: "es-meses.jpg"
+      - nama_produk: "Es Susu Pelangi"
+        jenis_kemasan: "Plastik Es"
+        harga_jual: "Rp. 2500"
+        berat: "70g"
+        img: "es-pelangi.jpg"
+      - nama_produk: "Es Pop Ice"
+        jenis_kemasan: "Plastik Es"
+        harga_jual: "Rp. 2000"
+        berat: "70g"
+        img: "es-popice.jpg"
+
+      
