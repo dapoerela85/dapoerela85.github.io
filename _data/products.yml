@@ -434,11 +434,11 @@ aset_tetap:
     img: timbangan-digital-scale.webp
 
   - id: timbangan-dapur
-    title: Timbangan Dapur
+    title: Timbangan Dapur Baterai
     harga_beli: Rp. 0
     jumlah: 1
     type: Peralatan Dapur
-    img: timbangan-dapur.jpg
+    img: timbangan-dapur.webp
 
   - id: tampah-bambu
     title: Tampah Bambu 55cm
