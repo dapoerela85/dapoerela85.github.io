@@ -26,10 +26,10 @@ permalink: /aset-tetap/
             <th class="p-4 pl-6 w-20"></th>
             <th class="p-4">Nama Aset</th>
             <th class="p-4">Merk</th>
+            <th class="p-4 text-right pr-6">Tgl Beli</th>
             <th class="p-4">Type</th>
             <th class="p-4 text-center">Jumlah</th>
             <th class="p-4 text-right pr-6">Harga Beli</th>
-            <th class="p-4 text-right pr-6">Tgl Beli</th>
           </tr>
         </thead>
         
@@ -52,14 +52,21 @@ permalink: /aset-tetap/
                 {{ asset.title }}
                 <span class="block md:hidden text-xs text-slate-400 font-normal mt-0.5">ID: {{ asset.id }}</span>
               </td>
-
+              
               <td class="p-4 font-semibold text-slate-900">
                 {% if asset.merk %}
                  {{ asset.merk }}
                 {% else %}
                  Tanpa Merk
                 {% endif %}
-                
+              </td>
+
+              <td class="p-4 text-center font-medium">
+                {% if asset.tgl_beli %}
+                 {{ asset.tgl_beli }}
+                {% else %}
+                 -
+                {% endif %}
               </td>
               
               <td class="p-4">
@@ -83,14 +90,6 @@ permalink: /aset-tetap/
                   Hibah / Rp. 0
                 {% else %}
                   {{ asset.harga_beli }}
-                {% endif %}
-              </td>
-              
-              <td class="p-4 text-center font-medium">
-                {% if asset.tgl_beli %}
-                 {{ asset.tgl_beli }}
-                {% else %}
-                 -
                 {% endif %}
               </td>
               
