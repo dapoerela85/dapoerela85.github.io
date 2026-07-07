@@ -333,4 +333,14 @@ products:
       - varian_name: Telur Puyuh
       - varian_name: Gajih/Lemak
 
-      
+  - id: es-batu
+    title: Es Batu Kiloan
+    kategori: Frozen Food
+    berat: 500g
+    img: es-batu.jpg
+    harga_jual: Rp. 1000
+    jenis_kemasan: Plastik Kiloan
+    deskripsi: "Es batu air tawar cocok untuk memasak."
+    varian:
+      - varian_name: Air Isi Ulang
+      - varian_name: Air Sumur
