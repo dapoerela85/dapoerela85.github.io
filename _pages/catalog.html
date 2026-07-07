@@ -30,7 +30,7 @@ permalink: /catalog/
         <div>
           <div class="relative bg-slate-100 aspect-video w-full overflow-hidden flex items-center justify-center text-slate-400">
             <img 
-              src="/assets/img/{{ initial_img }}" 
+              src="/assets/products/{{ initial_img }}" 
               alt="{{ product.title }}" 
               class="product-image w-full h-full object-cover"
               onerror="this.onerror=null; this.src='https://placehold.co/600x400?text={{ product.title | url_encode }}';"
@@ -83,7 +83,7 @@ permalink: /catalog/
                         data-title="{{ detail.nama_produk | default: product.title }}"
                         data-harga="{{ detail.harga_jual }}" 
                         data-berat="{{ detail.berat }}"
-                        data-img="/assets/img/{{ detail.img }}"
+                        data-img="/assets/products/{{ detail.img }}"
                       >
                         {{ option_label }}
                       </option>
