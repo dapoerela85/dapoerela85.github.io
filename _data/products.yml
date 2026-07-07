@@ -54,13 +54,17 @@ products:
         berat: 20 Butir
         img: rengginang.jpg
       - jenis_kemasan: Plastik PE
-        harga_jual: Rp. 60.000
+        harga_jual: Rp. 30.000
         berat: 10 Butir
         img: rengginang-kemasan.jpg
       - jenis_kemasan: Plastik PP Bening
         harga_jual: Rp. 6.000
         berat: 2 Butir
         img: rengginang-ecer.jpg
+      - jenis_kemasan: Plastik PP Bening
+        harga_jual: Rp. 60.000
+        berat: 20 Butir
+        img: rengginang-refill.jpg
     varian:
       - varian_name: Terasi
       - varian_name: Original (Ketan Putih)
@@ -254,8 +258,8 @@ products:
     kategori: Aneka Camilan
     title: Comring
     jenis_kemasan: Standing Pouch
-    harga_jual: Rp. 5000
-    berat: 70g
+    harga_jual: Rp. 0
+    berat: 0g
     img: comring.jpg
     
   - id: kremes-ubi
