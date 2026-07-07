@@ -359,6 +359,7 @@ aset_tetap:
     jumlah: 1
     type: Peralatan Mesin
     merk: Karya Wonogiri
+    tgl_beli: 27-02-2025
     img: mesin-spinner.jpg
 
   - id: mesin-vacum
@@ -366,13 +367,15 @@ aset_tetap:
     harga_beli: Rp. 82.700
     jumlah: 1
     type: Peralatan Mesin
+    tgl_beli: 28-01-2025
     img: mesin-vacum.jpg
 
   - id: mesin-seal-press
-    title: Mesin Seal Press
+    title: Mesin Sealer Press
     harga_beli: Rp. 123.870
     jumlah: 1
     type: Peralatan Mesin
+    tgl_beli: 12-02-2025
     img: mesin-seal-press.jpg
 
   - id: mesin-pengiris-basreng
@@ -380,6 +383,7 @@ aset_tetap:
     harga_beli: Rp. 0
     jumlah: 1
     type: Peralatan Mesin
+    tgl_beli: 01-05-2026
     img: mesin-pengiris-basreng.jpg
 
   - id: mesin-heatgun
@@ -387,6 +391,7 @@ aset_tetap:
     harga_beli: Rp. 38.500
     jumlah: 1
     type: Peralatan Mesin
+    tgl_beli: 28-01-2025
     img: heatgun.jpg
 
   - id: wajan-tifale-60
@@ -395,6 +400,7 @@ aset_tetap:
     jumlah: 1
     type: Peralatan Dapur
     merk: Tifale
+    tgl_beli: 08-08-2025
     img: wajan-tifale-60.jpg
 
   - id: wajan-tifale-32
@@ -403,6 +409,7 @@ aset_tetap:
     jumlah: 1
     type: Peralatan Dapur
     merk: Tifale
+    tgl_beli: 05-03-2025
     img: wajan-tifale-32.jpg
 
   - id: wajan-tifale-30
@@ -411,6 +418,7 @@ aset_tetap:
     jumlah: 1
     type: Peralatan Dapur
     merk: Tifale
+    tgl_beli: 05-03-2025
     img: wajan-tifale-30.jpg
 
   - id: timbangan-digital-scale
@@ -418,6 +426,7 @@ aset_tetap:
     harga_beli: Rp. 118.988
     jumlah: 1
     type: Peralatan Dapur
+    tgl_beli: 01-01-2025
     img: timbangan-digital-scale.jpg
 
   - id: timbangan-dapur
@@ -439,14 +448,8 @@ aset_tetap:
     harga_beli: Rp. 48.500
     jumlah: 2
     type: Peralatan Dapur
+    tgl_beli: 27-09-2024
     img: mesin-pengiris-kayu.jpg
-
-  - id: mesin-pengiris-kentang-kayu
-    title: Mesin Pengiris Kentang Kayu
-    harga_beli: Rp. 0
-    jumlah: 1
-    type: Peralatan Dapur
-    img: mesin-pengiris-kentang-kayu.jpg
 
   - id: mesin-pengiris-basreng-stainless
     title: Mesin Pengiris Basreng Stainless Steel
@@ -460,6 +463,7 @@ aset_tetap:
     harga_beli: Rp. 48.584
     jumlah: 1
     type: Peralatan Dapur
+    tgl_beli: 18-09-2025
     img: nampan-peniris-minyak.jpg
 
   - id: cooler-bag
@@ -467,6 +471,7 @@ aset_tetap:
     harga_beli: Rp. 12.200
     jumlah: 1
     type: Peralatan Dapur
+    tgl_beli: 05-04-2025
     img: cooler-bag.jpg
 
   - id: corong-mulut-besar
@@ -475,6 +480,7 @@ aset_tetap:
     type: Peralatan Dapur
     harga_beli: Rp. 39.808
     merk: Tanpa Merk
+    tgl_beli: 13-12-2025
     img: wajan-tifale-60.jpg
 
   - id: mesin-freezer
@@ -484,4 +490,4 @@ aset_tetap:
     harga_beli: Rp. 0
     merk: 
     img: mesin-freezer.jpg
-
+    
