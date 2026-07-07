@@ -324,11 +324,11 @@ products:
   - id: cilok
     title: Cilok Bumbu Kacang
     kategori: Aneka Masakan
-    berat: 10 Butir
+    berat: 15 Butir
     img: cilok.jpg
-    harga_jual: Rp. 15.000
+    harga_jual: Rp. 25.000
     jenis_kemasan: Thinwall 1000ml
-    deskripsi: "Sudah termasuk bumbu kacang"
+    deskripsi: "Sudah termasuk bumbu kacang."
     varian:
       - varian_name: Telur Puyuh
       - varian_name: Gajih/Lemak
