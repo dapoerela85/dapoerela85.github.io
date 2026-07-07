@@ -443,23 +443,23 @@ aset_tetap:
     jumlah: 1
     type: Peralatan Dapur
 
-  - id: mesin-pengiris-kayu
-    title: Mesin Pengiris Kayu (Basreng & Kentang)
+  - id: alat-pengiris-kayu
+    title: Alat Pengiris Kayu (Basreng & Kentang)
     harga_beli: Rp. 48.500
     jumlah: 2
     type: Peralatan Dapur
     tgl_beli: 27-09-2024
     img: mesin-pengiris-kayu.jpg
 
-  - id: mesin-pengiris-basreng-stainless
-    title: Mesin Pengiris Basreng Stainless Steel
+  - id: alat-pengiris-basreng-stainless
+    title: Alat Pengiris Basreng Stainless Steel
     harga_beli: Rp. 36.350
     jumlah: 1
     type: Peralatan Dapur
     img: wajan-tifale-60.jpg
 
   - id: nampan-peniris-minyak
-    title: Nampan Pengiris Minyak
+    title: Nampan Pengiris Minyak Stainless Steel
     harga_beli: Rp. 48.584
     jumlah: 1
     type: Peralatan Dapur
