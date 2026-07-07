@@ -34,6 +34,7 @@ products:
     varian_rasa:
       - varian_name: Pedas
       - varian_name: Original
+      
   - id: rengginang
     title: Rengginang
     kategori: Cemilan
@@ -54,6 +55,7 @@ products:
       - varian_name: Terasi
       - varian_name: Original (Ketan Putih)
       - varian_name: Ketan Hitam
+      
   - id: es-mambo
     title: Es Mambo/Lilin
     jenis_kemasan: Plastik Es
@@ -79,6 +81,7 @@ products:
         harga_jual: Rp. 2000
         berat: 70g
         img: es-popice.jpg
+        
   - id: es-kueh
     kategori: Frozen Food
     title: Es Kueh/Es Gabus
@@ -86,6 +89,7 @@ products:
     harga_jual: Rp. 2000
     berat: 80g
     img: es-kueh.jpg
+    
   - id: mie-kremes
     kategori: Camilan
     title: Mie Kremes
@@ -96,6 +100,7 @@ products:
     varian:
       - varian_name: Pedas
       - varian_name: Original
+      
   - id: bihun-crispy
     kategori: Aneka Camilan
     title: Bihun Crispy
@@ -106,6 +111,7 @@ products:
     varian:
       - varian_name: Pedas
       - varian_name: Original
+      
   - id: cireng-kriwil
     kategori: Frozen Food
     title: Cireng Kriwil
@@ -113,6 +119,7 @@ products:
     harga_jual: Rp. 12000
     berat: 10 Butir
     img: cireng-kriwil.jpg
+    
   - id: keripik-kentang
     title: Keripik Kentang
     kategori: Aneka Cemilan
@@ -132,6 +139,7 @@ products:
     varian:
       - varian_name: Pedas
       - varian_name: Original
+      
   - id: makaroni-goreng
     title: Makaroni Goreng
     kategori: Cemilan
@@ -149,6 +157,7 @@ products:
     varian:
       - varian_name: Pedas
       - varian_name: Original
+      
   - id: keripik-usus-ayam
     title: Keripik Usus Ayam
     kategori: Cemilan
@@ -166,6 +175,7 @@ products:
     varian:
       - varian_name: Pedas
       - varian_name: Original
+      
   - id: rempeyek
     title: Rempeyek
     kategori: Cemilan
@@ -184,11 +194,13 @@ products:
       - varian_name: Kacang Tanah
       - varian_name: Kacang Hijau
       - varian_name: Udang Rebon
+      
   - id: ayam-ungkep
     title: Ayam Serundeng Ungkep
     kategori: Aneka Masakan
     img: ayam-ungkep.jpg
     harga_jual: Rp. 90.000
+    berat: 1000gr
     jenis_kemasan: Thinwall 2000ml
     varian:
       - varian_name: Paha Saja
@@ -197,18 +209,21 @@ products:
     varian_rasa:
       - varian_name: Kelapa
       - varian_name: Lengkuas
+      
   - id: tekwan-frozen
     title: Tekwan Frozen
     kategori: Frozen Food
     img: tekwan.jpg
     harga_jual: Rp. 20.000
     jenis_kemasan: Standing Pouch
+    
   - id: bakso-yamin
     title: Bakso Yamin Tasik
     kategori: Frozen Food
     img: bakso-yamin-tasik.jpg
     harga_jual: Rp. 25.000
     jenis_kemasan: Standing Pouch
+    
   - id: sambal-cumi-pete
     title: Sambal Cumi Pete
     kategori: Aneka Masakan
@@ -216,6 +231,7 @@ products:
     harga_jual: Rp. 45.000
     berat: 300g
     jenis_kemasan: Thinwall Bulat 400ml
+    
   - id: ceker-mercon-seuhah
     kategori: Aneka Masakan
     title: Ceker Mercon Seuhah
@@ -223,6 +239,7 @@ products:
     harga_jual: Rp. 35.000
     berat: 350g
     img: ceker-mercon.jpg
+    
   - id: kremes-ubi
     title: Kremes Ubi Manis
     kategori: Aneka Camilan
