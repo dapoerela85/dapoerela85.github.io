@@ -4,58 +4,110 @@ title: Catalog
 permalink: /catalog/
 ---
 
-<div class="product-container">
-  {% for product in site.data.products.products %}
-    <div class="product-card" id="product-{{ product.id }}" style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px;">
-      
-      <h2 style="margin-top: 0;">{{ product.title }}</h2>
+<div class="max-w-7xl mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    
+    {% for product in site.data.products.products %}
+      <div class="product-card bg-white rounded-xl shadow-md border border-slate-100 overflow-hidden flex flex-col justify-between transition-all duration-300 hover:shadow-xl" id="product-{{ product.id }}">
+        
+        <div>
+          <div class="relative bg-slate-100 aspect-video w-full overflow-hidden flex items-center justify-center text-slate-400">
+            <img 
+              src="/assets/img/{{ product.detail_produk[0].img }}" 
+              alt="{{ product.title }}" 
+              class="w-full h-full object-cover"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x400?text={{ product.title | url_encode }}';"
+            >
+          </div>
 
-      <div class="product-meta" style="margin-bottom: 15px;">
-        <h3 class="price-display" style="color: #e44d26; margin: 0 0 5px 0;">{{ product.detail_produk[0].harga_jual }}</h3>
-        <p class="weight-display" style="margin: 0; color: #666;">Berat: {{ product.detail_produk[0].berat }}</p>
+          <div class="p-5">
+            <div class="mb-4">
+              <span class="text-xs font-semibold tracking-wider text-indigo-600 uppercase">Camilan</span>
+              <h2 class="text-xl font-bold text-slate-800 mt-1 line-clamp-2">{{ product.title }}</h2>
+            </div>
+
+            <div class="bg-slate-50 rounded-lg p-3 mb-4 flex justify-between items-center">
+              <div>
+                <p class="text-xs text-slate-500 uppercase tracking-wider font-medium">Harga</p>
+                <h3 class="price-display text-lg font-bold text-emerald-600">{{ product.detail_produk[0].harga_jual }}</h3>
+              </div>
+              <div class="text-right">
+                <p class="text-xs text-slate-500 uppercase tracking-wider font-medium">Isi / Ukuran</p>
+                <p class="weight-display text-sm font-semibold text-slate-700">{{ product.detail_produk[0].berat }}</p>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              {% if product.varian %}
+                <div>
+                  <label for="varian-{{ product.id }}" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Varian Rasa</label>
+                  <select id="varian-{{ product.id }}" class="w-full bg-white border border-slate-200 text-slate-700 text-sm rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 p-2.5 transition-colors">
+                    {% for v in product.varian %}
+                      <option value="{{ v.varian_name }}">{{ v.varian_name }}</option>
+                    {% endfor %}
+                  </select>
+                </div>
+              {% endif %}
+
+              <div>
+                <label for="kemasan-{{ product.id }}" class="block text-xs font-semibold text-slate-600 uppercase mb-1">Jenis Kemasan</label>
+                <select 
+                  id="kemasan-{{ product.id }}" 
+                  class="w-full bg-white border border-slate-200 text-slate-700 text-sm rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 p-2.5 transition-colors"
+                  onchange="updateProductDetails(this)"
+                >
+                  {% for detail in product.detail_produk %}
+                    <option 
+                      value="{{ detail.jenis_kemasan }}" 
+                      data-harga="{{ detail.harga_jual }}" 
+                      data-berat="{{ detail.berat }}"
+                      data-img="/assets/img/{{ detail.img }}"
+                    >
+                      {{ detail.jenis_kemasan }}
+                    </option>
+                  {% endfor %}
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="p-5 pt-0 mt-4">
+          <button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-medium text-sm py-2.5 px-4 rounded-lg transition-colors shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">
+            Beli Sekarang
+          </button>
+        </div>
+
       </div>
+    {% endfor %}
 
-      {% if product.varian %}
-      <div class="product-select-group" style="margin-bottom: 12px;">
-        <label for="varian-{{ product.id }}" style="display: block; font-weight: bold; margin-bottom: 5px;">Pilih Varian Rasa:</label>
-        <select id="varian-{{ product.id }}" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
-          {% for v in product.varian %}
-            <option value="{{ v.varian_name }}">{{ v.varian_name }}</option>
-          {% endfor %}
-        </select>
-      </div>
-      {% endif %}
-
-      <div class="product-select-group" style="margin-bottom: 15px;">
-        <label for="kemasan-{{ product.id }}" style="display: block; font-weight: bold; margin-bottom: 5px;">Pilih Jenis Kemasan:</label>
-        <select id="kemasan-{{ product.id }}" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;" onchange="updateProductDetails(this)">
-          {% for detail in product.detail_produk %}
-            <option 
-              value="{{ detail.jenis_kemasan }}" 
-              data-harga="{{ detail.harga_jual }}" 
-              data-berat="{{ detail.berat }}">
-              {{ detail.jenis_kemasan }}
-            </option>
-          {% endfor %}
-        </select>
-      </div>
-
-    </div>
-  {% endfor %}
+  </div>
 </div>
 
 <script>
 function updateProductDetails(selectElement) {
-  // Find the parent card containing this specific dropdown
   const productCard = selectElement.closest('.product-card');
-  
-  // Get the dataset from the newly selected packaging option
   const selectedOption = selectElement.options[selectElement.selectedIndex];
+  
+  // Extract data attributes
   const newHarga = selectedOption.getAttribute('data-harga');
   const newBerat = selectedOption.getAttribute('data-berat');
+  const newImgPath = selectedOption.getAttribute('data-img');
   
-  // Dynamically swap the HTML content inside this card only
+  // Update Price and Weight text
   productCard.querySelector('.price-display').textContent = newHarga;
-  productCard.querySelector('.weight-display').textContent = `Berat: ${newBerat}`;
+  productCard.querySelector('.weight-display').textContent = newBerat;
+  
+  // Bonus: Dynamic image swap if the image file exists
+  const imgElement = productCard.querySelector('img');
+  if (imgElement && newImgPath) {
+    // Save fallback string if image breaks
+    const title = imgElement.alt;
+    imgElement.onerror = function() {
+      this.onerror = null;
+      this.src = `https://placehold.co/600x400?text=${encodeURIComponent(title)}`;
+    };
+    imgElement.src = newImgPath;
+  }
 }
 </script>
