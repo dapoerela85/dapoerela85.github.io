@@ -79,7 +79,7 @@ products:
     jenis_kemasan: Plastik Es
     kategori: Frozen Food
     detail_produk:
-      - nama_produk: Es Glaze
+      - nama_produk: Es Susu Glaze
         harga_jual: Rp. 2000
         berat: 70g
         img: es-glaze.jpg
