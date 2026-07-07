@@ -360,7 +360,7 @@ aset_tetap:
     type: Peralatan Mesin
     merk: Karya Wonogiri
     tgl_beli: 27-02-2025
-    img: mesin-spinner.jpg
+    img: mesin-spinner.webp
 
   - id: mesin-vacum
     title: Mesin Vacum Sealer
