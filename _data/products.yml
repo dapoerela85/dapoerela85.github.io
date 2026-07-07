@@ -280,7 +280,12 @@ products:
         harga_jual: Rp. 25.000
         berat: 40 Butir
         img: kremes-ubi.jpg
-
+      - nama_produk: Kremes Ubi Toples
+        jenis_kemasan: Toples Tabung 1000ml
+        harga_jual: Rp. 25.000
+        berat: 20 Butir
+        img: kremes-ubi-toples.jpg
+        
   - id: aneka-kerupuk
     title: Aneka Kerupuk
     kategori: Aneka Camilan
