@@ -92,6 +92,9 @@ products:
     harga_jual: "Rp. 5000"
     berat: "50g"
     img: "mie-kremes.jpg"
+    varian: 
+      - varian_name: "Pedas"
+      - varian_name: "Original"
 
   - id: "keripik-kentang"
     title: "Keripik Kentang"
