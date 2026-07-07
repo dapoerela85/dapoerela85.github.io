@@ -393,6 +393,7 @@ aset_tetap:
     harga_beli: Rp. 187.632
     jumlah: 1
     type: Peralatan Dapur
+    merk: Tifale
     img: wajan-tifale-60.jpg
 
   - id: wajan-tifale-32
@@ -400,6 +401,7 @@ aset_tetap:
     harga_beli: Rp. 78.000
     jumlah: 1
     type: Peralatan Dapur
+    merk: Tifale
     img: wajan-tifale-32.jpg
 
   - id: wajan-tifale-30
@@ -407,6 +409,7 @@ aset_tetap:
     harga_beli: Rp. 66.000
     jumlah: 1
     type: Peralatan Dapur
+    merk: Tifale
     img: wajan-tifale-30.jpg
 
   - id: timbangan-digital-scale
@@ -470,5 +473,14 @@ aset_tetap:
     jumlah: 2
     type: Peralatan Dapur
     harga_beli: Rp. 39.808
+    merk: Tanpa Merk
     img: wajan-tifale-60.jpg
-  
+
+  - id: mesin-freezer
+    title: Mesin Freezer
+    jumlah: 1
+    type: Peralatan Mesin
+    harga_beli: Rp. 0
+    merk: 
+    img: mesin-freezer.jpg
+
