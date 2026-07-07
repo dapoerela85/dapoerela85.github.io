@@ -425,12 +425,13 @@ aset_tetap:
     img: wajan-tifale.webp
 
   - id: timbangan-digital-scale
-    title: Timbangan Digital Scale
+    title: Timbangan Digital Scale USB Charger
     harga_beli: Rp. 118.988
     jumlah: 1
     type: Peralatan Dapur
+    merk: Fenyueer
     tgl_beli: 01-01-2025
-    img: timbangan-digital-scale.jpg
+    img: timbangan-digital-scale.webp
 
   - id: timbangan-dapur
     title: Timbangan Dapur
