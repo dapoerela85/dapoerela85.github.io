@@ -1,7 +1,7 @@
 products:
   - id: basreng-daun-jeruk
     title: Basreng Daun Jeruk
-    kategori: Cemilan
+    kategori: Aneka Cemilan
     detail_produk:
       - nama_produk: Basreng Daun Jeruk Pouch
         jenis_kemasan: Standing Pouch
@@ -37,7 +37,7 @@ products:
       
   - id: rengginang
     title: Rengginang
-    kategori: Cemilan
+    kategori: Aneka Cemilan
     detail_produk:
       - jenis_kemasan: Toples 10L
         harga_jual: Rp. 75.000
@@ -91,7 +91,7 @@ products:
     img: es-kueh.jpg
     
   - id: mie-kremes
-    kategori: Camilan
+    kategori: Aneka Camilan
     title: Mie Kremes
     jenis_kemasan: Standing Pouch
     harga_jual: Rp. 5000
@@ -142,7 +142,7 @@ products:
       
   - id: makaroni-goreng
     title: Makaroni Goreng
-    kategori: Cemilan
+    kategori: Aneka Cemilan
     detail_produk:
       - nama_produk: Makaroni Bantet
         jenis_kemasan: Standing Pouch
@@ -160,7 +160,7 @@ products:
       
   - id: keripik-usus-ayam
     title: Keripik Usus Ayam
-    kategori: Cemilan
+    kategori: Aneka Cemilan
     detail_produk:
       - nama_produk: Keripik Usus Ayam Pouch
         jenis_kemasan: Standing Pouch
@@ -178,7 +178,7 @@ products:
       
   - id: rempeyek
     title: Rempeyek
-    kategori: Cemilan
+    kategori: Aneka Cemilan
     detail_produk:
       - nama_produk: Rempeyek Toples
         jenis_kemasan: Toples 10L
@@ -254,3 +254,28 @@ products:
         harga_jual: Rp. 25.000
         berat: 40 Butir
         img: kremes-ubi.jpg
+
+  - id: aneka-kerupuk
+    title: Aneka Kerupuk
+    kategori: Aneka Camilan
+    detail_produk:
+      - nama_produk: Kerupuk Getas
+        jenis_kemasan: Plastik PP
+        harga_jual: Rp. 35.000
+        berat: 250g
+        img: kerupuk-getas.jpg
+      - nama_produk: Kerupuk Kancing
+        jenis_kemasan: Plastik PP
+        harga_jual: Rp. 25.000
+        berat: 200g
+        img: kerupuk-kancing.jpg
+      - nama_produk: Kerupuk Keriting Sanggul
+        jenis_kemasan: Plastik PP
+        harga_jual: Rp. 25.000
+        berat: 200g
+        img: kerupuk-keriting-sanggul.jpg
+      - nama_produk: Kerupuk Kancing
+        jenis_kemasan: Plastik PP
+        harga_jual: Rp. 30.000
+        berat: 200g
+        img: kerupuk-mangkok-super.jpg
