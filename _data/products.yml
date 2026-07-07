@@ -446,6 +446,7 @@ aset_tetap:
     img: tampah-bambu.jpg
     jumlah: 1
     type: Peralatan Dapur
+    tgl_beli: 03-11-2024
 
   - id: alat-pengiris-kayu
     title: Alat Pengiris Kayu (Basreng & Kentang)
@@ -494,4 +495,12 @@ aset_tetap:
     harga_beli: Rp. 0
     merk: 
     img: mesin-freezer.jpg
-    
+
+  - id: toples-25l
+    title: Toples 25L
+    jumlah: 2
+    type: Peralatan Mesin
+    harga_beli: Rp. 109.000
+    merk: Clio
+    img: toples-25l.webp
+
