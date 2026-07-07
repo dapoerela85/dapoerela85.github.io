@@ -363,12 +363,13 @@ aset_tetap:
     img: mesin-spinner.webp
 
   - id: mesin-vacum
-    title: Mesin Vacum Sealer
+    title: Mesin Vacuum Sealer
     harga_beli: Rp. 82.700
     jumlah: 1
     type: Peralatan Mesin
+    merk: Upupin
     tgl_beli: 28-01-2025
-    img: mesin-vacum.jpg
+    img: vacuum-sealer.webp
 
   - id: mesin-seal-press
     title: Mesin Press Impulse Sealer 40cm
