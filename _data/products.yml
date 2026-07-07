@@ -49,19 +49,23 @@ products:
     title: Rengginang
     kategori: Aneka Cemilan
     detail_produk:
-      - jenis_kemasan: Toples 10L
+      - nama_produk: Rengginang Toples 10L
+        jenis_kemasan: Toples 10L
         harga_jual: Rp. 75.000
         berat: 20 Butir
         img: rengginang.jpg
-      - jenis_kemasan: Plastik PE
+      - nama_produk: Rengginang Kemasan
+        jenis_kemasan: Plastik PE
         harga_jual: Rp. 30.000
         berat: 10 Butir
         img: rengginang-kemasan.jpg
-      - jenis_kemasan: Plastik PP Bening
+      - nama_produk: Rengginang Eceran
+        jenis_kemasan: Plastik PP Bening
         harga_jual: Rp. 6.000
         berat: 2 Butir
         img: rengginang-ecer.jpg
-      - jenis_kemasan: Plastik PP Bening
+      - nama_produk: Rengginnag Refill (Khusus Dinkop UKM Tangsel)
+        jenis_kemasan: Plastik PP Bening
         harga_jual: Rp. 60.000
         berat: 20 Butir
         img: rengginang-refill.jpg
