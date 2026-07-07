@@ -208,3 +208,20 @@ products:
     kategori: "Frozen Food"
     img: "tekwan.jpg"
     harga_jual: "Rp. 20.000"
+
+  - id: "kremes-ubi"
+    title: "Kremes Ubi Manis"
+    kategori: "Aneka Camilan"
+    detail_produk:
+      - nama_produk: "Kremes Ubi 1 Pouch"
+        jenis_kemasan: "Standing Pouch"
+        harga_jual: "Rp. 13.000"
+        berat: "20 Butir"
+        img: "kremes-ubi.jpg"
+      - nama_produk: "Kremes Ubi 2 Pouch"
+        jenis_kemasan: "Standing Pouch"
+        harga_jual: "Rp. 25.000"
+        berat: "40 Butir"
+        img: "kremes-ubi.jpg"
+        
+    
