@@ -371,12 +371,13 @@ aset_tetap:
     img: mesin-vacum.jpg
 
   - id: mesin-seal-press
-    title: Mesin Sealer Press
+    title: Mesin Press Impulse Sealer 40cm
     harga_beli: Rp. 123.870
     jumlah: 1
     type: Peralatan Mesin
+    merk: Galaxy
     tgl_beli: 12-02-2025
-    img: mesin-seal-press.jpg
+    img: sealer-press.webp
 
   - id: mesin-pengiris-basreng
     title: Mesin Pengiris Basreng
