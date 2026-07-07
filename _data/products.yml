@@ -274,8 +274,24 @@ products:
         harga_jual: Rp. 25.000
         berat: 200g
         img: kerupuk-keriting-sanggul.jpg
-      - nama_produk: Kerupuk Kancing
+      - nama_produk: Kerupuk Mangkok Super
         jenis_kemasan: Plastik PP
         harga_jual: Rp. 30.000
         berat: 200g
         img: kerupuk-mangkok-super.jpg
+
+  - id: pempek-palembang
+    title: Pempek Palembang
+    kategori: Frozen Food
+    detail_produk:
+      - nama_produk: Pempek Paket A
+        jenis_kemasan: Plastik Frozen
+        harga_jual: Rp. 25.000
+        berat: 10 Butir
+        img: pempek-paket-1.jpg
+      - nama_produk: Pempek Paket B
+        jenis_kemasan: Plastik Frozen
+        harga_jual: Rp. 25.000
+        berat: 10 Butir
+        img: pempek-paket-2.jpg
+        
