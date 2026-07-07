@@ -200,6 +200,7 @@ products:
     kategori: "Aneka Masakan"
     img: "ayam-ungkep.jpg"
     harga_jual: "Rp. 90.000"
+    jenis_kemasan: "Thinwall 2000ml"
     varian: 
       - varian_name: "Paha Saja"
       - varian_name: "Dada Saja"
@@ -213,13 +214,31 @@ products:
     kategori: "Frozen Food"
     img: "tekwan.jpg"
     harga_jual: "Rp. 20.000"
+    jenis_kemasan: "Standing Pouch"
 
   - id: "bakso-yamin"
     title: "Bakso Yamin Tasik"
     kategori: "Frozen Food"
     img: "bakso-yamin-tasik.jpg"
     harga_jual: "Rp. 25.000"
-  
+    jenis_kemasan: "Standing Pouch"
+
+  - id: "sambal-cumi-pete"
+    title: "Sambal Cumi Pete"
+    kategori: "Aneka Masakan"
+    img: "sambal-cumi-pete.jpg"
+    harga_jual: "Rp. 45.000"
+    berat: "300g"
+    jenis_kemasan: "Thinwall Bulat 400ml"
+
+  - id: "ceker-mercon-seuhah"
+    kategori: "Aneka Masakan"
+    title: "Ceker Mercon Seuhah"
+    jenis_kemasan: "Thinwall 1000ml"
+    harga_jual: "Rp. 35.000"
+    berat: "350g"
+    img: "ceker-mercon.jpg"
+    
   - id: "kremes-ubi"
     title: "Kremes Ubi Manis"
     kategori: "Aneka Camilan"
@@ -235,4 +254,3 @@ products:
         berat: "40 Butir"
         img: "kremes-ubi.jpg"
         
-    
