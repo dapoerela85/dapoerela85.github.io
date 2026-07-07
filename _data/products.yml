@@ -117,7 +117,7 @@ products:
     
   - id: "keripik-kentang"
     title: "Keripik Kentang"
-    kategori: "Cemilan"
+    kategori: "Aneka Cemilan"
     detail_produk:
       - jenis_kemasan: "Standing Pouch"
         harga_jual: "Rp. 20.000"
@@ -127,6 +127,10 @@ products:
         harga_jual: "Rp. 35.000"
         berat: "100g"
         img: "keripik-kentang-toples1000.jpg"
+      - jenis_kemasan: "Hamper Keripik Kentang"
+        harga_jual: "Rp. 80.000"
+        berat: "100g"
+        img: "hamper-keripik-kentang.jpg"
     varian: 
       - varian_name: "Pedas"
       - varian_name: "Original"
