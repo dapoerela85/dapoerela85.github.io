@@ -84,7 +84,15 @@ products:
     harga_jual: "Rp. 2000"
     berat: "80g"
     img: "es-kueh.jpg"
-    
+
+  - id: "mie-kremes"
+    kategori: "Camilan"
+    title: "Mie Kremes"
+    jenis_kemasan: "Standing Pouch"
+    harga_jual: "Rp. 5000"
+    berat: "50g"
+    img: "mie-kremes.jpg"
+
   - id: "keripik-kentang"
     title: "Keripik Kentang"
     kategori: "Cemilan"
@@ -136,3 +144,27 @@ products:
     varian: 
       - varian_name: "Pedas"
       - varian_name: "Original"
+
+  - id: "rempeyek"
+    title: "Rempeyek"
+    kategori: "Cemilan"
+    detail_produk:
+      - nama_produk: "Rempeyek Kacang Tanah"
+        jenis_kemasan: "Toples 10L"
+        harga_jual: "Rp. 75000"
+        berat: "500g"
+        img: "peyek-kacang-tanah.jpg"
+      - nama_produk: "Rempeyek Kacang Hijau"
+        jenis_kemasan: "Toples 10L"
+        harga_jual: "Rp. 75.000"
+        berat: "500g"
+        img: "peyek-kacang-hijau.jpg"
+      - nama_produk: "Rempeyek Udang Rebon"
+        jenis_kemasan: "Toples 10L"
+        harga_jual: "Rp. 75.000"
+        berat: "500g"
+        img: "peyek-kacang-hijau.jpg"
+    varian: 
+      - varian_name: "Kacang Tanah"
+      - varian_name: "Kacang Hijau"
+      - varian_name: "Udang Rebon"
