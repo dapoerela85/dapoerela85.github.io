@@ -83,3 +83,20 @@ products:
     varian: 
       - varian_name: "Pedas"
       - varian_name: "Original"
+
+  - id: "makaroni-goreng"
+    title: "Makaroni Goreng"
+    detail_produk:
+      - nama_produk: "Makaroni Bantet"
+        jenis_kemasan: "Standing Pouch"
+        harga_jual: "Rp. 2000"
+        berat: "60g"
+        img: "makaroni-bantet.jpg"
+      - nama_produk: "Makaroni Besar"
+        jenis_kemasan: "Plastik PP Klip"
+        harga_jual: "Rp. 25.000"
+        berat: "260g"
+        img: "makaroni-besar.jpg"
+    varian: 
+      - varian_name: "Pedas"
+      - varian_name: "Original"
