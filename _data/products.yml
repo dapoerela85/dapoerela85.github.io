@@ -249,6 +249,14 @@ products:
     harga_jual: Rp. 35.000
     berat: 350g
     img: ceker-mercon.jpg
+
+  - id: comring
+    kategori: Aneka Camilan
+    title: Comring
+    jenis_kemasan: Standing Pouch
+    harga_jual: Rp. 5000
+    berat: 70g
+    img: comring.jpg
     
   - id: kremes-ubi
     title: Kremes Ubi Manis
