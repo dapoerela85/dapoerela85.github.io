@@ -6,29 +6,29 @@ permalink: /catalog/
 
 <div class="product-container">
   {% for product in site.data.products.products %}
-    <div class="product-card" id="product-{{ product.id }}">
+    <div class="product-card" id="product-{{ product.id }}" style="border: 1px solid #ddd; padding: 20px; margin-bottom: 20px; border-radius: 8px;">
       
-      <h2>{{ product.title }}</h2>
+      <h2 style="margin-top: 0;">{{ product.title }}</h2>
 
-      <div class="product-meta">
-        <h3 class="price-display">{{ product.detail_produk[0].harga_jual }}</h3>
-        <p class="weight-display">Berat: {{ product.detail_produk[0].berat }}</p>
+      <div class="product-meta" style="margin-bottom: 15px;">
+        <h3 class="price-display" style="color: #e44d26; margin: 0 0 5px 0;">{{ product.detail_produk[0].harga_jual }}</h3>
+        <p class="weight-display" style="margin: 0; color: #666;">Berat: {{ product.detail_produk[0].berat }}</p>
       </div>
 
       {% if product.varian %}
-      <div class="product-variants">
-        <label>Varian Rasa:</label>
-        <ul>
+      <div class="product-select-group" style="margin-bottom: 12px;">
+        <label for="varian-{{ product.id }}" style="display: block; font-weight: bold; margin-bottom: 5px;">Pilih Varian Rasa:</label>
+        <select id="varian-{{ product.id }}" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;">
           {% for v in product.varian %}
-            <li>{{ v.varian_name }}</li>
+            <option value="{{ v.varian_name }}">{{ v.varian_name }}</option>
           {% endfor %}
-        </ul>
+        </select>
       </div>
       {% endif %}
 
-      <div class="product-packaging">
-        <label for="kemasan-{{ product.id }}">Pilih Jenis Kemasan:</label>
-        <select id="kemasan-{{ product.id }}" class="kemasan-select" onchange="updateProductDetails(this)">
+      <div class="product-select-group" style="margin-bottom: 15px;">
+        <label for="kemasan-{{ product.id }}" style="display: block; font-weight: bold; margin-bottom: 5px;">Pilih Jenis Kemasan:</label>
+        <select id="kemasan-{{ product.id }}" style="width: 100%; padding: 8px; border-radius: 4px; border: 1px solid #ccc;" onchange="updateProductDetails(this)">
           {% for detail in product.detail_produk %}
             <option 
               value="{{ detail.jenis_kemasan }}" 
@@ -41,21 +41,20 @@ permalink: /catalog/
       </div>
 
     </div>
-    <hr>
   {% endfor %}
 </div>
 
 <script>
 function updateProductDetails(selectElement) {
-  // Find the closest product card container
+  // Find the parent card containing this specific dropdown
   const productCard = selectElement.closest('.product-card');
   
-  // Get the selected option's data attributes
+  // Get the dataset from the newly selected packaging option
   const selectedOption = selectElement.options[selectElement.selectedIndex];
   const newHarga = selectedOption.getAttribute('data-harga');
   const newBerat = selectedOption.getAttribute('data-berat');
   
-  // Update the UI
+  // Dynamically swap the HTML content inside this card only
   productCard.querySelector('.price-display').textContent = newHarga;
   productCard.querySelector('.weight-display').textContent = `Berat: ${newBerat}`;
 }
