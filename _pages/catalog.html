@@ -1,0 +1,62 @@
+---
+layout: default
+title: Catalog
+permalink: /catalog/
+---
+
+<div class="product-container">
+  {% for product in site.data.products.products %}
+    <div class="product-card" id="product-{{ product.id }}">
+      
+      <h2>{{ product.title }}</h2>
+
+      <div class="product-meta">
+        <h3 class="price-display">{{ product.detail_produk[0].harga_jual }}</h3>
+        <p class="weight-display">Berat: {{ product.detail_produk[0].berat }}</p>
+      </div>
+
+      {% if product.varian %}
+      <div class="product-variants">
+        <label>Varian Rasa:</label>
+        <ul>
+          {% for v in product.varian %}
+            <li>{{ v.varian_name }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="product-packaging">
+        <label for="kemasan-{{ product.id }}">Pilih Jenis Kemasan:</label>
+        <select id="kemasan-{{ product.id }}" class="kemasan-select" onchange="updateProductDetails(this)">
+          {% for detail in product.detail_produk %}
+            <option 
+              value="{{ detail.jenis_kemasan }}" 
+              data-harga="{{ detail.harga_jual }}" 
+              data-berat="{{ detail.berat }}">
+              {{ detail.jenis_kemasan }}
+            </option>
+          {% endfor %}
+        </select>
+      </div>
+
+    </div>
+    <hr>
+  {% endfor %}
+</div>
+
+<script>
+function updateProductDetails(selectElement) {
+  // Find the closest product card container
+  const productCard = selectElement.closest('.product-card');
+  
+  // Get the selected option's data attributes
+  const selectedOption = selectElement.options[selectElement.selectedIndex];
+  const newHarga = selectedOption.getAttribute('data-harga');
+  const newBerat = selectedOption.getAttribute('data-berat');
+  
+  // Update the UI
+  productCard.querySelector('.price-display').textContent = newHarga;
+  productCard.querySelector('.weight-display').textContent = `Berat: ${newBerat}`;
+}
+</script>
