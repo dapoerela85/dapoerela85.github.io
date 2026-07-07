@@ -63,7 +63,7 @@ products:
       - nama_produk: "Es Susu Choki Choki"
         harga_jual: "Rp. 2000"
         berat: "70g"
-        img: "es-choki.jpg"
+        img: "es-coki.jpg"
       - nama_produk: "Es Susu Meses"
         harga_jual: "Rp. 2000"
         berat: "70g"
