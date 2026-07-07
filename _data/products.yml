@@ -8,26 +8,36 @@ products:
         harga_jual: Rp. 20.000
         berat: 120-150gr
         img: basreng.jpg
+        active: true
+        deskripsi: "Basreng kemasan pouch dengan rasa daun jeruk. Berat tergantung irisan."
       - nama_produk: Basreng Daun Jeruk Toples
         jenis_kemasan: Toples Tabung 1 Liter
         harga_jual: Rp. 35.000
         berat: 200-250gr
         img: basreng-toples-1000.jpg
+        active: true
+        deskripsi: "Basreng kemasan toples tabung 1L atau 1000ml. Berat tergantung irisan."
       - nama_produk: Basreng Toples 5L
         jenis_kemasan: Toples 5 Liter
         harga_jual: Rp. 150.000
         berat: 1000gr
         img: basreng-toples-5l.jpg
+        active: true
+        deskripsi: "Basreng kemasan toples tabung 5L dengan berat bersih 1000gr."
       - nama_produk: Hamper Basreng 2 Toples
         jenis_kemasan: Toples Tabung 1 Liter
         harga_jual: Rp. 75.000
         berat: 200-250gr
         img: hamper-basreng-2-toples.jpg
+        active: true
+        deskripsi: "Hamper basreng lengkap dengan pita, tas mika, hangtag, kartu ucapan, dll."
       - nama_produk: Hamper Basreng 1 Toples
         jenis_kemasan: Toples Tabung 1 Liter
         harga_jual: Rp. 45.000
         berat: 200-250gr
         img: hamper-basreng-satuan.jpg
+        active: true
+        deskripsi: "Hamper basreng lengkap dengan pita, tas mika, hangtag, kartu ucapan, dll."
     varian:
       - varian_name: Ikan
       - varian_name: Daging Kombinasi Ayam & Sapi
