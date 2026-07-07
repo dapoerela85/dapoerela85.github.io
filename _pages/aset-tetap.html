@@ -23,9 +23,9 @@ permalink: /aset-tetap/
         
         <thead>
           <tr class="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 uppercase tracking-wider">
-            <th class="p-4 pl-6 w-20">Gambar</th>
+            <th class="p-4 pl-6 w-20"></th>
             <th class="p-4">Nama Aset</th>
-            <th class="p-4">Tipe / Kategori</th>
+            <th class="p-4">Tipe</th>
             <th class="p-4 text-center">Jumlah</th>
             <th class="p-4 text-right pr-6">Harga Beli</th>
           </tr>
@@ -64,7 +64,7 @@ permalink: /aset-tetap/
               </td>
               
               <td class="p-4 text-center font-medium">
-                {{ asset.jumlah }} Pcs
+                {{ asset.jumlah }}
               </td>
               
               <td class="p-4 text-right pr-6 font-mono font-medium {% if asset.harga_beli == 'Rp. 0' %}text-slate-400 italic{% else %}text-slate-900{% endif %}">
