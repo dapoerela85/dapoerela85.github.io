@@ -1,256 +1,239 @@
 products:
-  - id: "basreng-daun-jeruk"
-    title: "Basreng Daun Jeruk"
-    kategori: "Cemilan"
-    detail_produk: 
-      - nama_produk: "Basreng Daun Jeruk Pouch"
-        jenis_kemasan: "Standing Pouch"
-        harga_jual: "Rp. 20.000"
-        berat: "120-150gr"
-        img: "basreng.jpg"
-      - nama_produk: "Basreng Daun Jeruk Toples"
-        jenis_kemasan: "Toples Tabung 1 Liter"
-        harga_jual: "Rp. 35.000"
-        berat: "200-250gr"
-        img: "basreng-toples-1000.jpg"
-      - nama_produk: "Basreng Toples 5L"
-        jenis_kemasan: "Toples 5 Liter"
-        harga_jual: "Rp. 150.000"
-        berat: "1000gr"
-        img: "basreng-toples-5l.jpg"
-      - nama_produk: "Hamper Basreng 2 Toples"
-        jenis_kemasan: "Toples Tabung 1 Liter"
-        harga_jual: "Rp. 75.000"
-        berat: "200-250gr"
-        img: "hamper-basreng-2-toples.jpg"
-      - nama_produk: "Hamper Basreng 1 Toples"
-        jenis_kemasan: "Toples Tabung 1 Liter"
-        harga_jual: "Rp. 45.000"
-        berat: "200-250gr"
-        img: "hamper-basreng-satuan.jpg"
-    varian: 
-      - varian_name: "Ikan"
-      - varian_name: "Daging Kombinasi Ayam & Sapi"
-    varian_rasa: 
-      - varian_name: "Pedas"
-      - varian_name: "Original"
-
-  - id: "rengginang"
-    title: "Rengginang"
-    kategori: "Cemilan"
+  - id: basreng-daun-jeruk
+    title: Basreng Daun Jeruk
+    kategori: Cemilan
     detail_produk:
-      - jenis_kemasan: "Toples 10L"
-        harga_jual: "Rp. 75.000"
-        berat: "20 Butir"
-        img: "rengginang.jpg"
-      - jenis_kemasan: "Plastik PE"
-        harga_jual: "Rp. 60.000"
-        berat: "10 Butir"
-        img: "rengginang-kemasan.jpg"
-      - jenis_kemasan: "Plastik PP Bening"
-        harga_jual: "Rp. 6.000"
-        berat: "2 Butir"
-        img: "rengginang-ecer.jpg"
-    varian: 
-      - varian_name: "Terasi"
-      - varian_name: "Original (Ketan Putih)"
-      - varian_name: "Ketan Hitam"
-
-  - id: "es-mambo"
-    title: "Es Mambo/Lilin"
-    jenis_kemasan: "Plastik Es"
-    kategori: "Frozen Food"
+      - nama_produk: Basreng Daun Jeruk Pouch
+        jenis_kemasan: Standing Pouch
+        harga_jual: Rp. 20.000
+        berat: 120-150gr
+        img: basreng.jpg
+      - nama_produk: Basreng Daun Jeruk Toples
+        jenis_kemasan: Toples Tabung 1 Liter
+        harga_jual: Rp. 35.000
+        berat: 200-250gr
+        img: basreng-toples-1000.jpg
+      - nama_produk: Basreng Toples 5L
+        jenis_kemasan: Toples 5 Liter
+        harga_jual: Rp. 150.000
+        berat: 1000gr
+        img: basreng-toples-5l.jpg
+      - nama_produk: Hamper Basreng 2 Toples
+        jenis_kemasan: Toples Tabung 1 Liter
+        harga_jual: Rp. 75.000
+        berat: 200-250gr
+        img: hamper-basreng-2-toples.jpg
+      - nama_produk: Hamper Basreng 1 Toples
+        jenis_kemasan: Toples Tabung 1 Liter
+        harga_jual: Rp. 45.000
+        berat: 200-250gr
+        img: hamper-basreng-satuan.jpg
+    varian:
+      - varian_name: Ikan
+      - varian_name: Daging Kombinasi Ayam & Sapi
+    varian_rasa:
+      - varian_name: Pedas
+      - varian_name: Original
+  - id: rengginang
+    title: Rengginang
+    kategori: Cemilan
     detail_produk:
-      - nama_produk: "Es Glaze"
-        harga_jual: "Rp. 2000"
-        berat: "70g"
-        img: "es-glaze.jpg"
-      - nama_produk: "Es Susu Choki Choki"
-        harga_jual: "Rp. 2000"
-        berat: "70g"
-        img: "es-coki.jpg"
-      - nama_produk: "Es Susu Meses"
-        harga_jual: "Rp. 2000"
-        berat: "70g"
-        img: "es-meses.jpg"
-      - nama_produk: "Es Susu Pelangi"
-        harga_jual: "Rp. 2500"
-        berat: "70g"
-        img: "es-pelangi.jpg"
-      - nama_produk: "Es Pop Ice"
-        harga_jual: "Rp. 2000"
-        berat: "70g"
-        img: "es-popice.jpg"
-        
-  - id: "es-kueh"
-    kategori: "Frozen Food"
-    title: "Es Kueh/Es Gabus"
-    jenis_kemasan: "Plastik Es"
-    harga_jual: "Rp. 2000"
-    berat: "80g"
-    img: "es-kueh.jpg"
-
-  - id: "mie-kremes"
-    kategori: "Camilan"
-    title: "Mie Kremes"
-    jenis_kemasan: "Standing Pouch"
-    harga_jual: "Rp. 5000"
-    berat: "50g"
-    img: "mie-kremes.jpg"
-    varian: 
-      - varian_name: "Pedas"
-      - varian_name: "Original"
-
-  - id: "bihun-crispy"
-    kategori: "Aneka Camilan"
-    title: "Bihun Crispy"
-    jenis_kemasan: "Standing Pouch"
-    harga_jual: "Rp. 5000"
-    berat: "50g"
-    img: "bihun-crispy.jpg"
-    varian: 
-      - varian_name: "Pedas"
-      - varian_name: "Original"
-
-  - id: "cireng-kriwil"
-    kategori: "Frozen Food"
-    title: "Cireng Kriwil"
-    jenis_kemasan: "Plastik Frozen"
-    harga_jual: "Rp. 12000"
-    berat: "10 Butir"
-    img: "cireng-kriwil.jpg"
-    
-  - id: "keripik-kentang"
-    title: "Keripik Kentang"
-    kategori: "Aneka Cemilan"
+      - jenis_kemasan: Toples 10L
+        harga_jual: Rp. 75.000
+        berat: 20 Butir
+        img: rengginang.jpg
+      - jenis_kemasan: Plastik PE
+        harga_jual: Rp. 60.000
+        berat: 10 Butir
+        img: rengginang-kemasan.jpg
+      - jenis_kemasan: Plastik PP Bening
+        harga_jual: Rp. 6.000
+        berat: 2 Butir
+        img: rengginang-ecer.jpg
+    varian:
+      - varian_name: Terasi
+      - varian_name: Original (Ketan Putih)
+      - varian_name: Ketan Hitam
+  - id: es-mambo
+    title: Es Mambo/Lilin
+    jenis_kemasan: Plastik Es
+    kategori: Frozen Food
     detail_produk:
-      - jenis_kemasan: "Standing Pouch"
-        harga_jual: "Rp. 20.000"
-        berat: "80g"
-        img: "keripik-kentang.jpg"
-      - jenis_kemasan: "Toples Tabung 1L"
-        harga_jual: "Rp. 35.000"
-        berat: "100g"
-        img: "keripik-kentang-toples1000.jpg"
-      - jenis_kemasan: "Hamper Keripik Kentang"
-        harga_jual: "Rp. 80.000"
-        berat: "100g"
-        img: "hamper-keripik-kentang.jpg"
-    varian: 
-      - varian_name: "Pedas"
-      - varian_name: "Original"
-
-  - id: "makaroni-goreng"
-    title: "Makaroni Goreng"
-    kategori: "Cemilan"
+      - nama_produk: Es Glaze
+        harga_jual: Rp. 2000
+        berat: 70g
+        img: es-glaze.jpg
+      - nama_produk: Es Susu Choki Choki
+        harga_jual: Rp. 2000
+        berat: 70g
+        img: es-coki.jpg
+      - nama_produk: Es Susu Meses
+        harga_jual: Rp. 2000
+        berat: 70g
+        img: es-meses.jpg
+      - nama_produk: Es Susu Pelangi
+        harga_jual: Rp. 2500
+        berat: 70g
+        img: es-pelangi.jpg
+      - nama_produk: Es Pop Ice
+        harga_jual: Rp. 2000
+        berat: 70g
+        img: es-popice.jpg
+  - id: es-kueh
+    kategori: Frozen Food
+    title: Es Kueh/Es Gabus
+    jenis_kemasan: Plastik Es
+    harga_jual: Rp. 2000
+    berat: 80g
+    img: es-kueh.jpg
+  - id: mie-kremes
+    kategori: Camilan
+    title: Mie Kremes
+    jenis_kemasan: Standing Pouch
+    harga_jual: Rp. 5000
+    berat: 50g
+    img: mie-kremes.jpg
+    varian:
+      - varian_name: Pedas
+      - varian_name: Original
+  - id: bihun-crispy
+    kategori: Aneka Camilan
+    title: Bihun Crispy
+    jenis_kemasan: Standing Pouch
+    harga_jual: Rp. 5000
+    berat: 50g
+    img: bihun-crispy.jpg
+    varian:
+      - varian_name: Pedas
+      - varian_name: Original
+  - id: cireng-kriwil
+    kategori: Frozen Food
+    title: Cireng Kriwil
+    jenis_kemasan: Plastik Frozen
+    harga_jual: Rp. 12000
+    berat: 10 Butir
+    img: cireng-kriwil.jpg
+  - id: keripik-kentang
+    title: Keripik Kentang
+    kategori: Aneka Cemilan
     detail_produk:
-      - nama_produk: "Makaroni Bantet"
-        jenis_kemasan: "Standing Pouch"
-        harga_jual: "Rp. 5000"
-        berat: "60g"
-        img: "makaroni-bantet.jpg"
-      - nama_produk: "Makaroni Besar Bantal"
-        jenis_kemasan: "Plastik PP Klip"
-        harga_jual: "Rp. 25.000"
-        berat: "260g"
-        img: "makaroni-besar.jpg"
-    varian: 
-      - varian_name: "Pedas"
-      - varian_name: "Original"
-
-  - id: "keripik-usus-ayam"
-    title: "Keripik Usus Ayam"
-    kategori: "Cemilan"
+      - jenis_kemasan: Standing Pouch
+        harga_jual: Rp. 20.000
+        berat: 80g
+        img: keripik-kentang.jpg
+      - jenis_kemasan: Toples Tabung 1L
+        harga_jual: Rp. 35.000
+        berat: 100g
+        img: keripik-kentang-toples1000.jpg
+      - jenis_kemasan: Hamper Keripik Kentang
+        harga_jual: Rp. 80.000
+        berat: 100g
+        img: hamper-keripik-kentang.jpg
+    varian:
+      - varian_name: Pedas
+      - varian_name: Original
+  - id: makaroni-goreng
+    title: Makaroni Goreng
+    kategori: Cemilan
     detail_produk:
-      - nama_produk: "Keripik Usus Ayam Pouch"
-        jenis_kemasan: "Standing Pouch"
-        harga_jual: "Rp. 10000"
-        berat: "80g"
-        img: "keripik-usus.jpg"
-      - nama_produk: "Keripik Usus Ayam Toples"
-        jenis_kemasan: "Toples Tabung 1L"
-        harga_jual: "Rp. 45.000"
-        berat: "300g"
-        img: "usus-toples.jpg"
-    varian: 
-      - varian_name: "Pedas"
-      - varian_name: "Original"
-
-  - id: "rempeyek"
-    title: "Rempeyek"
-    kategori: "Cemilan"
+      - nama_produk: Makaroni Bantet
+        jenis_kemasan: Standing Pouch
+        harga_jual: Rp. 5000
+        berat: 60g
+        img: makaroni-bantet.jpg
+      - nama_produk: Makaroni Besar Bantal
+        jenis_kemasan: Plastik PP Klip
+        harga_jual: Rp. 25.000
+        berat: 260g
+        img: makaroni-besar.jpg
+    varian:
+      - varian_name: Pedas
+      - varian_name: Original
+  - id: keripik-usus-ayam
+    title: Keripik Usus Ayam
+    kategori: Cemilan
     detail_produk:
-      - nama_produk: "Rempeyek Toples"
-        jenis_kemasan: "Toples 10L"
-        harga_jual: "Rp. 75000"
-        berat: "500g"
-        img: "peyek-toples.jpg"
-      - nama_produk: "Rempeyek Ecer"
-        jenis_kemasan: "Plastik PP Bening"
-        harga_jual: "Rp. 6.000"
-        berat: "80g"
-        img: "peyek-kacang-tanah.jpg"
-    varian: 
-      - varian_name: "Kacang Tanah"
-      - varian_name: "Kacang Hijau"
-      - varian_name: "Udang Rebon"
-
-  - id: "ayam-ungkep"
-    title: "Ayam Serundeng Ungkep"
-    kategori: "Aneka Masakan"
-    img: "ayam-ungkep.jpg"
-    harga_jual: "Rp. 90.000"
-    jenis_kemasan: "Thinwall 2000ml"
-    varian: 
-      - varian_name: "Paha Saja"
-      - varian_name: "Dada Saja"
-      - varian_name: "Lengkap (Utuh)"
-    varian_rasa: 
-      - varian_name: "Kelapa"
-      - varian_name: "Lengkuas"
-  
-  - id: "tekwan-frozen"
-    title: "Tekwan Frozen"
-    kategori: "Frozen Food"
-    img: "tekwan.jpg"
-    harga_jual: "Rp. 20.000"
-    jenis_kemasan: "Standing Pouch"
-
-  - id: "bakso-yamin"
-    title: "Bakso Yamin Tasik"
-    kategori: "Frozen Food"
-    img: "bakso-yamin-tasik.jpg"
-    harga_jual: "Rp. 25.000"
-    jenis_kemasan: "Standing Pouch"
-
-  - id: "sambal-cumi-pete"
-    title: "Sambal Cumi Pete"
-    kategori: "Aneka Masakan"
-    img: "sambal-cumi-pete.jpg"
-    harga_jual: "Rp. 45.000"
-    berat: "300g"
-    jenis_kemasan: "Thinwall Bulat 400ml"
-
-  - id: "ceker-mercon-seuhah"
-    kategori: "Aneka Masakan"
-    title: "Ceker Mercon Seuhah"
-    jenis_kemasan: "Thinwall 1000ml"
-    harga_jual: "Rp. 35.000"
-    berat: "350g"
-    img: "ceker-mercon.jpg"
-    
-  - id: "kremes-ubi"
-    title: "Kremes Ubi Manis"
-    kategori: "Aneka Camilan"
+      - nama_produk: Keripik Usus Ayam Pouch
+        jenis_kemasan: Standing Pouch
+        harga_jual: Rp. 10000
+        berat: 80g
+        img: keripik-usus.jpg
+      - nama_produk: Keripik Usus Ayam Toples
+        jenis_kemasan: Toples Tabung 1L
+        harga_jual: Rp. 45.000
+        berat: 300g
+        img: usus-toples.jpg
+    varian:
+      - varian_name: Pedas
+      - varian_name: Original
+  - id: rempeyek
+    title: Rempeyek
+    kategori: Cemilan
     detail_produk:
-      - nama_produk: "Kremes Ubi 1 Pouch"
-        jenis_kemasan: "Standing Pouch"
-        harga_jual: "Rp. 13.000"
-        berat: "20 Butir"
-        img: "kremes-ubi.jpg"
-      - nama_produk: "Kremes Ubi 2 Pouch"
-        jenis_kemasan: "Standing Pouch"
-        harga_jual: "Rp. 25.000"
-        berat: "40 Butir"
-        img: "kremes-ubi.jpg"
-        
+      - nama_produk: Rempeyek Toples
+        jenis_kemasan: Toples 10L
+        harga_jual: Rp. 75000
+        berat: 500g
+        img: peyek-toples.jpg
+      - nama_produk: Rempeyek Ecer
+        jenis_kemasan: Plastik PP Bening
+        harga_jual: Rp. 6.000
+        berat: 80g
+        img: peyek-kacang-tanah.jpg
+    varian:
+      - varian_name: Kacang Tanah
+      - varian_name: Kacang Hijau
+      - varian_name: Udang Rebon
+  - id: ayam-ungkep
+    title: Ayam Serundeng Ungkep
+    kategori: Aneka Masakan
+    img: ayam-ungkep.jpg
+    harga_jual: Rp. 90.000
+    jenis_kemasan: Thinwall 2000ml
+    varian:
+      - varian_name: Paha Saja
+      - varian_name: Dada Saja
+      - varian_name: Lengkap (Utuh)
+    varian_rasa:
+      - varian_name: Kelapa
+      - varian_name: Lengkuas
+  - id: tekwan-frozen
+    title: Tekwan Frozen
+    kategori: Frozen Food
+    img: tekwan.jpg
+    harga_jual: Rp. 20.000
+    jenis_kemasan: Standing Pouch
+  - id: bakso-yamin
+    title: Bakso Yamin Tasik
+    kategori: Frozen Food
+    img: bakso-yamin-tasik.jpg
+    harga_jual: Rp. 25.000
+    jenis_kemasan: Standing Pouch
+  - id: sambal-cumi-pete
+    title: Sambal Cumi Pete
+    kategori: Aneka Masakan
+    img: sambal-cumi-pete.jpg
+    harga_jual: Rp. 45.000
+    berat: 300g
+    jenis_kemasan: Thinwall Bulat 400ml
+  - id: ceker-mercon-seuhah
+    kategori: Aneka Masakan
+    title: Ceker Mercon Seuhah
+    jenis_kemasan: Thinwall 1000ml
+    harga_jual: Rp. 35.000
+    berat: 350g
+    img: ceker-mercon.jpg
+  - id: kremes-ubi
+    title: Kremes Ubi Manis
+    kategori: Aneka Camilan
+    detail_produk:
+      - nama_produk: Kremes Ubi 1 Pouch
+        jenis_kemasan: Standing Pouch
+        harga_jual: Rp. 13.000
+        berat: 20 Butir
+        img: kremes-ubi.jpg
+      - nama_produk: Kremes Ubi 2 Pouch
+        jenis_kemasan: Standing Pouch
+        harga_jual: Rp. 25.000
+        berat: 40 Butir
+        img: kremes-ubi.jpg
