@@ -13,7 +13,7 @@ permalink: /catalog/
         <div>
           <div class="relative bg-slate-100 aspect-video w-full overflow-hidden flex items-center justify-center text-slate-400">
             <img 
-              src="/assets/img/{{ product.detail_produk[0].img }}" 
+              src="/assets/products/{{ product.detail_produk[0].img }}" 
               alt="{{ product.title }}" 
               class="w-full h-full object-cover"
               onerror="this.onerror=null; this.src='https://placehold.co/600x400?text={{ product.title | url_encode }}';"
