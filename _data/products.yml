@@ -349,3 +349,126 @@ products:
     varian:
       - varian_name: Air Isi Ulang
       - varian_name: Air Sumur
+
+
+aset_tetap:
+
+  - id: mesin-spinner
+    title: Mesin Spinner Peniris Minyak
+    harga_beli: Rp. 681.775
+    jumlah: 1
+    type: Peralatan Mesin
+    img: mesin-spinner.jpg
+
+  - id: mesin-vacum
+    title: Mesin Vacum Sealer
+    harga_beli: Rp. 82.700
+    jumlah: 1
+    type: Peralatan Mesin
+    img: mesin-vacum.jpg
+
+  - id: mesin-seal-press
+    title: Mesin Seal Press
+    harga_beli: Rp. 123.870
+    jumlah: 1
+    type: Peralatan Mesin
+    img: mesin-seal-press.jpg
+
+  - id: mesin-pengiris-basreng
+    title: Mesin Pengiris Basreng
+    harga_beli: Rp. 0
+    jumlah: 1
+    type: Peralatan Mesin
+    img: mesin-pengiris-basreng.jpg
+
+  - id: mesin-heatgun
+    title: Mesin Heat Gun
+    harga_beli: Rp. 38.500
+    jumlah: 1
+    type: Peralatan Mesin
+    img: heatgun.jpg
+
+  - id: wajan-tifale-60
+    title: Wajan Tifale 60cm
+    harga_beli: Rp. 187.632
+    jumlah: 1
+    type: Peralatan Dapur
+    img: wajan-tifale-60.jpg
+
+  - id: wajan-tifale-32
+    title: Wajan Tifale 32cm
+    harga_beli: Rp. 78.000
+    jumlah: 1
+    type: Peralatan Dapur
+    img: wajan-tifale-32.jpg
+
+  - id: wajan-tifale-30
+    title: Wajan Tifale 30cm
+    harga_beli: Rp. 66.000
+    jumlah: 1
+    type: Peralatan Dapur
+    img: wajan-tifale-30.jpg
+
+  - id: timbangan-digital-scale
+    title: Timbangan Digital Scale
+    harga_beli: Rp. 118.988
+    jumlah: 1
+    type: Peralatan Dapur
+    img: timbangan-digital-scale.jpg
+
+  - id: timbangan-dapur
+    title: Timbangan Dapur
+    harga_beli: Rp. 0
+    jumlah: 1
+    type: Peralatan Dapur
+    img: timbangan-dapur.jpg
+
+  - id: tampah-bambu
+    title: Tampah Bambu 55cm
+    harga_beli: Rp. 19.000
+    img: tampah-bambu.jpg
+    jumlah: 1
+    type: Peralatan Dapur
+
+  - id: mesin-pengiris-kayu
+    title: Mesin Pengiris Kayu (Basreng & Kentang)
+    harga_beli: Rp. 48.500
+    jumlah: 2
+    type: Peralatan Dapur
+    img: mesin-pengiris-kayu.jpg
+
+  - id: mesin-pengiris-kentang-kayu
+    title: Mesin Pengiris Kentang Kayu
+    harga_beli: Rp. 0
+    jumlah: 1
+    type: Peralatan Dapur
+    img: mesin-pengiris-kentang-kayu.jpg
+
+  - id: mesin-pengiris-basreng-stainless
+    title: Mesin Pengiris Basreng Stainless Steel
+    harga_beli: Rp. 36.350
+    jumlah: 1
+    type: Peralatan Dapur
+    img: wajan-tifale-60.jpg
+
+  - id: nampan-peniris-minyak
+    title: Nampan Pengiris Minyak
+    harga_beli: Rp. 48.584
+    jumlah: 1
+    type: Peralatan Dapur
+    img: nampan-peniris-minyak.jpg
+
+  - id: cooler-bag
+    title: Cooler Bag
+    harga_beli: Rp. 12.200
+    jumlah: 1
+    type: Peralatan Dapur
+    img: cooler-bag.jpg
+
+  - id: corong-mulut-besar
+    title: Corong Mulut Besar
+    jumlah: 2
+    type: Peralatan Dapur
+    harga_beli: Rp. 39.808
+    img: wajan-tifale-60.jpg
+  
