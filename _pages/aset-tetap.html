@@ -29,6 +29,7 @@ permalink: /aset-tetap/
             <th class="p-4">Type</th>
             <th class="p-4 text-center">Jumlah</th>
             <th class="p-4 text-right pr-6">Harga Beli</th>
+            <th class="p-4 text-right pr-6">Tgl Beli</th>
           </tr>
         </thead>
         
@@ -82,6 +83,14 @@ permalink: /aset-tetap/
                   Hibah / Rp. 0
                 {% else %}
                   {{ asset.harga_beli }}
+                {% endif %}
+              </td>
+              
+              <td class="p-4 text-center font-medium">
+                {% if asset.tgl_beli %}
+                 {{ asset.tgl_beli }}
+                {% else %}
+                 -
                 {% endif %}
               </td>
               
