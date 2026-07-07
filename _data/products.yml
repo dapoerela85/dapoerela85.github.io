@@ -166,3 +166,17 @@ products:
       - varian_name: "Kacang Tanah"
       - varian_name: "Kacang Hijau"
       - varian_name: "Udang Rebon"
+
+  - id: "ayam-ungkep"
+    title: "Ayam Serundeng Ungkep"
+    kategori: "Aneka Masakan"
+    img: "ayam-ungkep.jpg"
+    harga_jual: "Rp. 90.000"
+    varian: 
+      - varian_name: "Paha Saja"
+      - varian_name: "Dada Saja"
+      - varian_name: "Lengkap (Utuh)"
+    varian_rasa: 
+      - varian_name: "Kelapa"
+      - varian_name: "Lengkuas"
+  
