@@ -380,13 +380,13 @@ aset_tetap:
     tgl_beli: 12-02-2025
     img: sealer-press.webp
 
-  - id: mesin-pengiris-basreng
-    title: Mesin Pengiris Basreng
-    harga_beli: Rp. 0
+  - id: mesin-pemotong
+    title: Mesin Pemotong
+    harga_beli: Rp. 643.000
     jumlah: 1
     type: Peralatan Mesin
-    tgl_beli: 01-05-2026
-    img: mesin-pengiris-basreng.jpg
+    tgl_beli: 08-05-2026
+    img: mesin-pengiris.webp
 
   - id: mesin-heatgun
     title: Mesin Heat Gun
