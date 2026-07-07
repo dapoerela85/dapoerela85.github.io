@@ -392,7 +392,8 @@ aset_tetap:
     jumlah: 1
     type: Peralatan Mesin
     tgl_beli: 28-01-2025
-    img: heatgun.jpg
+    merk: Hot Air Gun
+    img: mini-heatgun.webp
 
   - id: wajan-tifale-60
     title: Wajan Tifale 60cm
