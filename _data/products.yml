@@ -69,6 +69,12 @@ products:
         harga_jual: Rp. 60.000
         berat: 20 Butir
         img: rengginang-refill.jpg
+      - nama_produk: Hamper Rengginnag
+        jenis_kemasan: Toples 10L
+        harga_jual: Rp. 100.000
+        berat: 20 Butir
+        img: hamper-remgginang.jpg
+        descripsi: "Sudah termasuk tas mika, hangtag, kartu ucapan, pita, dll."
     varian:
       - varian_name: Terasi
       - varian_name: Original (Ketan Putih)
@@ -221,8 +227,11 @@ products:
     berat: 1000gr
     jenis_kemasan: Thinwall 2000ml
     varian:
-      - varian_name: Paha Saja
+      - varian_name: Paha Atas Saja
+      - varian_name: Paha Bawah (Pentung) Saja
+      - varian_name: Paha Utuh Saja
       - varian_name: Dada Saja
+      - varian_name: Sayap Utuh Saja
       - varian_name: Lengkap (Utuh)
     varian_rasa:
       - varian_name: Kelapa
