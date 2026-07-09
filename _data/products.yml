@@ -185,10 +185,16 @@ products:
   - id: keripik-usus-ayam
     title: Keripik Usus Ayam
     kategori: Aneka Cemilan
+    jenis_kemasan: Standing Pouch
     detail_produk:
-      - nama_produk: Keripik Usus Ayam Pouch
+      - nama_produk: Keripik Usus Ayam Pouch 1 BKS
         jenis_kemasan: Standing Pouch
-        harga_jual: Rp. 10000
+        harga_jual: Rp. 8000
+        berat: 80g
+        img: keripik-usus.jpg
+      - nama_produk: Keripik Usus Ayam Pouch 2 BKS
+        jenis_kemasan: Standing Pouch
+        harga_jual: Rp. 15.000
         berat: 80g
         img: keripik-usus.jpg
       - nama_produk: Keripik Usus Ayam Toples
