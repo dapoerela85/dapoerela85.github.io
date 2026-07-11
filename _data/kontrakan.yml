@@ -4,6 +4,7 @@ kontrakan:
     tgl: 25 Sept 2025
     metode: Cash
     nominal: Rp. 750.000
+    bayar: Rp. 750.000
     desc: "25 sept 2025 bayar dp sebesar Rp.200.000 untuk mengontrak di bulan Oktober, dan sisa pembayaran Rp. 550.000."
     bukti: Tidak ada
   
@@ -12,16 +13,18 @@ kontrakan:
     tgl: 02 Nov 2025
     metode: Transfer Bank BCA    
     nominal: Rp. 750.000
+    bayar: Rp. 750.000
     desc: "Pembayaran kontrakan untuk bulan September 2025."
     bukti: Ada
     
   - id: desember-2025
     title: Desember 2025
-    tgl: 
-    metode: Cash
-    nominal: 
-    desc: 
-    bukti: 
+    tgl: 11 Des 2025
+    metode: Transfer BRI
+    nominal: Rp. 750.000 
+    bayar: Rp. 750.000     
+    desc: "Pembayaran kontrakan bulan desember 2025"
+    bukti: Ada
 
   - id: januari-2026
     title: Januari 2026
@@ -33,20 +36,42 @@ kontrakan:
 
   - id: maret-2026
     title: Maret 2026
+    tgl: 
     metode: Cash
 
   - id: april-2026
     title: April 2026
-    metode: Cash
+    tgl: 12 April 2026
+    metode: Transfer BCA
+    nominal: Rp. 750.000 
+    bayar: Rp. 750.000
+    desc: "Pembayaran kontrakan bulan April 2026"
+    bukti: Ada
 
   - id: mei-2026
     title: Mei 2026
-    metode: Cash
-
+    tgl: 27 Mei 2026
+    metode: -
+    nominal: Rp. 750.000 
+    bayar: Rp. 450.000
+    desc: "Pembayaran bulan Mei 2026"
+    bukti: Tidak Ada
+    
   - id: juni-2026
     title: Juni 2026
+    tgl: -
     metode: Cash
-
+    nominal: Rp. 750.000 
+    bayar: -
+    desc: ""
+    bukti: 
+    
   - id: juli-2026
     title: Juli 2026
-    metode: Cash
+    tgl: 11 Juli 2026
+    metode: Transfer
+    nominal: Rp. 750.000 
+    bayar: Rp. 700.000
+    desc: "Pembayaran bulan Juli 2026."
+    bukti: Ada
+    
