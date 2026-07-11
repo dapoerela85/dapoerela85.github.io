@@ -14,7 +14,7 @@ kontrakan:
     metode: Transfer Bank BCA    
     nominal: Rp. 750.000
     bayar: Rp. 750.000
-    desc: "Pembayaran kontrakan untuk bulan September 2025."
+    desc: "Pembayaran kontrakan untuk bulan November 2025." # KOREKSI: Sebelumnya tertulis September
     bukti: Ada
     
   - id: desember-2025
@@ -28,16 +28,30 @@ kontrakan:
 
   - id: januari-2026
     title: Januari 2026
+    tgl: "-"
     metode: Cash    
+    nominal: Rp. 750.000
+    bayar: Rp. 0
+    desc: "Belum ada data pembayaran"
+    bukti: Tidak Ada
 
   - id: februari-2026
     title: Februari 2026
+    tgl: "-"
     metode: Cash
+    nominal: Rp. 750.000
+    bayar: Rp. 0
+    desc: "Belum ada data pembayaran"
+    bukti: Tidak Ada
 
   - id: maret-2026
     title: Maret 2026
-    tgl: 
+    tgl: "-"
     metode: Cash
+    nominal: Rp. 750.000
+    bayar: Rp. 0
+    desc: "Belum ada data pembayaran"
+    bukti: Tidak Ada
 
   - id: april-2026
     title: April 2026
@@ -51,20 +65,20 @@ kontrakan:
   - id: mei-2026
     title: Mei 2026
     tgl: 27 Mei 2026
-    metode: -
+    metode: "-"
     nominal: Rp. 750.000 
     bayar: Rp. 450.000
-    desc: "Pembayaran bulan Mei 2026"
+    desc: "Pembayaran bulan Mei 2026 (Kurang Rp. 300.000)"
     bukti: Tidak Ada
     
   - id: juni-2026
     title: Juni 2026
-    tgl: -
+    tgl: "-"
     metode: Cash
     nominal: Rp. 750.000 
-    bayar: -
-    desc: ""
-    bukti: 
+    bayar: Rp. 0
+    desc: "Belum bayar"
+    bukti: Tidak Ada
     
   - id: juli-2026
     title: Juli 2026
@@ -72,6 +86,5 @@ kontrakan:
     metode: Transfer
     nominal: Rp. 750.000 
     bayar: Rp. 700.000
-    desc: "Pembayaran bulan Juli 2026."
+    desc: "Pembayaran bulan Juli 2026 (Kurang Rp. 50.000)"
     bukti: Ada
-    
