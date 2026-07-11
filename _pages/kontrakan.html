@@ -13,7 +13,7 @@ permalink: /kontrakan/
     </div>
     
     <div class="mt-4 md:mt-0 bg-indigo-50 border border-indigo-100 rounded-lg px-4 py-2 text-sm text-indigo-700 font-semibold w-fit">
-      Total Jenis Aset: {{ site.data.products.aset_tetap | size }}
+      Total Jenis Aset: {{ site.data.site.data.kontrakan.kontrakan | size }}
     </div>
   </div>
 
@@ -34,7 +34,7 @@ permalink: /kontrakan/
         </thead>
         
         <tbody class="divide-y divide-slate-200 text-sm text-slate-700">
-          {% for asset in site.data.site.data.kontrakan.kontrakan %}
+          {% for asset in site.data.kontrakan.kontrakan %}
             <tr class="hover:bg-slate-50 transition-colors duration-150">
               
               <td class="p-4 pl-6">
@@ -68,28 +68,17 @@ permalink: /kontrakan/
                  -
                 {% endif %}
               </td>
-              
-              <td class="p-4">
-                {% if asset.type == "Peralatan Mesin" %}
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-blue-50 text-blue-700 border border-blue-100">
-                    {{ asset.type }}
-                  </span>
-                {% else %}
-                  <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-amber-50 text-amber-700 border border-amber-100">
-                    {{ asset.type }}
-                  </span>
-                {% endif %}
-              </td>
+  
               
               <td class="p-4 text-center font-medium">
-                {{ asset.jumlah }}
+                {{ asset.tgl }}
               </td>
               
               <td class="p-4 text-right pr-6 font-mono font-medium {% if asset.harga_beli == 'Rp. 0' %}text-slate-400 italic{% else %}text-slate-900{% endif %}">
-                {% if asset.harga_beli == 'Rp. 0' %}
-                  Hibah / Rp. 0
+                {% if asset.nominal == 'Rp. 0' %}
+                  Rp. 0
                 {% else %}
-                  {{ asset.harga_beli }}
+                  {{ asset.nominal }}
                 {% endif %}
               </td>
               
