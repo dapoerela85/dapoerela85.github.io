@@ -8,12 +8,8 @@ permalink: /kontrakan/
   
   <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
     <div>
-      <h2 class="text-2xl font-bold text-slate-800 tracking-tight">Daftar Aset Tetap</h2>
-      <p class="text-sm text-slate-500 mt-1">Daftar seluruh mesin, peralatan dapur, dan inventaris produksi.</p>
-    </div>
-    
-    <div class="mt-4 md:mt-0 bg-indigo-50 border border-indigo-100 rounded-lg px-4 py-2 text-sm text-indigo-700 font-semibold w-fit">
-      Total Jenis Aset: {{ site.data.site.data.kontrakan.kontrakan | size }}
+      <h2 class="text-2xl font-bold text-slate-800 tracking-tight">Data Pembayaran Kontrakan</h2>
+      <p class="text-sm text-slate-500 mt-1">Data riwayat pembayaran kontrakan.</p>
     </div>
   </div>
 
@@ -23,52 +19,30 @@ permalink: /kontrakan/
         
         <thead>
           <tr class="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 uppercase tracking-wider">
-            <th class="p-4 pl-6 w-20"></th>
-            <th class="p-4">Nama Aset</th>
-            <th class="p-4">Merk</th>
-            <th class="p-4 text-right pr-6">Tgl Beli</th>
-            <th class="p-4">Type</th>
-            <th class="p-4 text-center">Jumlah</th>
-            <th class="p-4 text-right pr-6">Harga Beli</th>
+            <th class="p-4">
+              Bulan/Tahun
+            </th>
+            <th class="p-4 text-center">Noninal Pembayaran</th>
+            <th class="p-4 text-right pr-6">Bukti</th>
           </tr>
         </thead>
         
         <tbody class="divide-y divide-slate-200 text-sm text-slate-700">
           {% for asset in site.data.kontrakan.kontrakan %}
-            <tr class="hover:bg-slate-50 transition-colors duration-150">
-              
-              <td class="p-4 pl-6">
-                <div class="h-12 w-12 rounded-lg bg-slate-100 overflow-hidden border border-slate-200 flex items-center justify-center text-slate-400">
-                  <img 
-                    src="/assets/aset-tetap/{{ asset.img }}" 
-                    alt="{{ asset.title }}" 
-                    class="h-full w-full object-cover"
-                    onerror="this.onerror=null; this.src='https://placehold.co/100x100?text=Aset';"
-                  >
-                </div>
-              </td>
+            <tr class="hover:bg-slate-50 transition-colors duration-150">              
               
               <td class="p-4 font-semibold text-slate-900">
                 {{ asset.title }}
-                <span class="block md:hidden text-xs text-slate-400 font-normal mt-0.5">ID: {{ asset.id }}</span>
+                <span class="block text-xs text-slate-400 font-normal mt-0.5">{{ asset.nominal }}</span>
               </td>
               
               <td class="p-4 font-semibold text-slate-900">
-                {% if asset.merk %}
-                 {{ asset.merk }}
-                {% else %}
-                 Tanpa Merk
-                {% endif %}
-              </td>
-
-              <td class="p-4 text-center font-medium">
-                {% if asset.tgl_beli %}
-                 {{ asset.tgl_beli }}
+                {% if asset.bayar %}
+                 {{ asset.bayar }}
                 {% else %}
                  -
                 {% endif %}
               </td>
-  
               
               <td class="p-4 text-center font-medium">
                 {{ asset.tgl }}
