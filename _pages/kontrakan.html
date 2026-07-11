@@ -22,7 +22,8 @@ permalink: /kontrakan/
             <th class="p-4">
               Bulan/Tahun
             </th>
-            <th class="p-4 text-center">Noninal Pembayaran</th>
+            <th class="p-4 text-center">Tgl Pembayaran</th>
+            <th class="p-4 text-right pr-6">Nominal Yang Di Bayarkan</th>
             <th class="p-4 text-right pr-6">Bukti</th>
           </tr>
         </thead>
@@ -34,15 +35,7 @@ permalink: /kontrakan/
               <td class="p-4 font-semibold text-slate-900">
                 {{ asset.title }}
                 <span class="block text-xs text-slate-400 font-normal mt-0.5">{{ asset.nominal }}</span>
-              </td>
-              
-              <td class="p-4 font-semibold text-slate-900">
-                {% if asset.bayar %}
-                 {{ asset.bayar }}
-                {% else %}
-                 -
-                {% endif %}
-              </td>
+              </td>             
               
               <td class="p-4 text-center font-medium">
                 {{ asset.tgl }}
@@ -55,7 +48,13 @@ permalink: /kontrakan/
                   {{ asset.nominal }}
                 {% endif %}
               </td>
-              
+              <td class="p-4 text-right pr-6 font-mono font-medium {% if asset.harga_beli == 'Rp. 0' %}text-slate-400 italic{% else %}text-slate-900{% endif %}">
+                {% if asset.bukti %}
+                  {{ aset.bukti }}
+                {% else %}
+                  Tidak Ada
+                {% endif %}
+              </td>              
             </tr>
           {% endfor %}
         </tbody>
