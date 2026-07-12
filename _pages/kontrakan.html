@@ -4,31 +4,36 @@ title: Admin Portal
 permalink: /kontrakan/
 ---
 
-    <div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center border border-gray-100">
-        <h2 class="text-2xl font-bold text-gray-800 mb-2">Admin Portal</h2>
-        <p class="text-sm text-gray-500 mb-6">Authorized access only.</p>
-        
-        <div id="g_id_onload"
-             data-client_id="898344011342-h2aklpah9usaefsk69lsvjh556ctd1qm.apps.googleusercontent.com"
-             data-callback="handleCredentialResponse"
-             data-auto_prompt="false">
-        </div>
-        
-        <div class="flex justify-center mb-4">
-            <div class="g_id_signin" data-type="standard font-medium"></div>
-        </div>
+<div class="max-w-md w-full bg-white rounded-2xl shadow-xl p-8 text-center border border-gray-100 mx-auto mt-10">
+    <h2 class="text-2xl font-bold text-gray-800 mb-2">Admin Portal</h2>
+    <p class="text-sm text-gray-500 mb-6">Authorized access only.</p>
+    
+    <div id="g_id_onload"
+         data-client_id="898344011342-h2aklpah9usaefsk69lsvjh556ctd1qm.apps.googleusercontent.com"
+         data-callback="handleCredentialResponse"
+         data-auto_prompt="false">
+    </div>
+    
+    <div class="flex justify-center mb-4">
+        <div class="g_id_signin" data-type="standard font-medium"></div>
+    </div>
 
-        <div id="user-profile" class="hidden flex-col items-center p-4 bg-gray-50 rounded-xl border border-gray-200 mb-6 animate-fade-in">
-            <img id="user-avatar" src="" alt="Profile Picture" class="w-16 h-16 rounded-full border-2 border-indigo-500 shadow-sm mb-3">
-            <div id="user-name" class="font-semibold text-gray-800 text-lg"></div>
-            <div id="user-email" class="text-sm text-gray-500"></div>
-        </div>
+    <div id="user-profile" class="hidden flex-col items-center p-4 bg-gray-50 rounded-xl border border-gray-200 mb-6 animate-fade-in">
+        <img id="user-avatar" src="" alt="Profile Picture" class="w-16 h-16 rounded-full border-2 border-indigo-500 shadow-sm mb-3">
+        <div id="user-name" class="font-semibold text-gray-800 text-lg"></div>
+        <div id="user-email" class="text-sm text-gray-500"></div>
+    </div>
 
-        <div id="error-message" class="hidden p-4 mb-4 text-sm text-red-700 bg-red-50 rounded-xl border border-red-200 font-medium">
-            Access Denied: Welcome! Your email is not authorized to view this content.
-        </div>
+    <div id="error-message" class="hidden p-4 mb-4 text-sm text-red-700 bg-red-50 rounded-xl border border-red-200 font-medium">
+        Access Denied: Welcome! Your email is not authorized to view this content.
+    </div>
 
-<div id="hidden-content" class="max-w-7xl mx-auto px-4 py-8">
+    <button id="logout-btn" class="hidden mt-6 px-5 py-2.5 w-full bg-red-500 hover:bg-red-600 text-white font-medium text-sm rounded-xl transition duration-200 shadow-sm" onclick="logout()">
+        Log Out
+    </button>
+</div>
+
+<div id="hidden-content" class="hidden max-w-7xl mx-auto px-4 py-8">
   
   <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
     <div>
@@ -44,12 +49,9 @@ permalink: /kontrakan/
   <div class="w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
     <div class="overflow-x-auto">
       <table class="w-full text-left border-collapse whitespace-nowrap">
-        
         <thead>
           <tr class="bg-slate-50 border-b border-slate-200 text-xs font-semibold text-slate-600 uppercase tracking-wider">
-            <th class="p-4">
-              Bulan/Tahun
-            </th>
+            <th class="p-4">Bulan/Tahun</th>
             <th class="p-4 text-center">Tgl Pemb.</th>
             <th class="p-4 text-right pr-6">Nominal Pemb. Masuk</th>
             <th class="p-4 text-right pr-6">Bukti</th>
@@ -61,135 +63,99 @@ permalink: /kontrakan/
         <tbody class="divide-y divide-slate-200 text-sm text-slate-700">
           {% for asset in site.data.kontrakan.kontrakan %}
             <tr class="hover:bg-slate-50 transition-colors duration-150">              
-              
-              <td class="p-4 font-semibold text-slate-900">
-                {{ asset.title }}
-              </td>             
-              
-              <td class="p-4 text-center font-medium">
-                {{ asset.tgl }}
-              </td>
-              
+              <td class="p-4 font-semibold text-slate-900">{{ asset.title }}</td>             
+              <td class="p-4 text-center font-medium">{{ asset.tgl }}</td>
               <td class="p-4 text-right pr-6 font-mono font-medium {% if asset.harga_beli == 'Rp. 0' %}text-slate-400 italic{% else %}text-slate-900{% endif %}">
-                {% if asset.bayar == 'Rp. 0' %}
-                  Rp. 0
-                {% else %}
-                  {{ asset.bayar }}
-                {% endif %}
+                {% if asset.bayar == 'Rp. 0' %} Rp. 0 {% else %} {{ asset.bayar }} {% endif %}
               </td>
-              
               <td class="p-4 text-right pr-6 font-mono font-medium {% if asset.harga_beli == 'Rp. 0' %}text-slate-400 italic{% else %}text-slate-900{% endif %}">
-                {% if asset.bukti %}
-                  {{ asset.bukti }}
-                {% else %}
-                  Tidak Ada
-                {% endif %}
+                {% if asset.bukti %} {{ asset.bukti }} {% else %} Tidak Ada {% endif %}
                 <br/>
                 {% if asset.img %}
                 <a class="text-blue-600" href="/assets/kontrakan/{{ asset.img }}">Lihat bukti</a>
                 {% endif %}
               </td>      
-
-              <td class="p-4 text-left font-medium">
-                {{ asset.metode }}
-              </td>
-              
-              <td class="p-4 text-left font-medium">
-                {{ asset.desc }}
-              </td>
+              <td class="p-4 text-left font-medium">{{ asset.metode }}</td>
+              <td class="p-4 text-left font-medium">{{ asset.desc }}</td>
             </tr>
           {% endfor %}
         </tbody>
-
       </table>
     </div>
   </div>
 </div>        
 
-        <button id="logout-btn" class="hidden mt-6 px-5 py-2.5 w-full bg-red-500 hover:bg-red-600 text-white font-medium text-sm rounded-xl transition duration-200 shadow-sm" onclick="logout()">
-            Log Out
-        </button>
-    </div>
+<script>
+    const ALLOWED_EMAILS = [
+        "saadahemail@gmail.com",       
+        "dapoerela85@gmail.com"
+    ];
 
-    <script>
-        // 1. Define your list of allowed Gmail addresses
-        const ALLOWED_EMAILS = [
-                   "saadahemail@gmail.com",       "dapoerela85@gmail.com"
-        ];
+    function parseJwt(token) {
+        var base64Url = token.split('.')[1];
+        var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+        var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
+            return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        }).join(''));
+        return JSON.parse(jsonPayload);
+    }
 
-        // Helper function to decode the Google JWT Token
-        function parseJwt(token) {
-            var base64Url = token.split('.')[1];
-            var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
-            var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function(c) {
-                return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
-            }).join(''));
-            return JSON.parse(jsonPayload);
-        }
-
-        // Check if the user is already logged in when the page loads
-        window.onload = function() {
-            const isAuthorized = localStorage.getItem("isAuthorized");
-            if (isAuthorized === "true") {
-                const name = localStorage.getItem("userName");
-                const email = localStorage.getItem("userEmail");
-                const picture = localStorage.getItem("userPicture");
-                
-                showSecretContent(name, email, picture);
-            }
-        };
-
-        // Helper function to show the hidden content and user info
-        function showSecretContent(name, email, picture) {
-            document.getElementById("user-name").innerText = name || "";
-            document.getElementById("user-email").innerText = email || "";
-            document.getElementById("user-avatar").src = picture || "";
+    window.onload = function() {
+        const isAuthorized = localStorage.getItem("isAuthorized");
+        if (isAuthorized === "true") {
+            const name = localStorage.getItem("userName");
+            const email = localStorage.getItem("userEmail");
+            const picture = localStorage.getItem("userPicture");
             
-            // Toggle classes to handle display using Tailwind's 'flex/block' and 'hidden'
-            document.getElementById("user-profile").classList.remove("hidden");
-            document.getElementById("user-profile").classList.add("flex");
-            document.getElementById("hidden-content").classList.remove("hidden");
-            document.getElementById("logout-btn").classList.remove("hidden");
-            document.getElementById("error-message").classList.add("hidden");
+            showSecretContent(name, email, picture);
+        }
+    };
+
+    function showSecretContent(name, email, picture) {
+        document.getElementById("user-name").innerText = name || "";
+        document.getElementById("user-email").innerText = email || "";
+        document.getElementById("user-avatar").src = picture || "";
+        
+        document.getElementById("user-profile").classList.remove("hidden");
+        document.getElementById("user-profile").classList.add("flex");
+        document.getElementById("hidden-content").classList.remove("hidden");
+        document.getElementById("logout-btn").classList.remove("hidden");
+        document.getElementById("error-message").classList.add("hidden");
+        
+        const signInBtn = document.querySelector(".g_id_signin");
+        if (signInBtn) signInBtn.classList.add("hidden");
+    }
+
+    function handleCredentialResponse(response) {
+        const responsePayload = parseJwt(response.credential);
+        const userEmail = responsePayload.email;
+
+        if (ALLOWED_EMAILS.includes(userEmail.toLowerCase())) {
+            const userName = responsePayload.name;
+            const userPicture = responsePayload.picture;
+
+            localStorage.setItem("isAuthorized", "true");
+            localStorage.setItem("userName", userName);
+            localStorage.setItem("userEmail", userEmail);
+            localStorage.setItem("userPicture", userPicture);
             
-            const signInBtn = document.querySelector(".g_id_signin");
-            if (signInBtn) signInBtn.classList.add("hidden");
-        }
-
-        // 2. Handle the Google Login Response
-        function handleCredentialResponse(response) {
-            const responsePayload = parseJwt(response.credential);
-            const userEmail = responsePayload.email;
-
-            // 3. Authorization Check
-            if (ALLOWED_EMAILS.includes(userEmail.toLowerCase())) {
-                const userName = responsePayload.name;
-                const userPicture = responsePayload.picture;
-
-                localStorage.setItem("isAuthorized", "true");
-                localStorage.setItem("userName", userName);
-                localStorage.setItem("userEmail", userEmail);
-                localStorage.setItem("userPicture", userPicture);
-                
-                showSecretContent(userName, userEmail, userPicture);
-            } else {
-                clearSession();
-                document.getElementById("error-message").classList.remove("hidden");
-            }
-        }
-
-        // Clear everything out of memory
-        function clearSession() {
-            localStorage.removeItem("isAuthorized");
-            localStorage.removeItem("userName");
-            localStorage.removeItem("userEmail");
-            localStorage.removeItem("userPicture");
-            google.accounts.id.disableAutoSelect();
-        }
-
-        // 4. Handle Logout
-        function logout() {
+            showSecretContent(userName, userEmail, userPicture);
+        } else {
             clearSession();
-            location.reload();
+            document.getElementById("error-message").classList.remove("hidden");
         }
-                  </script>
+    }
+
+    function clearSession() {
+        localStorage.removeItem("isAuthorized");
+        localStorage.removeItem("userName");
+        localStorage.removeItem("userEmail");
+        localStorage.removeItem("userPicture");
+        google.accounts.id.disableAutoSelect();
+    }
+
+    function logout() {
+        clearSession();
+        location.reload();
+    }
+</script>
