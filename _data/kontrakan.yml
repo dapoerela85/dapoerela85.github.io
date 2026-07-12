@@ -3,7 +3,6 @@ kontrakan:
     title: Oktober 2025
     tgl: 25 Sept 2025
     metode: Cash
-    nominal: Rp. 750.000
     bayar: Rp. 750.000
     desc: "25 sept 2025 bayar dp sebesar Rp.200.000 untuk mengontrak di bulan Oktober, dan sisa pembayaran Rp. 550.000."
     bukti: Tidak ada
@@ -12,7 +11,6 @@ kontrakan:
     title: November 2025
     tgl: 02 Nov 2025
     metode: Transfer Bank BCA    
-    nominal: Rp. 750.000
     bayar: Rp. 750.000
     desc: "Pembayaran kontrakan untuk bulan November 2025." # KOREKSI: Sebelumnya tertulis September
     bukti: Ada
@@ -21,7 +19,6 @@ kontrakan:
     title: Desember 2025
     tgl: 11 Des 2025
     metode: Transfer BRI
-    nominal: Rp. 750.000 
     bayar: Rp. 750.000     
     desc: "Pembayaran kontrakan bulan desember 2025"
     bukti: Ada
@@ -31,7 +28,6 @@ kontrakan:
     title: Januari 2026
     tgl: "-"
     metode: Cash    
-    nominal: Rp. 750.000
     bayar: Rp. 0
     desc: "Belum ada data pembayaran"
     bukti: Tidak Ada
@@ -40,7 +36,6 @@ kontrakan:
     title: Februari 2026
     tgl: "-"
     metode: Cash
-    nominal: Rp. 750.000
     bayar: Rp. 0
     desc: "Belum ada data pembayaran"
     bukti: Tidak Ada
@@ -49,7 +44,6 @@ kontrakan:
     title: Maret 2026
     tgl: "-"
     metode: Cash
-    nominal: Rp. 750.000
     bayar: Rp. 0
     desc: "Belum ada data pembayaran"
     bukti: Tidak Ada
@@ -58,28 +52,25 @@ kontrakan:
     title: April 2026
     tgl: 12 April 2026
     metode: Transfer BCA
-    nominal: Rp. 750.000 
     bayar: Rp. 750.000
-    desc: "Pembayaran kontrakan bulan April 2026"
+    desc: "Pembayaran kontrakan untuk bulan April 2026"
     bukti: Ada
     img: kon-12-april-26.jpg
 
   - id: mei-2026
     title: Mei 2026
     tgl: 27 Mei 2026
-    metode: "-"
-    nominal: Rp. 750.000 
+    metode: "-" 
     bayar: Rp. 450.000
-    desc: "Pembayaran bulan Mei 2026 (Kurang Rp. 300.000)"
+    desc: "Pembayaran kontrakan untuk bulan Mei 2026 (Kurang Rp. 300.000)"
     bukti: Tidak Ada
     
   - id: juni-2026
     title: Juni 2026
     tgl: "20 Juni 2026"
     metode: Cash
-    nominal: Rp. 750.000 
     bayar: Rp. 700.000
-    desc: "Pembayaran kontrakan bulan Juni 2026"
+    desc: "Pembayaran kontrakan untuk bulan Juni 2026 (Kurang Rp. 50.000)."
     bukti: Ada
     img: kon-20-juni-26.jpg
     
@@ -87,8 +78,7 @@ kontrakan:
     title: Juli 2026
     tgl: 11 Juli 2026
     metode: Transfer
-    nominal: Rp. 750.000 
     bayar: Rp. 700.000
-    desc: "Pembayaran bulan Juli 2026 (Kurang Rp. 50.000)"
+    desc: "Pembayaran kontrakan untuk bulan Juli 2026 (Kurang Rp. 50.000)."
     bukti: Ada
     img: kon-10-juli-26.jpg
