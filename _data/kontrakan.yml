@@ -59,11 +59,12 @@ kontrakan:
 
   - id: mei-2026
     title: Mei 2026
-    tgl: 27 Mei 2026
-    metode: "-" 
+    tgl: 21 Mei 2026
+    metode: "Transfer" 
     bayar: Rp. 450.000
     desc: "Pembayaran kontrakan untuk bulan Mei 2026 (Kurang Rp. 300.000)"
-    bukti: Tidak Ada
+    bukti: Ada
+    img: kon-21-mei-26.jpg
     
   - id: juni-2026
     title: Juni 2026
