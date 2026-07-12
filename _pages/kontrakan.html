@@ -25,6 +25,7 @@ permalink: /kontrakan/
             <th class="p-4 text-center">Tgl Pemb.</th>
             <th class="p-4 text-right pr-6">Nominal</th>
             <th class="p-4 text-right pr-6">Bukti</th>
+            <th class="p-4 text-right pr-6">Metode Pemb.</th>
             <th class="p-4 text-center pr-6">Keterangan</th>
           </tr>
         </thead>
@@ -62,9 +63,12 @@ permalink: /kontrakan/
               </td>      
 
               <td class="p-4 text-left font-medium">
-                {{ asset.desc }}
+                {{ asset.metode }}
               </td>
               
+              <td class="p-4 text-left font-medium">
+                {{ asset.desc }}
+              </td>
             </tr>
           {% endfor %}
         </tbody>
