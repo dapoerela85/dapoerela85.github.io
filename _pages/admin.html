@@ -3,14 +3,6 @@ layout: default
 title: Admin
 permalink: /admin/
 ---
-    <script src="https://accounts.google.com/gsi/client" async defer></script>
-    
-    <style>
-        #hidden-content { display: none; }
-        #error-message { display: none; }
-        .btn-logout { display: none; margin-top: 20px; padding: 10px 20px; background-color: #f44336; color: white; border: none; cursor: pointer; border-radius: 4px; }
-    </style>
-    
     <div id="g_id_onload"
          data-client_id="898344011342-h2aklpah9usaefsk69lsvjh556ctd1qm.apps.googleusercontent.com"
          data-callback="handleCredentialResponse"
@@ -25,8 +17,7 @@ permalink: /admin/
 
     <div id="error-message">Access Denied: Your email is not authorized to view this content.</div>
 
-    <div id="hidden-content">
-<div class="max-w-7xl mx-auto px-4 py-8">
+<div id="hidden-content" class="max-w-7xl mx-auto px-4 py-8">
   
   <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between">
     <div>
@@ -103,8 +94,6 @@ permalink: /admin/
     </div>
   </div>
 </div>        
-
-    </div>
 
 <script>
     // 1. Define your list of allowed Gmail addresses
