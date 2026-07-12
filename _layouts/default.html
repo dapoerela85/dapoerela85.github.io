@@ -51,6 +51,8 @@
 <link rel="apple-touch-icon" href="/assets/icons/icon-192.png">
 <script src="https://cdn.tailwindcss.com"></script>
 <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+     
     <style>
         /* Custom B&W overrides for a true minimalist feel */
         :root[data-theme="light"] {
@@ -89,6 +91,9 @@
             scrollbar-width: none;
         }
     }
+        #hidden-content { display: none; }
+        #error-message { display: none; }
+        .btn-logout { display: none; margin-top: 20px; padding: 10px 20px; background-color: #f44336; color: white; border: none; cursor: pointer; border-radius: 4px; }        
     </style>
 </head>
 <body class="min-h-screen bg-base-100 text-base-content font-sans transition-colors duration-300">
