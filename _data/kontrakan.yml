@@ -75,12 +75,13 @@ kontrakan:
     
   - id: juni-2026
     title: Juni 2026
-    tgl: "-"
+    tgl: "20 Juni 2026"
     metode: Cash
     nominal: Rp. 750.000 
-    bayar: Rp. 0
-    desc: "Belum bayar"
-    bukti: Tidak Ada
+    bayar: Rp. 700.000
+    desc: "Pembayaran kontrakan bulan Juni 2026"
+    bukti: Ada
+    img: kon-20-juni-26.jpg
     
   - id: juli-2026
     title: Juli 2026
