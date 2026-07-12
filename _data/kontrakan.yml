@@ -25,6 +25,7 @@ kontrakan:
     bayar: Rp. 750.000     
     desc: "Pembayaran kontrakan bulan desember 2025"
     bukti: Ada
+    img: kon-11-des-25
 
   - id: januari-2026
     title: Januari 2026
@@ -61,6 +62,7 @@ kontrakan:
     bayar: Rp. 750.000
     desc: "Pembayaran kontrakan bulan April 2026"
     bukti: Ada
+    img: kon-12-april-26.jpg
 
   - id: mei-2026
     title: Mei 2026
@@ -88,3 +90,4 @@ kontrakan:
     bayar: Rp. 700.000
     desc: "Pembayaran bulan Juli 2026 (Kurang Rp. 50.000)"
     bukti: Ada
+    img: kon-10-juli-26.jpg
