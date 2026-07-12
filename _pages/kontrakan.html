@@ -116,14 +116,14 @@ permalink: /kontrakan/
         document.getElementById("user-email").innerText = email || "";
         document.getElementById("user-avatar").src = picture || "";
         
-        document.getElementById("user-profile").classList.remove("hidden");
-        document.getElementById("user-profile").classList.add("flex");
-        document.getElementById("hidden-content").classList.remove("hidden");
-        document.getElementById("logout-btn").classList.remove("hidden");
-        document.getElementById("error-message").classList.add("hidden");
+        // FOOLPROOF FIX: Force display styles directly via JavaScript 
+        document.getElementById("user-profile").style.setProperty("display", "flex", "important");
+        document.getElementById("hidden-content").style.setProperty("display", "block", "important");
+        document.getElementById("logout-btn").style.setProperty("display", "block", "important");
+        document.getElementById("error-message").style.setProperty("display", "none", "important");
         
         const signInBtn = document.querySelector(".g_id_signin");
-        if (signInBtn) signInBtn.classList.add("hidden");
+        if (signInBtn) signInBtn.style.setProperty("display", "none", "important");
     }
 
     function handleCredentialResponse(response) {
@@ -142,7 +142,7 @@ permalink: /kontrakan/
             showSecretContent(userName, userEmail, userPicture);
         } else {
             clearSession();
-            document.getElementById("error-message").classList.remove("hidden");
+            document.getElementById("error-message").style.setProperty("display", "block", "important");
         }
     }
 
@@ -159,3 +159,5 @@ permalink: /kontrakan/
         location.reload();
     }
 </script>
+    
+
