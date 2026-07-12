@@ -23,10 +23,10 @@ permalink: /kontrakan/
               Bulan/Tahun
             </th>
             <th class="p-4 text-center">Tgl Pemb.</th>
-            <th class="p-4 text-right pr-6">Nominal</th>
+            <th class="p-4 text-right pr-6">Nominal Pemb. Masuk</th>
             <th class="p-4 text-right pr-6">Bukti</th>
             <th class="p-4 text-right pr-6">Metode Pemb.</th>
-            <th class="p-4 text-center pr-6">Keterangan</th>
+            <th class="p-4 text-text-left pr-6">Keterangan</th>
           </tr>
         </thead>
         
@@ -50,6 +50,7 @@ permalink: /kontrakan/
                   {{ asset.bayar }}
                 {% endif %}
               </td>
+              
               <td class="p-4 text-right pr-6 font-mono font-medium {% if asset.harga_beli == 'Rp. 0' %}text-slate-400 italic{% else %}text-slate-900{% endif %}">
                 {% if asset.bukti %}
                   {{ asset.bukti }}
