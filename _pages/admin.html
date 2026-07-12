@@ -3,12 +3,6 @@ layout: default
 title: Admin
 permalink: /admin/
 ---
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restricted Google Login</title>
     <script src="https://accounts.google.com/gsi/client" async defer></script>
     
     <style>
@@ -17,10 +11,6 @@ permalink: /admin/
         #error-message { display: none; margin-top: 20px; color: red; font-weight: bold; }
         .btn-logout { display: none; margin-top: 20px; padding: 10px 20px; background-color: #f44336; color: white; border: none; cursor: pointer; border-radius: 4px; }
     </style>
-</head>
-<body>
-
-    <h2>Exclusive Content Portal</h2>
     
     <div id="g_id_onload"
          data-client_id="898344011342-h2aklpah9usaefsk69lsvjh556ctd1qm.apps.googleusercontent.com"
@@ -40,6 +30,7 @@ permalink: /admin/
         <h3>🎉 Welcome to the Secret Club!</h3>
         <p>This content is highly classified and only visible to specific Gmail users.</p>
     </div>
+
 <script>
     // 1. Define your list of allowed Gmail addresses
     const ALLOWED_EMAILS = [
@@ -118,5 +109,3 @@ permalink: /admin/
         location.reload();
     }
 </script>
-</body>
-</html>
