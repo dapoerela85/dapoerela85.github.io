@@ -9,7 +9,11 @@ permalink: /api/posts.json
     "date": "{{ post.date | date_to_xmlschema }}",
     "url": {{ post.url | absolute_url | jsonify }},
     "categories": {{ post.categories | jsonify }},
-    "tags": {{ post.tags | jsonify }},
+    "price": {{ post.price | jsonify }},
+    "weight": {{ weight.tags | jsonify }},
+    "img": {{ post.img | jsonify }},
+    "in_stock": {{ post.tags | jsonify }},
+    "packaging": {{ post.tags | jsonify }},
     "excerpt": {{ post.excerpt | strip_html | strip_newlines | jsonify }},
     "content": {{ post.content | strip_html | strip_newlines | jsonify }}
   }{% unless forloop.last %},{% endunless %}
