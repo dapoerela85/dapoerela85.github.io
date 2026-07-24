@@ -10,10 +10,10 @@ permalink: /api/posts.json
     "url": {{ post.url | absolute_url | jsonify }},
     "categories": {{ post.categories | jsonify }},
     "price": {{ post.price | jsonify }},
-    "weight": {{ weight.tags | jsonify }},
+    "weight": {{ post.weight | jsonify }},
     "img": {{ post.img | jsonify }},
-    "in_stock": {{ post.tags | jsonify }},
-    "packaging": {{ post.tags | jsonify }},
+    "in_stock": {{ post.in_stock | jsonify }},
+    "packaging": {{ post.packaging | jsonify }},
     "excerpt": {{ post.excerpt | strip_html | strip_newlines | jsonify }},
     "content": {{ post.content | strip_html | strip_newlines | jsonify }}
   }{% unless forloop.last %},{% endunless %}
