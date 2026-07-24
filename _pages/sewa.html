@@ -1,0 +1,307 @@
+---
+layout: default
+title: Konfirmasi Pembayaran Sewa Online
+permalink: /sewa/
+---
+
+  <!-- TOAST NOTIFICATION CONTAINER (Di Luar Flow Utama) -->
+  <div id="toastContainer" class="fixed top-5 right-5 z-50 flex flex-col gap-3 max-w-sm w-full px-4 pointer-events-none"></div>
+
+  <!-- Card Container -->
+  <div class="w-full max-w-lg bg-white rounded-2xl shadow-xl border border-slate-100 p-6 sm:p-8">
+    
+    <!-- Header -->
+    <div class="mb-6 text-center">
+      <h2 class="text-2xl font-bold text-slate-800">Konfirmasi Pembayaran Sewa</h2>
+      <p class="text-sm text-slate-500 mt-1">Silakan lengkapi form di bawah ini setelah melakukan transfer.</p>
+    </div>
+
+    <!-- Form -->
+    <form id="paymentForm" class="space-y-5">
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-semibold text-slate-700 mb-1.5">Email</label>
+        <input 
+          id="email" 
+          name="Email" 
+          type="email" 
+          placeholder="nama@email.com" 
+          required 
+          class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-150"
+        />
+      </div>
+
+      <!-- Nama Lengkap -->
+      <div>
+        <label for="name" class="block text-sm font-semibold text-slate-700 mb-1.5">Nama Lengkap</label>
+        <input 
+          id="name" 
+          name="Name" 
+          type="text" 
+          placeholder="Nama Lengkap Anda" 
+          required 
+          class="w-full px-4 py-2.5 rounded-lg border border-slate-300 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-150"
+        />
+      </div>
+
+<!-- Select Rekening Tujuan -->
+<div>
+  <label for="bank" class="block text-sm font-semibold text-slate-700 mb-1.5">Transfer Ke</label>
+  <div class="relative">
+    <select 
+      id="bank" 
+      name="Bank" 
+      required 
+      onchange="handleBankChange(event)"
+      class="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-white text-slate-800 appearance-none focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-150"
+    >
+      <option value="" disabled selected>-- Pilih Bank / E-Wallet --</option>
+      <!-- Tambahkan data-account & data-holder -->
+      <option value="Seabank Pepen Abdul Govur" data-account="901401055638" data-holder="Pepen Abdul Govur">Seabank - Pepen Abdul Govur</option>
+      <option value="Seabank Ela Susila" data-account="901980140640" data-holder="Ela Susila">Seabank - Ela Susila</option>
+      <option value="BSI Toko Dapoer Ela 85" data-account="7295281582" data-holder="Toko Dapoer Ela 85">BSI - Toko Dapoer Ela 85</option>
+      <option value="Gopay Toko Dapoer Ela 85" data-account="085172211985" data-holder="Toko Dapoer Ela 85">Gopay - Toko Dapoer Ela 85</option>
+    </select>
+    <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-slate-500">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+      </svg>
+    </div>
+  </div>
+
+  <!-- Box Informasi Rekening & Tombol Copy (Muncul Otomatis) -->
+  <div id="accountInfoBox" class="hidden mt-3 p-3.5 bg-emerald-50/70 border border-emerald-200 rounded-lg flex items-center justify-between gap-3">
+    <div>
+      <p class="text-xs text-slate-500 font-medium">Nomor Rekening / HP:</p>
+      <p id="accountNumberDisplay" class="text-base font-bold text-slate-800 tracking-wide">0000000000</p>
+      <p id="accountHolderDisplay" class="text-xs text-emerald-700 font-semibold mt-0.5">a.n -</p>
+    </div>
+    
+    <button 
+      type="button" 
+      id="copyBtn" 
+      onclick="copyAccountNumber()" 
+      class="flex items-center gap-1.5 px-3 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-md shadow-sm transition duration-150 flex-shrink-0"
+    >
+      <!-- Icon Copy -->
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+      </svg>
+      <span id="copyBtnText">Salin</span>
+    </button>
+  </div>
+</div>
+
+      <!-- Jumlah Transfer -->
+      <div>
+        <label for="amount" class="block text-sm font-semibold text-slate-700 mb-1.5">Jumlah Transfer (Tanpa Koma/Titik)</label>
+        <div class="relative">
+          <span class="absolute inset-y-0 left-0 flex items-center pl-4 text-slate-400 font-medium">Rp</span>
+          <input 
+            id="amount" 
+            name="Amount" 
+            type="number" 
+            placeholder="Cth. 750000" 
+            required 
+            class="w-full pl-11 pr-4 py-2.5 rounded-lg border border-slate-300 text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition duration-150"
+          />
+        </div>
+      </div>
+
+      <!-- File Upload & Preview -->
+      <div>
+        <label class="block text-sm font-semibold text-slate-700 mb-1.5">Bukti Transfer</label>
+        <label for="proofFile" class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-300 rounded-lg cursor-pointer bg-slate-50 hover:bg-slate-100 transition duration-150">
+          <div class="flex flex-col items-center justify-center pt-5 pb-6">
+            <svg class="w-8 h-8 mb-2 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+            </svg>
+            <p class="text-xs text-slate-500"><span class="font-semibold text-emerald-600">Klik untuk upload</span> bukti pembayaran</p>
+            <p class="text-[10px] text-slate-400 mt-1">PNG, JPG, atau WEBP</p>
+          </div>
+          <input id="proofFile" type="file" accept="image/*" class="hidden" onchange="previewImage(event)" />
+        </label>
+
+        <!-- Preview Image -->
+        <div id="imagePreviewContainer" class="hidden mt-3 p-2 bg-slate-100 rounded-lg border border-slate-200">
+          <p class="text-xs font-medium text-slate-600 mb-2">Review Gambar:</p>
+          <img id="imagePreview" src="" alt="Preview Bukti" class="max-h-48 rounded border border-slate-300 mx-auto object-contain" />
+        </div>
+      </div>
+
+      <!-- URL Bukti -->
+      <div>
+        <label for="proofUrl" class="block text-sm font-semibold text-slate-700 mb-1.5">URL Bukti Transfer</label>
+        <input 
+          id="proofUrl" 
+          name="Proof" 
+          type="url" 
+          placeholder="https://..." 
+          required 
+          readonly
+          class="w-full px-4 py-2.5 rounded-lg border border-slate-300 bg-slate-50 text-slate-600 text-sm placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500 transition duration-150"
+        />
+      </div>
+
+      <!-- Submit Button -->
+      <button 
+        type="submit" 
+        id="submitBtn"
+        class="w-full mt-2 bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-4 rounded-lg shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 transition duration-150 flex items-center justify-center gap-2"
+      >
+        <span>Kirim Konfirmasi</span>
+      </button>
+
+    </form>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // 1. Fungsi Preview Gambar
+    function previewImage(event) {
+      const file = event.target.files[0];
+      const previewContainer = document.getElementById('imagePreviewContainer');
+      const previewImage = document.getElementById('imagePreview');
+      const proofUrlInput = document.getElementById('proofUrl');
+
+      if (file) {
+        const objectUrl = URL.createObjectURL(file);
+        previewImage.src = objectUrl;
+        previewContainer.classList.remove('hidden');
+        proofUrlInput.value = objectUrl;
+      } else {
+        previewContainer.classList.add('hidden');
+        previewImage.src = '';
+        proofUrlInput.value = '';
+      }
+    }
+
+    // 2. Fungsi Toast Notification Kustom
+    function showNotification(type, title, message) {
+      const container = document.getElementById('toastContainer');
+      
+      // Buat elemen toast
+      const toast = document.createElement('div');
+      toast.className = `pointer-events-auto flex items-start p-4 rounded-xl shadow-lg border text-sm transition-all duration-300 transform translate-y-[-10px] opacity-0 ${
+        type === 'success' 
+          ? 'bg-emerald-50 border-emerald-200 text-emerald-900' 
+          : 'bg-rose-50 border-rose-200 text-rose-900'
+      }`;
+
+      // Icon berdasarkan status
+      const icon = type === 'success' 
+        ? `<svg class="w-5 h-5 text-emerald-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`
+        : `<svg class="w-5 h-5 text-rose-600 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+
+      toast.innerHTML = `
+        ${icon}
+        <div class="flex-1">
+          <h4 class="font-bold mb-0.5">${title}</h4>
+          <p class="text-xs opacity-90">${message}</p>
+        </div>
+      `;
+
+      container.appendChild(toast);
+
+      // Trigger Animasi Masuk
+      setTimeout(() => {
+        toast.classList.remove('translate-y-[-10px]', 'opacity-0');
+        toast.classList.add('translate-y-0', 'opacity-100');
+      }, 10);
+
+      // Hilangkan otomatis setelah 4 detik
+      setTimeout(() => {
+        toast.classList.remove('translate-y-0', 'opacity-100');
+        toast.classList.add('translate-y-[-10px]', 'opacity-0');
+        setTimeout(() => toast.remove(), 300);
+      }, 4000);
+    }
+
+    // 3. Submit Handler via Fetch
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyDXjuu4LJShXIU1DfaDo1gkqnZQuFJf-VV3QbXtASLyRUXR1fA_Q_qzuAHfAeiI2g/exec';
+    const form = document.getElementById('paymentForm');
+    const btn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      btn.disabled = true;
+      btn.innerHTML = `
+        <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>
+        <span>Mengirim...</span>
+      `;
+
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          // Panggil Toast Sukses
+          showNotification('success', 'Berhasil Ditambahkan!', 'Konfirmasi pembayaran Anda telah terkirim.');
+          
+          btn.disabled = false;
+          btn.innerHTML = `<span>Kirim Konfirmasi</span>`;
+          form.reset();
+          document.getElementById('imagePreviewContainer').classList.add('hidden');
+        })
+        .catch(error => {
+          // Panggil Toast Gagal
+          showNotification('error', 'Gagal Mengirim!', 'Terjadi kesalahan sistem, silakan coba beberapa saat lagi.');
+          console.error('Error!', error.message);
+          
+          btn.disabled = false;
+          btn.innerHTML = `<span>Kirim Konfirmasi</span>`;
+        });
+    });
+
+let currentAccountNumber = "";
+
+// 1. Fungsi saat pilihan bank berubah
+function handleBankChange(event) {
+  const selectedOption = event.target.options[event.target.selectedIndex];
+  const accountNumber = selectedOption.getAttribute('data-account');
+  const accountHolder = selectedOption.getAttribute('data-holder');
+
+  const infoBox = document.getElementById('accountInfoBox');
+  const numberDisplay = document.getElementById('accountNumberDisplay');
+  const holderDisplay = document.getElementById('accountHolderDisplay');
+
+  if (accountNumber) {
+    currentAccountNumber = accountNumber;
+    numberDisplay.innerText = accountNumber;
+    holderDisplay.innerText = `a.n ${accountHolder}`;
+    infoBox.classList.remove('hidden');
+    
+    // Reset teks tombol salin jika sempat di-copy sebelumnya
+    resetCopyButton();
+  } else {
+    infoBox.classList.add('hidden');
+  }
+}
+
+// 2. Fungsi untuk menyalin nomor rekening ke clipboard
+function copyAccountNumber() {
+  if (!currentAccountNumber) return;
+
+  navigator.clipboard.writeText(currentAccountNumber).then(() => {
+    const copyBtnText = document.getElementById('copyBtnText');
+    copyBtnText.innerText = 'Tersalin!';
+    
+    // Jika Anda memakai fungsi showNotification (Toast) sebelumnya, ini bisa diaktifkan:
+    if (typeof showNotification === 'function') {
+      showNotification('success', 'Berhasil Disalin!', `Nomor ${currentAccountNumber} tersalin ke clipboard.`);
+    }
+
+    setTimeout(() => {
+      resetCopyButton();
+    }, 2000);
+  }).catch(err => {
+    console.error('Gagal menyalin: ', err);
+  });
+}
+
+function resetCopyButton() {
+  const copyBtnText = document.getElementById('copyBtnText');
+  if (copyBtnText) copyBtnText.innerText = 'Salin';
+}
+  </script>
