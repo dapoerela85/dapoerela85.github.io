@@ -7,7 +7,7 @@ category: [camilan]
 weight: "120-150g"
 in_stock: true
 packaging: Standing Pouch
-img: "/assets/products/basreng.jpg"
+img: "/assets/products/index/basreng-index.jpg"
 merk: "Dapoer Ela 85"
 varian:
   rasa: 
