@@ -6,7 +6,158 @@ layout: default
              <a href="/products/" class="hover:opacity-100 transition">Products</a> / 
             <span>{{ page.title }}</span>
         </nav>
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+
+---
+layout: default
+---
+
+<article class="max-w-4xl mx-auto px-4 py-8">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+    
+    <!-- Gambar Utama Produk -->
+    <div class="space-y-4">
+      <div class="aspect-square bg-gray-100 rounded-2xl overflow-hidden shadow-sm border border-gray-200">
+        <img id="main-product-img" src="{{ page.img }}" alt="{{ page.title }}" class="w-full h-full object-cover">
+      </div>
+    </div>
+
+    <!-- Informasi Produk & Varian -->
+    <div class="space-y-6">
+      
+      <!-- Brand & Judul -->
+      <div>
+        <span class="text-xs font-semibold uppercase tracking-wider text-amber-600 bg-amber-50 px-2.5 py-1 rounded-full">
+          {{ page.merk }}
+        </span>
+        <h1 class="text-3xl font-bold text-gray-900 mt-2">{{ page.title }}</h1>
+        
+        <!-- Status Stok & Kategori -->
+        <div class="flex items-center gap-2 mt-2 text-sm text-gray-600">
+          {% if page.in_stock %}
+            <span class="inline-flex items-center text-xs font-medium text-green-700 bg-green-50 px-2 py-0.5 rounded">
+              ● Stok Tersedia
+            </span>
+          {% else %}
+            <span class="inline-flex items-center text-xs font-medium text-red-700 bg-red-50 px-2 py-0.5 rounded">
+              ● Stok Habis
+            </span>
+          {% endif %}
+          <span>•</span>
+          <span class="capitalize">{{ page.category | join: ", " }}</span>
+        </div>
+      </div>
+
+      <!-- Harga Utama -->
+      <div class="border-y border-gray-100 py-3">
+        <span class="text-sm text-gray-500 block">Mulai dari</span>
+        <span class="text-3xl font-extrabold text-red-600">Rp {{ page.price }}</span>
+        <span class="text-xs text-gray-500 ml-1">({{ page.weight }})</span>
+      </div>
+
+      <!-- Varian Rasa -->
+      {% if page.varian.rasa %}
+        <div>
+          <h3 class="text-sm font-semibold text-gray-900 mb-2">Pilihan Rasa:</h3>
+          <div class="flex flex-wrap gap-2">
+            {% for r in page.varian.rasa %}
+              <span class="px-3 py-1.5 text-sm bg-gray-100 text-gray-700 rounded-lg border border-gray-200 font-medium">
+                {{ r.name }}
+              </span>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+      <!-- Varian Kemasan & Ukuran -->
+      {% if page.varian.kemasan %}
+        <div>
+          <h3 class="text-sm font-semibold text-gray-900 mb-2">Pilihan Kemasan & Ukuran:</h3>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {% for k in page.varian.kemasan %}
+              <div class="p-3 border border-gray-200 rounded-xl hover:border-amber-500 transition-all cursor-pointer flex gap-3 items-center bg-white shadow-sm">
+                <img src="{{ k.img }}" alt="{{ k.name }}" class="w-12 h-12 rounded-lg object-cover bg-gray-50">
+                <div>
+                  <p class="text-sm font-bold text-gray-800">{{ k.name }}</p>
+                  <p class="text-xs text-gray-500">{{ k.berat }}</p>
+                  <p class="text-sm font-semibold text-amber-600">
+                    Rp {{ k.harga | number_of_sequence | default: k.harga }}
+                  </p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+  <!-- Detail Legalitas & Perizinan -->
+  {% if page.legalitas %}
+    <div class="mt-12 pt-8 border-t border-gray-200">
+      <h2 class="text-lg font-bold text-gray-900 mb-4">Sertifikasi & Legalitas Produk</h2>
+      
+      <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        
+        <!-- NIB -->
+        {% if page.legalitas.nib %}
+          {% for item in page.legalitas.nib %}
+            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+              <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">NIB</span>
+              <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
+              <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <!-- Halal -->
+        {% if page.legalitas.halal %}
+          {% for item in page.legalitas.halal %}
+            <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
+              <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider block">Sertifikat Halal</span>
+              <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
+              <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <!-- Merk -->
+        {% if page.legalitas.merk %}
+          {% for item in page.legalitas.merk %}
+            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+              <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">Merek Terdaftar</span>
+              <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
+              <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <!-- PIRT -->
+        {% if page.legalitas.pirt %}
+          {% for item in page.legalitas.pirt %}
+            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+              <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">P-IRT / BPOM</span>
+              <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
+              <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+      </div>
+    </div>
+  {% endif %}
+
+  <!-- Konten Tambahan / Deskripsi Post -->
+  {% if content != "" %}
+    <div class="mt-8 prose max-w-none">
+      {{ content }}
+    </div>
+  {% endif %}
+</article>
+
+
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start hidden">
             <div class="space-y-4">
                 <div class="aspect-square bg-base-200 border border-base-content/5 overflow-hidden">
                     <img src="{{ page.img }}" 
