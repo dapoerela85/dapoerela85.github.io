@@ -24,7 +24,7 @@ varian:
       img: /assets/products/keripik-usus.jpg
     - name: Toples Tabung 1 Liter
       berat: 300g
-      harga: 450
+      harga: 45000
       img: /assets/products/usus-toples.jpg
 legalitas:
   nib: 
