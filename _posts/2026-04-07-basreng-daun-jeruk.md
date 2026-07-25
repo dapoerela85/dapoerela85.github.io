@@ -44,6 +44,7 @@ legalitas:
   merk: 
     - nomor: DID2024133737
       instansi: DJKI
+      url: "https://haki.id/merek/DID2024133737"
   pirt: 
     - nomor: Belum ada
       instansi: BPOM
