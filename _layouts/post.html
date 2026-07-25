@@ -121,8 +121,8 @@ layout: default
       <h2 class="text-lg font-bold text-gray-900 mb-4">Sertifikasi & Legalitas Produk</h2>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        {% if site.legalitas.nib %}
-          {% for item in site.legalitas.nib %}
+        {% if site.data.legalitas.nib %}
+          {% for item in site.data.legalitas.nib %}
             <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
               <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">NIB</span>
               <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
@@ -131,8 +131,8 @@ layout: default
           {% endfor %}
         {% endif %}
 
-        {% if site.legalitas.halal %}
-          {% for item in site.legalitas.halal %}
+        {% if site.data.legalitas.halal %}
+          {% for item in site.data.legalitas.halal %}
             <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
               <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider block">Sertifikat Halal</span>
               <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
@@ -141,8 +141,8 @@ layout: default
           {% endfor %}
         {% endif %}
 
-        {% if site.legalitas.merk %}
-          {% for item in site.legalitas.merk %}
+        {% if site.data.legalitas.merk %}
+          {% for item in site.data.legalitas.merk %}
             <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
               <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">Merek Terdaftar</span>
               <a class="text-sm font-bold text-gray-800 block mt-1" href="{{ item.url}}" target="_blank">{{ item.nomor }}</a>
@@ -151,8 +151,8 @@ layout: default
           {% endfor %}
         {% endif %}
 
-        {% if site.legalitas.pirt %}
-          {% for item in site.legalitas.pirt %}
+        {% if site.data.legalitas.pirt %}
+          {% for item in site.data.legalitas.pirt %}
             <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
               <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">P-IRT / BPOM</span>
               <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
