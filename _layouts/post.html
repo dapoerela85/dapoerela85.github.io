@@ -35,7 +35,7 @@ layout: default
           {% endif %}
           <span>•</span>
           {% for category in page.categories %}
-          <a href="{{ site.baseurl }}/category/{{ category | slugify }}">
+          <a class="text-blue-600 hover:underline" href="{{ site.baseurl }}/category/{{ category | slugify }}">
             <span class="capitalize">{{ page.category | join: ", " }}</span>
           </a>
           {% endfor %}
