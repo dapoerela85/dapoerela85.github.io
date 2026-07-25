@@ -19,7 +19,7 @@ varian:
       harga: 5000
       img: /assets/products/makaroni-bantet.jpg
     - name: Plastik Klip PE/PP
-      berat: 350g
+      berat: 300g
       harga: 25000
       img: /assets/products/makaroni-besar.jpg
 legalitas:
