@@ -1,11 +1,7 @@
 ---
 layout: default
 ---
-        <nav class="text-xs uppercase tracking-widest mb-12 opacity-50">
-            <a href="{{ site.url }}" class="hover:opacity-100 transition">Beranda</a> / 
-             <a href="/products/" class="hover:opacity-100 transition">Products</a> / 
-            <span>{{ page.title }}</span>
-        </nav>
+
 <article class="max-w-7xl mx-auto px-4 py-8">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
     
@@ -42,7 +38,7 @@ layout: default
         </div>
       </div>
 
-      <!-- Harga Utama (Dinamis berdasarkan klik) -->
+      <!-- Harga Utama -->
       <div class="border-y border-gray-100 py-3">
         <span id="display-label" class="text-xs text-gray-500 block font-medium">Mulai dari</span>
         <div class="flex items-baseline gap-2">
@@ -69,15 +65,21 @@ layout: default
         </div>
       {% endif %}
 
-      <!-- Varian Kemasan & Ukuran (Interaktif) -->
+      <!-- Varian Kemasan & Ukuran -->
       {% if page.varian.kemasan %}
         <div>
-          <h3 class="text-sm font-semibold text-gray-900 mb-2">Pilihan Kemasan & Ukuran:</h3>
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-sm font-semibold text-gray-900">Pilihan Kemasan & Ukuran:</h3>
+            <span id="variant-alert" class="text-xs font-medium text-amber-600 bg-amber-50 px-2 py-0.5 rounded animate-pulse">
+              ⚠️ Pilih varian untuk membeli
+            </span>
+          </div>
+          
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="variant-container">
             {% for k in page.varian.kemasan %}
               <button 
                 type="button"
-                class="variant-card text-left p-3 border rounded-xl hover:border-amber-500 transition-all cursor-pointer flex gap-3 items-center bg-white shadow-sm focus:outline-none {% if forloop.first %}border-amber-500 ring-2 ring-amber-500/20 bg-amber-50/10{% else %}border-gray-200{% endif %}"
+                class="variant-card text-left p-3 border border-gray-200 rounded-xl hover:border-amber-500 transition-all cursor-pointer flex gap-3 items-center bg-white shadow-sm focus:outline-none"
                 data-img="{{ k.img }}"
                 data-price="{{ k.harga }}"
                 data-weight="{{ k.berat }}"
@@ -97,14 +99,16 @@ layout: default
         </div>
       {% endif %}
 
-      <!-- Tombol Buka Modal Order -->
+      <!-- Tombol Buka Modal Order (Disabled Secara Default) -->
       <div class="pt-2">
         <button 
           type="button" 
+          id="btnPreorder"
+          disabled
           onclick="openOrderModal()" 
-          class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-base">
+          class="w-full bg-gray-300 text-gray-500 font-bold py-3.5 px-6 rounded-xl shadow cursor-not-allowed transition-all flex items-center justify-center gap-2 text-base">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-          Preorder Sekarang
+          <span id="btnPreorderText">Pilih Kemasan Terlebih Dahulu</span>
         </button>
       </div>
 
@@ -230,18 +234,50 @@ layout: default
         <textarea id="custAlamat" rows="2" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" placeholder="Jl. Nama Jalan, No. Rumah, RT/RW, Kec, Kota"></textarea>
       </div>
 
-      <!-- Input Pilihan Bank Transfer -->
+      <!-- Input Pilihan Bank Transfer & Box Copy Rekening -->
       <div>
-        <label class="block text-xs font-semibold text-gray-700 mb-1">Pilih Bank Transfer *</label>
-        <select id="custBank" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
-          <option value="">-- Pilih Bank --</option>
-          <option value="BCA">BCA</option>
-          <option value="Mandiri">Bank Mandiri</option>
-          <option value="BRI">BRI</option>
-          <option value="BNI">BNI</option>
-          <option value="BSI">BSI</option>
-          <option value="QRIS">QRIS / E-Wallet</option>
-        </select>
+        <label for="bank" class="block text-xs font-semibold text-gray-700 mb-1">Pilih Bank Transfer *</label>
+        <div class="relative">
+          <select 
+            id="custBank" 
+            name="Bank" 
+            required 
+            onchange="handleBankChange(event)"
+            class="w-full px-3 py-2 rounded-lg border border-gray-300 bg-white text-sm text-gray-800 appearance-none focus:outline-none focus:ring-2 focus:ring-amber-500 transition duration-150"
+          >
+            <option value="" disabled selected>-- Pilih Bank / E-Wallet --</option>
+            <option value="Seabank Pepen Abdul Govur" data-account="901401055638" data-holder="Pepen Abdul Govur">Seabank - Pepen Abdul Govur</option>
+            <option value="Seabank Ela Susila" data-account="901980140640" data-holder="Ela Susila">Seabank - Ela Susila</option>
+            <option value="BSI Toko Dapoer Ela 85" data-account="7295281582" data-holder="Toko Dapoer Ela 85">BSI - Toko Dapoer Ela 85</option>
+            <option value="Gopay Toko Dapoer Ela 85" data-account="085172211985" data-holder="Toko Dapoer Ela 85">Gopay - Toko Dapoer Ela 85</option>
+          </select>
+          <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-gray-500">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </div>
+        </div>
+
+        <!-- Box Informasi Rekening & Tombol Copy -->
+        <div id="accountInfoBox" class="hidden mt-3 p-3 bg-emerald-50 border border-emerald-200 rounded-lg flex items-center justify-between gap-3">
+          <div>
+            <p class="text-[10px] text-gray-500 font-medium uppercase tracking-wider">Nomor Rekening / HP:</p>
+            <p id="accountNumberDisplay" class="text-sm font-bold text-gray-800 tracking-wide">0000000000</p>
+            <p id="accountHolderDisplay" class="text-xs text-emerald-700 font-semibold mt-0.5">a.n -</p>
+          </div>
+          
+          <button 
+            type="button" 
+            id="copyBtn" 
+            onclick="copyAccountNumber()" 
+            class="flex items-center gap-1.5 px-3 py-1.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-md shadow-sm transition duration-150 flex-shrink-0"
+          >
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+            <span id="copyBtnText">Salin</span>
+          </button>
+        </div>
       </div>
 
       <!-- Input Keterangan -->
@@ -263,20 +299,20 @@ layout: default
   </div>
 </div>
 
-<!-- SCRIPT LOGIKA KONEKSI SELEKSI VARIAN KE MODAL POPUP -->
+<!-- SCRIPT LOGIKA REKENING & INTERAKSI VARIAN -->
 <script>
-  // State Inisialisasi dari Frontmatter YAML
+  // State Inisialisasi
   let selectedProductTitle = "{{ page.title }}";
-  let selectedKemasan = "{% if page.varian.kemasan %}{{ page.varian.kemasan[0].name }}{% else %}{{ page.packaging }}{% endif %}";
-  let selectedRasa = "{% if page.varian.rasa %}{{ page.varian.rasa[0].name }}{% else %}Pedas{% endif %}";
+  let selectedKemasan = ""; // Kosong di awal agar tombol disabled
+  let selectedRasa = "{% if page.varian.rasa %}{{ page.varian.rasa[0].name }}{% else %}Original{% endif %}";
+  let currentAccountNumber = "";
 
   function formatRupiah(number) {
     return new Intl.NumberFormat('id-ID').format(number);
   }
 
-  // 1. Handler Klik Varian Kemasan
+  // 1. Handler Klik Varian Kemasan & Aktivasi Tombol Preorder
   function selectVariant(element) {
-    // Ambil data atribut dari tombol
     selectedKemasan = element.getAttribute('data-name');
     const imgUrl = element.getAttribute('data-img');
     const price = element.getAttribute('data-price');
@@ -304,7 +340,21 @@ layout: default
     element.classList.remove('border-gray-200');
     element.classList.add('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10');
 
-    // Update String Pesanan Modal
+    // --- AKTIFKAN TOMBOL PREORDER ---
+    const btnPreorder = document.getElementById('btnPreorder');
+    const btnPreorderText = document.getElementById('btnPreorderText');
+    const variantAlert = document.getElementById('variant-alert');
+
+    if (btnPreorder) {
+      btnPreorder.disabled = false;
+      btnPreorder.className = "w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-base cursor-pointer";
+      btnPreorderText.textContent = "Preorder Sekarang";
+    }
+
+    if (variantAlert) {
+      variantAlert.classList.add('hidden');
+    }
+
     updatePesananString();
   }
 
@@ -328,7 +378,7 @@ layout: default
   function getPesananString() {
     const qtyInput = document.getElementById('custQty');
     const qty = qtyInput ? qtyInput.value : 1;
-    return `${selectedProductTitle}, ${selectedKemasan}, ${selectedRasa}, ${qty}`;
+    return `${selectedProductTitle}, ${selectedKemasan || 'Belum Dipilih'}, ${selectedRasa}, ${qty}`;
   }
 
   // 4. Update Tampilan Ringkasan Modal
@@ -340,12 +390,57 @@ layout: default
     const rasaLabelEl = document.getElementById('modalRasaLabel');
 
     if (summaryEl) summaryEl.textContent = summary;
-    if (kemasanLabelEl) kemasanLabelEl.textContent = selectedKemasan;
+    if (kemasanLabelEl) kemasanLabelEl.textContent = selectedKemasan || '-';
     if (rasaLabelEl) rasaLabelEl.textContent = selectedRasa;
   }
 
-  // 5. Kontrol Buka & Tutup Modal
+  // 5. Logika Pilihan Bank & Copy Rekening
+  function handleBankChange(event) {
+    const selectedOption = event.target.options[event.target.selectedIndex];
+    const accountNumber = selectedOption.getAttribute('data-account');
+    const accountHolder = selectedOption.getAttribute('data-holder');
+
+    const infoBox = document.getElementById('accountInfoBox');
+    const numberDisplay = document.getElementById('accountNumberDisplay');
+    const holderDisplay = document.getElementById('accountHolderDisplay');
+
+    if (accountNumber) {
+      currentAccountNumber = accountNumber;
+      numberDisplay.innerText = accountNumber;
+      holderDisplay.innerText = `a.n ${accountHolder}`;
+      infoBox.classList.remove('hidden');
+      resetCopyButton();
+    } else {
+      infoBox.classList.add('hidden');
+    }
+  }
+
+  function copyAccountNumber() {
+    if (!currentAccountNumber) return;
+
+    navigator.clipboard.writeText(currentAccountNumber).then(() => {
+      const copyBtnText = document.getElementById('copyBtnText');
+      if (copyBtnText) copyBtnText.innerText = 'Tersalin!';
+
+      setTimeout(() => {
+        resetCopyButton();
+      }, 2000);
+    }).catch(err => {
+      console.error('Gagal menyalin: ', err);
+    });
+  }
+
+  function resetCopyButton() {
+    const copyBtnText = document.getElementById('copyBtnText');
+    if (copyBtnText) copyBtnText.innerText = 'Salin';
+  }
+
+  // 6. Kontrol Buka & Tutup Modal
   function openOrderModal() {
+    if (!selectedKemasan) {
+      alert("Silakan pilih varian kemasan & ukuran terlebih dahulu.");
+      return;
+    }
     updatePesananString();
     document.getElementById('orderModal').classList.remove('hidden');
   }
@@ -356,7 +451,7 @@ layout: default
     if (statusEl) statusEl.classList.add('hidden');
   }
 
-  // 6. Pengiriman Async ke Google Apps Script
+  // 7. Pengiriman Async ke Google Apps Script
   function submitOrder(e) {
     e.preventDefault();
 
@@ -392,6 +487,7 @@ layout: default
       statusEl.classList.remove('hidden');
       
       document.getElementById('orderForm').reset();
+      document.getElementById('accountInfoBox').classList.add('hidden');
       updatePesananString();
       btnSubmit.disabled = false;
       btnSubmit.textContent = "Kirim Pesanan";
@@ -406,256 +502,3 @@ layout: default
     });
   }
 </script>
-
-
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start hidden">
-            <div class="space-y-4">
-                <div class="aspect-square bg-base-200 border border-base-content/5 overflow-hidden">
-                    <img src="{{ page.img }}" 
-                         alt="{{ page.title }}" class="product-image object-cover w-full h-full" />
-                </div>
-                <div class="grid grid-cols-4 gap-4 hidden">
-                    <div class="aspect-square bg-base-200 border border-base-content/10"></div>
-                    <div class="aspect-square bg-base-200 border border-base-content/10"></div>
-                    <div class="aspect-square bg-base-200 border border-base-content/10"></div>
-                    <div class="aspect-square bg-base-200 border border-base-content/10"></div>
-                </div>
-            </div>
-
-            <div class="flex flex-col h-full">
-                <header class="border-b border-base-content pb-6">
-                    <h1 class="text-4xl md:text-6xl font-black uppercase tracking-tighter mb-2">{{ page.title }}</h1>
-                    <p class="text-2xl font-mono">IDR {{ page.price }}</p>
-                </header>
-
-                <div class="py-8 space-y-6">
-                    <p class="leading-relaxed opacity-70">
-                        {{ content }}
-                    </p>
-                </div>
-
-                <div class="mt-auto pt-8 border-t border-base-content/10">
-
-<ul class="divide-y divide-gray-200 border border-gray-200 rounded-lg mb-3 overflow-hidden">
-  <li class="p-4">
-    <span class="font-bold block mb-1">Varian:</span>
-    {% if page.varian %}
-      <span class="text-gray-700">
-        {% for varian in page.varian %}
-          {{ varian.name }}{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak ada</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Rasa:</span>
-    {% if page.rasa %}
-      <span class="text-gray-700">
-        {% for rasa in page.rasa %}
-          {{ rasa.name }}{% unless forloop.last %}, {% endunless %}
-        {% endfor %}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak ada</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Berat/Isi:</span>
-    {% if page.weight %}
-      <span class="text-gray-700">
-        {{ page.weight }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">-</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Packaging/Kemasan:</span>
-    {% if page.packaging %}
-      <span class="text-gray-700">
-        {{ page.packaging }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">-</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Warna Kemasan:</span>
-    {% if page.warna_kemasan %}
-      <span class="text-gray-700">
-        {{ page.warna_kemasan }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Random</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Kantong Plastik/Kresek:</span>
-    {% if page.kresek %}
-      <span class="text-gray-700">
-        {{ page.kresek }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Random</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Segel Shrink:</span>
-    {% if page.shrink_seal %}
-      <span class="text-gray-700">
-        {{ page.shrink_seal}}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Hangtag:</span>
-    {% if page.hangtag %}
-      <span class="text-gray-700">
-        {{ page.hangtag }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Sticker Label:</span>
-    {% if page.label %}
-      <span class="text-gray-700">
-        {{ page.label }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Kartu Ucapan:</span>
-    {% if page.kartu_ucapan %}
-      <span class="text-gray-700">
-        {{ page.kartu_ucapan }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Pita:</span>
-    {% if page.pita %}
-      <span class="text-gray-700">
-        {{ page.pita }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Paper Doily:</span>
-    {% if page.paper_doily %}
-      <span class="text-gray-700">
-        {{ page.paper_doily }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Silica Gel:</span>
-    {% if page.silica_gel %}
-      <span class="text-gray-700">
-        {{ page.silica_gel }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Merk/Brand:</span>
-    {% if page.brand %}
-      <span class="text-gray-700">
-        {{ page.brand | default: "Dapoer Ela 85" }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Dapoer Ela 85</span>
-    {% endif %}
-  </li>
-        
-  <li class="p-4">
-    <span class="font-bold block mb-1">Sertifikasi PIRT:</span>
-    {% if page.pirt_id %}
-      <span class="text-gray-700">
-        {{ page.pirt_id }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">Tidak ada</span>
-    {% endif %}
-  </li>
-        
-  <li class="p-4">
-    <span class="font-bold block mb-1">Sertifikasi Halal:</span>
-    {% if page.halal_id %}
-      <span class="text-gray-700">
-        {{ page.halal_id | default: "ID36410025276910825" }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">ID36410025276910825</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">Sertifikasi Merk:</span>
-    {% if page.merk_id %}
-      <span class="text-gray-700">
-        {{ page.merk_id | default: "DID2024133737" }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">DID2024133737</span>
-    {% endif %}
-  </li>
-
-  <li class="p-4">
-    <span class="font-bold block mb-1">NIB:</span>
-    {% if page.nib_id %}
-      <span class="text-gray-700">
-        {{ page.nib_id | default: "1005240054558" }}
-      </span>
-    {% else %}
-      <span class="text-gray-400 italic">1005240054558</span>
-    {% endif %}
-  </li>
-        
-</ul>
-                        
-                    <div class="collapse collapse-plus rounded-none">
-                        <input type="radio" name="details-accordion" checked="checked" /> 
-                        <div class="collapse-title text-sm uppercase tracking-widest font-bold">Cara Pesan</div>
-                        <div class="collapse-content text-sm opacity-60">
-                            <p>Hubungi via Whatsapp</p>
-                        </div>
-                    </div>
-                    <div class="collapse collapse-plus rounded-none border-t border-base-content/10">
-                        <input type="radio" name="details-accordion" /> 
-                        <div class="collapse-title text-sm uppercase tracking-widest font-bold">Shipping Info</div>
-                        <div class="collapse-content text-sm opacity-60">
-                            <p>Same-day delivery available for Jakarta area. Standard shipping 2-3 days for Java Island.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-         
-       </div>
