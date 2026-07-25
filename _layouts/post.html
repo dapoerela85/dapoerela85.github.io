@@ -447,60 +447,54 @@ layout: default
     document.getElementById('orderModal').classList.remove('hidden');
   }
 
-  function closeOrderModal() {
-    document.getElementById('orderModal').classList.add('hidden');
-    const statusEl = document.getElementById('orderStatus');
-    if (statusEl) statusEl.classList.add('hidden');
-  }
+function submitOrder(e) {
+  e.preventDefault();
 
-  // 7. Pengiriman Async ke Google Apps Script
-  function submitOrder(e) {
-    e.preventDefault();
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbyPVFrbp7ssV1m4mUMUnjRoOL5IyAv1vuvbxrHiUeQL97NY2M3WepKuyZ25FgwUhluq/exec';
+  const btnSubmit = document.getElementById('btnSubmit');
+  const statusEl = document.getElementById('orderStatus');
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzYWYbouN3al7aOdnBIPrMlw4BPTnsg8hx0ra19C8CaQIkGpn2ik9oDoIBXIuSuCmfGhQ/exec';
-    const btnSubmit = document.getElementById('btnSubmit');
-    const statusEl = document.getElementById('orderStatus');
+  btnSubmit.disabled = true;
+  btnSubmit.textContent = "Mengirim...";
+  statusEl.classList.add('hidden');
 
-    btnSubmit.disabled = true;
-    btnSubmit.textContent = "Mengirim...";
-    statusEl.classList.add('hidden');
+  // Gunakan URLSearchParams agar kompatibel penuh dengan Google Apps Script
+  const formData = new URLSearchParams();
+  formData.append('date', new Date().toLocaleString("id-ID"));
+  formData.append('name', document.getElementById('custName').value);
+  formData.append('telp', document.getElementById('custTelp').value);
+  formData.append('alamat', document.getElementById('custAlamat').value);
+  formData.append('pesanan', getPesananString());
+  formData.append('keterangan', document.getElementById('custKeterangan').value || '-');
+  formData.append('bank', document.getElementById('custBank').value);
 
-    const payload = {
-      date: new Date().toLocaleString("id-ID"),
-      name: document.getElementById('custName').value,
-      telp: document.getElementById('custTelp').value,
-      alamat: document.getElementById('custAlamat').value,
-      pesanan: getPesananString(),
-      keterangan: document.getElementById('custKeterangan').value,
-      bank: document.getElementById('custBank').value
-    };
-
-    fetch(scriptURL, {
-      method: 'POST',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(() => {
-      statusEl.className = "mb-4 p-3 rounded-lg text-sm font-medium bg-green-100 text-green-800 border border-green-200";
-      statusEl.textContent = "✅ Pesanan berhasil dikirim! Kami akan menghubungi Anda segera.";
-      statusEl.classList.remove('hidden');
-      
-      document.getElementById('orderForm').reset();
-      document.getElementById('accountInfoBox').classList.add('hidden');
-      updatePesananString();
-      btnSubmit.disabled = false;
-      btnSubmit.textContent = "Kirim Pesanan";
-    })
-    .catch(error => {
-      statusEl.className = "mb-4 p-3 rounded-lg text-sm font-medium bg-red-100 text-red-800 border border-red-200";
-      statusEl.textContent = "❌ Gagal mengirim pesanan. Silakan coba lagi.";
-      statusEl.classList.remove('hidden');
-      
-      btnSubmit.disabled = false;
-      btnSubmit.textContent = "Kirim Pesanan";
-    });
-  }
+  fetch(scriptURL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {
+      'Content-Type': 'application/x-www-form-urlencoded'
+    },
+    body: formData.toString()
+  })
+  .then(() => {
+    statusEl.className = "mb-4 p-3 rounded-lg text-sm font-medium bg-green-100 text-green-800 border border-green-200";
+    statusEl.textContent = "✅ Pesanan berhasil dikirim! Kami akan menghubungi Anda segera.";
+    statusEl.classList.remove('hidden');
+    
+    document.getElementById('orderForm').reset();
+    document.getElementById('accountInfoBox').classList.add('hidden');
+    updatePesananString();
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = "Kirim Pesanan";
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    statusEl.className = "mb-4 p-3 rounded-lg text-sm font-medium bg-red-100 text-red-800 border border-red-200";
+    statusEl.textContent = "❌ Gagal mengirim pesanan. Silakan coba lagi.";
+    statusEl.classList.remove('hidden');
+    
+    btnSubmit.disabled = false;
+    btnSubmit.textContent = "Kirim Pesanan";
+  });
+}
 </script>
