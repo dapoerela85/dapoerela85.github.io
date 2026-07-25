@@ -190,7 +190,7 @@ layout: default
       <!-- Detil Ringkasan Pesanan (Rincian Col E) -->
       <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5 text-xs text-amber-900 space-y-1">
         <span class="font-bold text-amber-900 uppercase tracking-wider text-[10px] block border-b border-amber-200 pb-1 mb-1.5">
-          Rincian Pesanan (Akan dicatat di Spreadsheet Col E)
+          Rincian Pesanan
         </span>
         <div class="flex justify-between">
           <span class="text-gray-600">Produk:</span>
@@ -205,7 +205,7 @@ layout: default
           <span id="modalRasaLabel" class="font-bold text-amber-700"></span>
         </div>
         <div class="flex justify-between">
-          <span class="text-gray-600">Total String Col E:</span>
+          <span class="text-gray-600">Summary Pesanan Anda:</span>
           <span id="summaryPesanan" class="font-mono text-[11px] text-amber-800 font-bold bg-amber-100/80 px-1.5 py-0.5 rounded"></span>
         </div>
       </div>
@@ -295,6 +295,10 @@ layout: default
           Kirim Pesanan
         </button>
       </div>
+
+    <!-- Notifikasi Alert Sukses / Gagal -->
+    <div id="orderStatus" class="hidden mb-4 p-3 rounded-lg text-sm font-medium"></div>
+      
     </form>
   </div>
 </div>
