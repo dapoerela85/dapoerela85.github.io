@@ -6,8 +6,7 @@ layout: default
              <a href="/products/" class="hover:opacity-100 transition">Products</a> / 
             <span>{{ page.title }}</span>
         </nav>
-
-<article class="max-w-7xl mx-auto px-4 py-8">
+<article class="max-w-4xl mx-auto px-4 py-8">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
     
     <!-- Gambar Utama Produk -->
@@ -58,9 +57,13 @@ layout: default
           <h3 class="text-sm font-semibold text-gray-900 mb-2">Pilihan Rasa:</h3>
           <div class="flex flex-wrap gap-2">
             {% for r in page.varian.rasa %}
-              <span class="px-3 py-1.5 text-sm bg-gray-100 text-gray-700 rounded-lg border border-gray-200 font-medium">
+              <button 
+                type="button" 
+                class="rasa-card px-3 py-1.5 text-sm bg-gray-100 text-gray-700 rounded-lg border border-gray-200 font-medium hover:border-amber-500 transition-all cursor-pointer {% if forloop.first %}border-amber-500 bg-amber-50 text-amber-900 ring-2 ring-amber-500/20{% endif %}"
+                data-rasa="{{ r.name }}"
+                onclick="selectRasa(this)">
                 {{ r.name }}
-              </span>
+              </button>
             {% endfor %}
           </div>
         </div>
@@ -74,7 +77,7 @@ layout: default
             {% for k in page.varian.kemasan %}
               <button 
                 type="button"
-                class="variant-card text-left p-3 border border-gray-200 rounded-xl hover:border-amber-500 transition-all cursor-pointer flex gap-3 items-center bg-white shadow-sm focus:outline-none"
+                class="variant-card text-left p-3 border rounded-xl hover:border-amber-500 transition-all cursor-pointer flex gap-3 items-center bg-white shadow-sm focus:outline-none {% if forloop.first %}border-amber-500 ring-2 ring-amber-500/20 bg-amber-50/10{% else %}border-gray-200{% endif %}"
                 data-img="{{ k.img }}"
                 data-price="{{ k.harga }}"
                 data-weight="{{ k.berat }}"
@@ -93,6 +96,17 @@ layout: default
           </div>
         </div>
       {% endif %}
+
+      <!-- Tombol Buka Modal Order -->
+      <div class="pt-2">
+        <button 
+          type="button" 
+          onclick="openOrderModal()" 
+          class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3.5 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2 text-base">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+          Beli / Pesan Sekarang
+        </button>
+      </div>
 
     </div>
   </div>
@@ -154,17 +168,6 @@ layout: default
   {% endif %}
 </article>
 
-<!-- Tombol Buka Modal Order -->
-<div class="mt-6">
-  <button 
-    type="button" 
-    onclick="openOrderModal()" 
-    class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
-    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
-    Beli / Pesan Sekarang
-  </button>
-</div>
-
 <!-- MODAL POPUP ORDER FORM -->
 <div id="orderModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
   <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
@@ -173,17 +176,34 @@ layout: default
     <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
     
     <h3 class="text-xl font-bold text-gray-900 mb-1">Form Pemesanan</h3>
-    <p class="text-xs text-gray-500 mb-4">Silakan isi data pengiriman di bawah ini.</p>
+    <p class="text-xs text-gray-500 mb-4">Silakan konfirmasi varian & isi data pengiriman Anda.</p>
 
     <!-- Notifikasi Alert Sukses / Gagal -->
     <div id="orderStatus" class="hidden mb-4 p-3 rounded-lg text-sm font-medium"></div>
 
     <form id="orderForm" onsubmit="submitOrder(event)" class="space-y-4">
       
-      <!-- Detil Pesanan (Diisi Otomatis) -->
-      <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-900">
-        <span class="font-bold block mb-1">Ringkasan Pesanan (Col E):</span>
-        <span id="summaryPesanan" class="font-semibold text-amber-700"></span>
+      <!-- Detil Ringkasan Pesanan (Rincian Col E) -->
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-3.5 text-xs text-amber-900 space-y-1">
+        <span class="font-bold text-amber-900 uppercase tracking-wider text-[10px] block border-b border-amber-200 pb-1 mb-1.5">
+          Rincian Pesanan (Akan dicatat di Spreadsheet Col E)
+        </span>
+        <div class="flex justify-between">
+          <span class="text-gray-600">Produk:</span>
+          <span class="font-bold text-gray-800">{{ page.title }}</span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-600">Kemasan / Ukuran:</span>
+          <span id="modalKemasanLabel" class="font-bold text-amber-700"></span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-600">Rasa:</span>
+          <span id="modalRasaLabel" class="font-bold text-amber-700"></span>
+        </div>
+        <div class="flex justify-between">
+          <span class="text-gray-600">Total String Col E:</span>
+          <span id="summaryPesanan" class="font-mono text-[11px] text-amber-800 font-bold bg-amber-100/80 px-1.5 py-0.5 rounded"></span>
+        </div>
       </div>
 
       <!-- Input Nama -->
@@ -201,7 +221,7 @@ layout: default
       <!-- Input Jumlah Pesanan (Qty) -->
       <div>
         <label class="block text-xs font-semibold text-gray-700 mb-1">Jumlah (Qty) *</label>
-        <input type="number" id="custQty" min="1" value="1" onchange="updatePesananString()" onkeyup="updatePesananString()" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+        <input type="number" id="custQty" min="1" value="1" oninput="updatePesananString()" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
       </div>
 
       <!-- Input Alamat -->
@@ -235,7 +255,7 @@ layout: default
         <button 
           type="submit" 
           id="btnSubmit" 
-          class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 rounded-xl transition-all shadow text-sm">
+          class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-3 rounded-xl transition-all shadow text-sm">
           Kirim Pesanan
         </button>
       </div>
@@ -243,22 +263,26 @@ layout: default
   </div>
 </div>
 
-<!-- JAVASCRIPT UNTUK INTERAKSI & FETCH KESHEET -->
+<!-- SCRIPT LOGIKA KONEKSI SELEKSI VARIAN KE MODAL POPUP -->
 <script>
-  // State untuk melacak item yang dipilih
+  // State Inisialisasi dari Frontmatter YAML
   let selectedProductTitle = "{{ page.title }}";
   let selectedKemasan = "{% if page.varian.kemasan %}{{ page.varian.kemasan[0].name }}{% else %}{{ page.packaging }}{% endif %}";
-  let selectedRasa = "{% if page.varian.rasa %}{{ page.varian.rasa[0].name }}{% else %}Original{% endif %}";
+  let selectedRasa = "{% if page.varian.rasa %}{{ page.varian.rasa[0].name }}{% else %}Pedas{% endif %}";
 
-  // Override varian ketika user mengklik opsi kemasan / rasa
+  function formatRupiah(number) {
+    return new Intl.NumberFormat('id-ID').format(number);
+  }
+
+  // 1. Handler Klik Varian Kemasan
   function selectVariant(element) {
+    // Ambil data atribut dari tombol
     selectedKemasan = element.getAttribute('data-name');
-    
-    // Update tampilan utama seperti sebelumnya
     const imgUrl = element.getAttribute('data-img');
     const price = element.getAttribute('data-price');
     const weight = element.getAttribute('data-weight');
 
+    // Update foto utama & label harga
     const mainImg = document.getElementById('main-product-img');
     if (imgUrl && mainImg) mainImg.src = imgUrl;
 
@@ -270,26 +294,57 @@ layout: default
     if (displayPrice) displayPrice.textContent = 'Rp ' + formatRupiah(price);
     if (displayWeight) displayWeight.textContent = '(' + weight + ')';
 
+    // Highlight aktif pada kartu kemasan
     const allCards = document.querySelectorAll('.variant-card');
-    allCards.forEach(card => card.classList.remove('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10'));
+    allCards.forEach(card => {
+      card.classList.remove('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10');
+      card.classList.add('border-gray-200');
+    });
+
+    element.classList.remove('border-gray-200');
     element.classList.add('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10');
-    
+
+    // Update String Pesanan Modal
     updatePesananString();
   }
 
-  // Fungsi menghasilkan format Col E: "Judul, Kemasan, Rasa, Qty"
+  // 2. Handler Klik Varian Rasa
+  function selectRasa(element) {
+    selectedRasa = element.getAttribute('data-rasa');
+
+    const allRasaCards = document.querySelectorAll('.rasa-card');
+    allRasaCards.forEach(card => {
+      card.classList.remove('border-amber-500', 'bg-amber-50', 'text-amber-900', 'ring-2', 'ring-amber-500/20');
+      card.classList.add('bg-gray-100', 'text-gray-700', 'border-gray-200');
+    });
+
+    element.classList.remove('bg-gray-100', 'text-gray-700', 'border-gray-200');
+    element.classList.add('border-amber-500', 'bg-amber-50', 'text-amber-900', 'ring-2', 'ring-amber-500/20');
+
+    updatePesananString();
+  }
+
+  // 3. Format Nilai Col E (Judul, Kemasan, Rasa, Qty)
   function getPesananString() {
-    const qty = document.getElementById('custQty') ? document.getElementById('custQty').value : 1;
+    const qtyInput = document.getElementById('custQty');
+    const qty = qtyInput ? qtyInput.value : 1;
     return `${selectedProductTitle}, ${selectedKemasan}, ${selectedRasa}, ${qty}`;
   }
 
+  // 4. Update Tampilan Ringkasan Modal
   function updatePesananString() {
     const summary = getPesananString();
+    
     const summaryEl = document.getElementById('summaryPesanan');
+    const kemasanLabelEl = document.getElementById('modalKemasanLabel');
+    const rasaLabelEl = document.getElementById('modalRasaLabel');
+
     if (summaryEl) summaryEl.textContent = summary;
+    if (kemasanLabelEl) kemasanLabelEl.textContent = selectedKemasan;
+    if (rasaLabelEl) rasaLabelEl.textContent = selectedRasa;
   }
 
-  // Buka & Tutup Modal Popup
+  // 5. Kontrol Buka & Tutup Modal
   function openOrderModal() {
     updatePesananString();
     document.getElementById('orderModal').classList.remove('hidden');
@@ -298,14 +353,14 @@ layout: default
   function closeOrderModal() {
     document.getElementById('orderModal').classList.add('hidden');
     const statusEl = document.getElementById('orderStatus');
-    statusEl.classList.add('hidden');
+    if (statusEl) statusEl.classList.add('hidden');
   }
 
-  // Submit Form Async (Tanpa Reload Page)
+  // 6. Pengiriman Async ke Google Apps Script
   function submitOrder(e) {
     e.preventDefault();
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzYWYbouN3al7aOdnBIPrMlw4BPTnsg8hx0ra19C8CaQIkGpn2ik9oDoIBXIuSuCmfGhQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx6lbTC0rIKlmzaIgESFIFHrBwXY2aTuoVcgTr9fyqnY40BOwsAcjGTwENcKWwy6YCz3Q/exec';
     const btnSubmit = document.getElementById('btnSubmit');
     const statusEl = document.getElementById('orderStatus');
 
@@ -313,7 +368,6 @@ layout: default
     btnSubmit.textContent = "Mengirim...";
     statusEl.classList.add('hidden');
 
-    // Susun payload JSON
     const payload = {
       date: new Date().toLocaleString("id-ID"),
       name: document.getElementById('custName').value,
@@ -324,17 +378,15 @@ layout: default
       bank: document.getElementById('custBank').value
     };
 
-    // Kirim request ke Apps Script via Fetch POST
     fetch(scriptURL, {
       method: 'POST',
-      mode: 'no-cors', // Menghindari isu CORS pada Apps Script
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(payload)
     })
     .then(() => {
-      // Tampilkan Notifikasi Sukses
       statusEl.className = "mb-4 p-3 rounded-lg text-sm font-medium bg-green-100 text-green-800 border border-green-200";
       statusEl.textContent = "✅ Pesanan berhasil dikirim! Kami akan menghubungi Anda segera.";
       statusEl.classList.remove('hidden');
@@ -345,7 +397,6 @@ layout: default
       btnSubmit.textContent = "Kirim Pesanan";
     })
     .catch(error => {
-      // Tampilkan Notifikasi Gagal
       statusEl.className = "mb-4 p-3 rounded-lg text-sm font-medium bg-red-100 text-red-800 border border-red-200";
       statusEl.textContent = "❌ Gagal mengirim pesanan. Silakan coba lagi.";
       statusEl.classList.remove('hidden');
@@ -353,46 +404,6 @@ layout: default
       btnSubmit.disabled = false;
       btnSubmit.textContent = "Kirim Pesanan";
     });
-  }
-</script>
-
-<!-- Script Interaktif Varian -->
-<script>
-  function formatRupiah(number) {
-    return new Intl.NumberFormat('id-ID').format(number);
-  }
-
-  function selectVariant(element) {
-    // 1. Ambil data dari atribut HTML
-    const imgUrl = element.getAttribute('data-img');
-    const price = element.getAttribute('data-price');
-    const weight = element.getAttribute('data-weight');
-    const name = element.getAttribute('data-name');
-
-    // 2. Update Gambar Utama
-    const mainImg = document.getElementById('main-product-img');
-    if (imgUrl && mainImg) {
-      mainImg.src = imgUrl;
-    }
-
-    // 3. Update Label, Harga, dan Berat
-    const displayLabel = document.getElementById('display-label');
-    const displayPrice = document.getElementById('display-price');
-    const displayWeight = document.getElementById('display-weight');
-
-    if (displayLabel) displayLabel.textContent = 'Harga Varian: ' + name;
-    if (displayPrice) displayPrice.textContent = 'Rp ' + formatRupiah(price);
-    if (displayWeight) displayWeight.textContent = '(' + weight + ')';
-
-    // 4. Highlight Kartu Varian yang Dipilih
-    const allCards = document.querySelectorAll('.variant-card');
-    allCards.forEach(card => {
-      card.classList.remove('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10');
-      card.classList.add('border-gray-200');
-    });
-
-    element.classList.remove('border-gray-200');
-    element.classList.add('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10');
   }
 </script>
 
