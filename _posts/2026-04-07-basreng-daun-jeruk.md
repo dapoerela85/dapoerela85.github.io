@@ -6,7 +6,7 @@ price: "20.000"
 category: [camilan]
 weight: "120-150g"
 in_stock: true
-packaging: Standing Pouch
+umur_simpan: 3 Bulan
 img: "/assets/products/index/basreng-index.jpg"
 merk: "Dapoer Ela 85"
 varian:
@@ -49,4 +49,4 @@ legalitas:
       instansi: BPOM
 ---
 
-Basreng daun jeruk kemasan pouch, berat 120-150g tergantung irisan. Harga per pouch
+Berat tergantung irisan. Harga per item.
