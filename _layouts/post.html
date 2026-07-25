@@ -11,9 +11,9 @@ layout: default
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
     
     <!-- Gambar Utama Produk -->
-    <div class="space-y-4">
+    <div class="space-y-4 sticky top-6">
       <div class="aspect-square bg-gray-100 rounded-2xl overflow-hidden shadow-sm border border-gray-200">
-        <img id="main-product-img" src="{{ page.img }}" alt="{{ page.title }}" class="w-full h-full object-cover">
+        <img id="main-product-img" src="{{ page.img }}" alt="{{ page.title }}" class="w-full h-full object-cover transition-all duration-300">
       </div>
     </div>
 
@@ -43,11 +43,13 @@ layout: default
         </div>
       </div>
 
-      <!-- Harga Utama -->
+      <!-- Harga Utama (Dinamis berdasarkan klik) -->
       <div class="border-y border-gray-100 py-3">
-        <span class="text-sm text-gray-500 block">Mulai dari</span>
-        <span class="text-3xl font-extrabold text-red-600">Rp {{ page.price }}</span>
-        <span class="text-xs text-gray-500 ml-1">({{ page.weight }})</span>
+        <span id="display-label" class="text-xs text-gray-500 block font-medium">Mulai dari</span>
+        <div class="flex items-baseline gap-2">
+          <span id="display-price" class="text-3xl font-extrabold text-red-600">Rp {{ page.price }}</span>
+          <span id="display-weight" class="text-sm text-gray-500 font-medium">({{ page.weight }})</span>
+        </div>
       </div>
 
       <!-- Varian Rasa -->
@@ -64,22 +66,29 @@ layout: default
         </div>
       {% endif %}
 
-      <!-- Varian Kemasan & Ukuran -->
+      <!-- Varian Kemasan & Ukuran (Interaktif) -->
       {% if page.varian.kemasan %}
         <div>
           <h3 class="text-sm font-semibold text-gray-900 mb-2">Pilihan Kemasan & Ukuran:</h3>
-          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="variant-container">
             {% for k in page.varian.kemasan %}
-              <div class="p-3 border border-gray-200 rounded-xl hover:border-amber-500 transition-all cursor-pointer flex gap-3 items-center bg-white shadow-sm">
-                <img src="{{ k.img }}" alt="{{ k.name }}" class="w-12 h-12 rounded-lg object-cover bg-gray-50">
-                <div>
-                  <p class="text-sm font-bold text-gray-800">{{ k.name }}</p>
+              <button 
+                type="button"
+                class="variant-card text-left p-3 border border-gray-200 rounded-xl hover:border-amber-500 transition-all cursor-pointer flex gap-3 items-center bg-white shadow-sm focus:outline-none"
+                data-img="{{ k.img }}"
+                data-price="{{ k.harga }}"
+                data-weight="{{ k.berat }}"
+                data-name="{{ k.name }}"
+                onclick="selectVariant(this)">
+                <img src="{{ k.img }}" alt="{{ k.name }}" class="w-12 h-12 rounded-lg object-cover bg-gray-50 flex-shrink-0">
+                <div class="overflow-hidden">
+                  <p class="text-sm font-bold text-gray-800 truncate">{{ k.name }}</p>
                   <p class="text-xs text-gray-500">{{ k.berat }}</p>
-                  <p class="text-sm font-semibold text-amber-600">
-                    Rp {{ k.harga | number_of_sequence | default: k.harga }}
+                  <p class="text-sm font-semibold text-amber-600 mt-0.5">
+                    Rp {{ k.harga }}
                   </p>
                 </div>
-              </div>
+              </button>
             {% endfor %}
           </div>
         </div>
@@ -94,8 +103,6 @@ layout: default
       <h2 class="text-lg font-bold text-gray-900 mb-4">Sertifikasi & Legalitas Produk</h2>
       
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-        
-        <!-- NIB -->
         {% if page.legalitas.nib %}
           {% for item in page.legalitas.nib %}
             <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
@@ -106,7 +113,6 @@ layout: default
           {% endfor %}
         {% endif %}
 
-        <!-- Halal -->
         {% if page.legalitas.halal %}
           {% for item in page.legalitas.halal %}
             <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
@@ -117,7 +123,6 @@ layout: default
           {% endfor %}
         {% endif %}
 
-        <!-- Merk -->
         {% if page.legalitas.merk %}
           {% for item in page.legalitas.merk %}
             <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
@@ -128,7 +133,6 @@ layout: default
           {% endfor %}
         {% endif %}
 
-        <!-- PIRT -->
         {% if page.legalitas.pirt %}
           {% for item in page.legalitas.pirt %}
             <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
@@ -138,12 +142,11 @@ layout: default
             </div>
           {% endfor %}
         {% endif %}
-
       </div>
     </div>
   {% endif %}
 
-  <!-- Konten Tambahan / Deskripsi Post -->
+  <!-- Konten Deskripsi Post -->
   {% if content != "" %}
     <div class="mt-8 prose max-w-none">
       {{ content }}
@@ -151,7 +154,45 @@ layout: default
   {% endif %}
 </article>
 
+<!-- Script Interaktif Varian -->
+<script>
+  function formatRupiah(number) {
+    return new Intl.NumberFormat('id-ID').format(number);
+  }
 
+  function selectVariant(element) {
+    // 1. Ambil data dari atribut HTML
+    const imgUrl = element.getAttribute('data-img');
+    const price = element.getAttribute('data-price');
+    const weight = element.getAttribute('data-weight');
+    const name = element.getAttribute('data-name');
+
+    // 2. Update Gambar Utama
+    const mainImg = document.getElementById('main-product-img');
+    if (imgUrl && mainImg) {
+      mainImg.src = imgUrl;
+    }
+
+    // 3. Update Label, Harga, dan Berat
+    const displayLabel = document.getElementById('display-label');
+    const displayPrice = document.getElementById('display-price');
+    const displayWeight = document.getElementById('display-weight');
+
+    if (displayLabel) displayLabel.textContent = 'Harga Varian: ' + name;
+    if (displayPrice) displayPrice.textContent = 'Rp ' + formatRupiah(price);
+    if (displayWeight) displayWeight.textContent = '(' + weight + ')';
+
+    // 4. Highlight Kartu Varian yang Dipilih
+    const allCards = document.querySelectorAll('.variant-card');
+    allCards.forEach(card => {
+      card.classList.remove('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10');
+      card.classList.add('border-gray-200');
+    });
+
+    element.classList.remove('border-gray-200');
+    element.classList.add('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10');
+  }
+</script>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start hidden">
             <div class="space-y-4">
