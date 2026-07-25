@@ -20,10 +20,10 @@ varian:
       img: /assets/products/keripik-kentang.jpg
     - name: Toples Tabung 1 Liter
       berat: 100g
-      harga: 15000
+      harga: 35000
       img: /assets/products/keripik-kentang-toples1000.jpg
     - name: Hamper Keripik Kentang
-      berat: 200g
+      berat: 200g (2 Toples)
       harga: 75000
       img: /assets/products/hamper-keripik-kentang.jpg
 legalitas:
