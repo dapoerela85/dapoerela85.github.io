@@ -17,23 +17,23 @@ varian:
     - name: Standing Pouch
       berat: 120g
       harga: 20000
-      img: basreng.jpg
+      img: /assets/products/basreng.jpg
     - name: Toples Tabung 1 Liter
       berat: 200g
       harga: 35000
-      img: basreng.jpg
+      img: /assets/products/basreng-toples-1000.jpg
     - name: Toples 5 Liter
       berat: 1000g
       harga: 150000
-      img: hamper-toples-5l.jpg
+      img: /assets/products/basreng-toples-5l.jpg
     - name: Hamper Type A
       berat: 200g
       harga: 75000
-      img: hamper-basreng.jpg
+      img: /assets/products/hamper-basreng-2-toples.jpg
     - name: Hamper Type B
       berat: 200g
       harga: 45000
-      img: hamper-basreng-satuan.jpg
+      img: /assets/products/hamper-basreng-satuan.jpg
 legalitas:
   nib: 
     - nomor: 1005240054558
