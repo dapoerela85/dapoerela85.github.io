@@ -8,12 +8,23 @@ permalink: /api/posts.json
     "title": {{ post.title | jsonify }},
     "date": "{{ post.date | date_to_xmlschema }}",
     "url": {{ post.url | absolute_url | jsonify }},
-    "categories": {{ post.categories | jsonify }},
+    "category": {{ post.category | default: post.categories | jsonify }},
     "price": {{ post.price | jsonify }},
     "weight": {{ post.weight | jsonify }},
     "img": {{ post.img | jsonify }},
     "in_stock": {{ post.in_stock | jsonify }},
     "packaging": {{ post.packaging | jsonify }},
+    "merk": {{ post.merk | jsonify }},
+    "varian": {
+      "rasa": {{ post.varian.rasa | jsonify }},
+      "kemasan": {{ post.varian.kemasan | jsonify }}
+    },
+    "legalitas": {
+      "nib": {{ post.legalitas.nib | jsonify }},
+      "halal": {{ post.legalitas.halal | jsonify }},
+      "merk": {{ post.legalitas.merk | jsonify }},
+      "pirt": {{ post.legalitas.pirt | jsonify }}
+    },
     "excerpt": {{ post.excerpt | strip_html | strip_newlines | jsonify }},
     "content": {{ post.content | strip_html | strip_newlines | jsonify }}
   }{% unless forloop.last %},{% endunless %}
