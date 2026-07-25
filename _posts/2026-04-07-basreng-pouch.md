@@ -1,7 +1,7 @@
 ---
 layout: post
 date: "2026-04-07"
-title: "Basreng Daun Jeruk Pouch"
+title: "Basreng Daun Jeruk"
 price: "20.000"
 category: [camilan]
 weight: "120-150g"
