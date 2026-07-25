@@ -31,7 +31,7 @@ varian:
       berat: 20 Butir
       harga: 60000
       img: /assets/products/rengginang-refill.jpg
-    - name: Hamper Type B
+    - name: Hamper Rengginang
       berat: 20 Butir
       harga: 100000
       img: /assets/products/hamper-rengginang.jpg
