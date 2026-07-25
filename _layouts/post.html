@@ -154,6 +154,208 @@ layout: default
   {% endif %}
 </article>
 
+<!-- Tombol Buka Modal Order -->
+<div class="mt-6">
+  <button 
+    type="button" 
+    onclick="openOrderModal()" 
+    class="w-full bg-amber-600 hover:bg-amber-700 text-white font-bold py-3 px-6 rounded-xl shadow-lg transition-all flex items-center justify-center gap-2">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path></svg>
+    Beli / Pesan Sekarang
+  </button>
+</div>
+
+<!-- MODAL POPUP ORDER FORM -->
+<div id="orderModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
+  <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+    
+    <!-- Tombol Close Modal -->
+    <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+    
+    <h3 class="text-xl font-bold text-gray-900 mb-1">Form Pemesanan</h3>
+    <p class="text-xs text-gray-500 mb-4">Silakan isi data pengiriman di bawah ini.</p>
+
+    <!-- Notifikasi Alert Sukses / Gagal -->
+    <div id="orderStatus" class="hidden mb-4 p-3 rounded-lg text-sm font-medium"></div>
+
+    <form id="orderForm" onsubmit="submitOrder(event)" class="space-y-4">
+      
+      <!-- Detil Pesanan (Diisi Otomatis) -->
+      <div class="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-900">
+        <span class="font-bold block mb-1">Ringkasan Pesanan (Col E):</span>
+        <span id="summaryPesanan" class="font-semibold text-amber-700"></span>
+      </div>
+
+      <!-- Input Nama -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-700 mb-1">Nama Lengkap *</label>
+        <input type="text" id="custName" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" placeholder="Masukkan nama Anda">
+      </div>
+
+      <!-- Input Telepon / WA -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-700 mb-1">No. WhatsApp / Telp *</label>
+        <input type="tel" id="custTelp" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" placeholder="08xxxxxxxxxx">
+      </div>
+
+      <!-- Input Jumlah Pesanan (Qty) -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-700 mb-1">Jumlah (Qty) *</label>
+        <input type="number" id="custQty" min="1" value="1" onchange="updatePesananString()" onkeyup="updatePesananString()" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+      </div>
+
+      <!-- Input Alamat -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-700 mb-1">Alamat Lengkap *</label>
+        <textarea id="custAlamat" rows="2" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" placeholder="Jl. Nama Jalan, No. Rumah, RT/RW, Kec, Kota"></textarea>
+      </div>
+
+      <!-- Input Pilihan Bank Transfer -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-700 mb-1">Pilih Bank Transfer *</label>
+        <select id="custBank" required class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none">
+          <option value="">-- Pilih Bank --</option>
+          <option value="BCA">BCA</option>
+          <option value="Mandiri">Bank Mandiri</option>
+          <option value="BRI">BRI</option>
+          <option value="BNI">BNI</option>
+          <option value="BSI">BSI</option>
+          <option value="QRIS">QRIS / E-Wallet</option>
+        </select>
+      </div>
+
+      <!-- Input Keterangan -->
+      <div>
+        <label class="block text-xs font-semibold text-gray-700 mb-1">Keterangan / Catatan Tambahan</label>
+        <input type="text" id="custKeterangan" class="w-full px-3 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-amber-500 focus:outline-none" placeholder="Contoh: Jangan terlalu pedas / Kirim sore">
+      </div>
+
+      <!-- Tombol Kirim Form -->
+      <div class="pt-2">
+        <button 
+          type="submit" 
+          id="btnSubmit" 
+          class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2.5 rounded-xl transition-all shadow text-sm">
+          Kirim Pesanan
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- JAVASCRIPT UNTUK INTERAKSI & FETCH KESHEET -->
+<script>
+  // State untuk melacak item yang dipilih
+  let selectedProductTitle = "{{ page.title }}";
+  let selectedKemasan = "{% if page.varian.kemasan %}{{ page.varian.kemasan[0].name }}{% else %}{{ page.packaging }}{% endif %}";
+  let selectedRasa = "{% if page.varian.rasa %}{{ page.varian.rasa[0].name }}{% else %}Original{% endif %}";
+
+  // Override varian ketika user mengklik opsi kemasan / rasa
+  function selectVariant(element) {
+    selectedKemasan = element.getAttribute('data-name');
+    
+    // Update tampilan utama seperti sebelumnya
+    const imgUrl = element.getAttribute('data-img');
+    const price = element.getAttribute('data-price');
+    const weight = element.getAttribute('data-weight');
+
+    const mainImg = document.getElementById('main-product-img');
+    if (imgUrl && mainImg) mainImg.src = imgUrl;
+
+    const displayLabel = document.getElementById('display-label');
+    const displayPrice = document.getElementById('display-price');
+    const displayWeight = document.getElementById('display-weight');
+
+    if (displayLabel) displayLabel.textContent = 'Harga Varian: ' + selectedKemasan;
+    if (displayPrice) displayPrice.textContent = 'Rp ' + formatRupiah(price);
+    if (displayWeight) displayWeight.textContent = '(' + weight + ')';
+
+    const allCards = document.querySelectorAll('.variant-card');
+    allCards.forEach(card => card.classList.remove('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10'));
+    element.classList.add('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10');
+    
+    updatePesananString();
+  }
+
+  // Fungsi menghasilkan format Col E: "Judul, Kemasan, Rasa, Qty"
+  function getPesananString() {
+    const qty = document.getElementById('custQty') ? document.getElementById('custQty').value : 1;
+    return `${selectedProductTitle}, ${selectedKemasan}, ${selectedRasa}, ${qty}`;
+  }
+
+  function updatePesananString() {
+    const summary = getPesananString();
+    const summaryEl = document.getElementById('summaryPesanan');
+    if (summaryEl) summaryEl.textContent = summary;
+  }
+
+  // Buka & Tutup Modal Popup
+  function openOrderModal() {
+    updatePesananString();
+    document.getElementById('orderModal').classList.remove('hidden');
+  }
+
+  function closeOrderModal() {
+    document.getElementById('orderModal').classList.add('hidden');
+    const statusEl = document.getElementById('orderStatus');
+    statusEl.classList.add('hidden');
+  }
+
+  // Submit Form Async (Tanpa Reload Page)
+  function submitOrder(e) {
+    e.preventDefault();
+
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbx6lbTC0rIKlmzaIgESFIFHrBwXY2aTuoVcgTr9fyqnY40BOwsAcjGTwENcKWwy6YCz3Q/exec';
+    const btnSubmit = document.getElementById('btnSubmit');
+    const statusEl = document.getElementById('orderStatus');
+
+    btnSubmit.disabled = true;
+    btnSubmit.textContent = "Mengirim...";
+    statusEl.classList.add('hidden');
+
+    // Susun payload JSON
+    const payload = {
+      date: new Date().toLocaleString("id-ID"),
+      name: document.getElementById('custName').value,
+      telp: document.getElementById('custTelp').value,
+      alamat: document.getElementById('custAlamat').value,
+      pesanan: getPesananString(),
+      keterangan: document.getElementById('custKeterangan').value,
+      bank: document.getElementById('custBank').value
+    };
+
+    // Kirim request ke Apps Script via Fetch POST
+    fetch(scriptURL, {
+      method: 'POST',
+      mode: 'no-cors', // Menghindari isu CORS pada Apps Script
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(payload)
+    })
+    .then(() => {
+      // Tampilkan Notifikasi Sukses
+      statusEl.className = "mb-4 p-3 rounded-lg text-sm font-medium bg-green-100 text-green-800 border border-green-200";
+      statusEl.textContent = "✅ Pesanan berhasil dikirim! Kami akan menghubungi Anda segera.";
+      statusEl.classList.remove('hidden');
+      
+      document.getElementById('orderForm').reset();
+      updatePesananString();
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = "Kirim Pesanan";
+    })
+    .catch(error => {
+      // Tampilkan Notifikasi Gagal
+      statusEl.className = "mb-4 p-3 rounded-lg text-sm font-medium bg-red-100 text-red-800 border border-red-200";
+      statusEl.textContent = "❌ Gagal mengirim pesanan. Silakan coba lagi.";
+      statusEl.classList.remove('hidden');
+      
+      btnSubmit.disabled = false;
+      btnSubmit.textContent = "Kirim Pesanan";
+    });
+  }
+</script>
+
 <!-- Script Interaktif Varian -->
 <script>
   function formatRupiah(number) {
@@ -193,6 +395,7 @@ layout: default
     element.classList.add('border-amber-500', 'ring-2', 'ring-amber-500/20', 'bg-amber-50/10');
   }
 </script>
+
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start hidden">
             <div class="space-y-4">
