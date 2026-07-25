@@ -7,7 +7,7 @@ category: [camilan]
 weight: "50g"
 in_stock: true
 umur_simpan: 1 Minggu
-img: "/assets/products/index/bihun-crispy.jpg"
+img: "/assets/products/bihun-crispy.jpg"
 merk: "Dapoer Ela 85"
 varian:
   rasa: 
