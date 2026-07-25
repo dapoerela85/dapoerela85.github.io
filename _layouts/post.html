@@ -34,7 +34,7 @@ layout: default
             </span>
           {% endif %}
           <span>•</span>
-          {% for category in post.categories %}
+          {% for category in page.categories %}
           <a href="{{ site.baseurl }}/category/{{ category | slugify }}">
             <span class="capitalize">{{ page.category | join: ", " }}</span>
           </a>
