@@ -13,7 +13,7 @@ permalink: /api/posts.json
     "weight": {{ post.weight | jsonify }},
     "img": {{ post.img | jsonify }},
     "in_stock": {{ post.in_stock | jsonify }},
-    "packaging": {{ post.packaging | jsonify }},
+    "umur_simpan": {{ post.umur_simpan | jsonify }},
     "merk": {{ post.merk | jsonify }},
     "varian": {
       "rasa": {{ post.varian.rasa | jsonify }},
