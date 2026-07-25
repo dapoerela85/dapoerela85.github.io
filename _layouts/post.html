@@ -173,11 +173,17 @@ layout: default
 </article>
 
 <!-- MODAL POPUP ORDER FORM -->
-<div id="orderModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4">
-  <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+<div id="orderModal" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-50 flex items-center justify-center hidden p-4" onclick="handleOverlayClick(event)">
+  <div class="bg-white rounded-2xl max-w-lg w-full p-6 shadow-2xl relative max-h-[90vh] overflow-y-auto" onclick="event.stopPropagation()">
     
-    <!-- Tombol Close Modal -->
-    <button onclick="closeOrderModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl font-bold">&times;</button>
+    <!-- Tombol Close Modal (Diperbarui dengan type="button") -->
+    <button 
+      type="button" 
+      onclick="closeOrderModal()" 
+      class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 hover:bg-gray-100 p-1.5 rounded-full text-2xl font-bold leading-none transition-all cursor-pointer z-10 focus:outline-none"
+      aria-label="Tutup">
+      &times;
+    </button>
     
     <h3 class="text-xl font-bold text-gray-900 mb-1">Form Pemesanan</h3>
     <p class="text-xs text-gray-500 mb-4">Silakan konfirmasi varian & isi data pengiriman Anda.</p>
