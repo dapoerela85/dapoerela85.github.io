@@ -269,4 +269,32 @@ function submitOrder(e) {
     btnSubmit.textContent = "Kirim Pesanan";
   });
 }
+
+// Fungsi Menutup Modal Order
+function closeOrderModal() {
+  const modal = document.getElementById('orderModal');
+  if (modal) {
+    modal.classList.add('hidden');
+  }
+
+  // Sembunyikan notifikasi status jika ada
+  const statusEl = document.getElementById('orderStatus');
+  if (statusEl) {
+    statusEl.classList.add('hidden');
+  }
+}
+
+// Fitur Tambahan: Tutup modal ketika mengklik area luar (backdrop hitam)
+function handleOverlayClick(event) {
+  if (event.target.id === 'orderModal') {
+    closeOrderModal();
+  }
+}
+
+// Fitur Tambahan: Tutup modal ketika menekan tombol Escape di keyboard
+document.addEventListener('keydown', function(event) {
+  if (event.key === 'Escape') {
+    closeOrderModal();
+  }
+});
 </script>
