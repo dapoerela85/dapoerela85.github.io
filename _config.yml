@@ -16,6 +16,7 @@ legalitas:
   halal: 
     - nomor: ID36410025276910825
       instansi: BPJPH
+      url: "https://bpjph.halal.go.id/cari/sertifikat?no_regis=ID36410025276910825"
   merk: 
     - nomor: DID2024133737
       instansi: DJKI
