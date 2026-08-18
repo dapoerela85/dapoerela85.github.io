@@ -18,7 +18,7 @@
           {% for item in site.legalitas.halal %}
             <div class="p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
               <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider block">Sertifikat Halal</span>
-              <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
+              <a class="text-sm font-bold text-gray-800 block mt-1" href="{{ item.url}}" target="_blank">{{ item.nomor }}</a>
               <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
             </div>
           {% endfor %}
