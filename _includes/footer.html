@@ -1,6 +1,6 @@
   <!-- Detail Legalitas & Perizinan -->
   {% if site.legalitas %}
-    <div class="max-w-7xl mt-12 pt-8 mb-8 border-t border-gray-200">
+    <div class="max-w-7xl mx-auto mt-12 pt-8 mb-8 border-t border-gray-200">
       
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         {% if site.legalitas.nib %}
@@ -45,6 +45,7 @@
       </div>
     </div>
   {% endif %}
+
 <footer class="footer p-10 bg-base-100 border-t border-base-content/10 text-base-content flex flex-col md:flex-row justify-between items-center">
     <aside class="items-center grid-flow-col">
         <p class="font-bold uppercase tracking-widest">© {{ "now" | date: "%Y" }} {{ site.title }}®</p>
