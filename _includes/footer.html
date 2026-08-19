@@ -33,6 +33,16 @@
           {% endfor %}
         {% endif %}
 
+        {% if site.legalitas.pkp %}
+          {% for item in site.legalitas.pkp %}
+            <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
+              <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">No. Sertifikat Penyuluhan Keamanan Pangan (PKP)</span>
+              <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
+              <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
+            </div>
+          {% endfor %}
+        {% endif %}
+        
         {% if site.legalitas.pirt %}
           {% for item in site.legalitas.pirt %}
             <div class="p-4 bg-gray-50 rounded-xl border border-gray-100">
