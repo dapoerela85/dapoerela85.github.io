@@ -1,56 +1,56 @@
 <!-- Detail Legalitas & Perizinan -->
 {% if site.legalitas %}
-  <div class="max-w-7xl mx-auto mt-12 pt-8 mb-8 border-t border-gray-200">
+  <div class="max-w-7xl mx-auto mt-12 pt-8 mb-8 border-t border-gray-200 dark:border-neutral-800">
     
     <!-- Wrapper Horizontal Scroll -->
     <div class="flex overflow-x-auto gap-4 pb-4 scrollbar-thin">
       
       {% if site.legalitas.nib %}
         {% for item in site.legalitas.nib %}
-          <div class="w-[280px] flex-shrink-0 p-4 bg-gray-50 rounded-xl border border-gray-100">
-            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">NIB /Business Identification Number</span>
-            <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
-            <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
+          <div class="w-[280px] flex-shrink-0 p-4 bg-white dark:bg-neutral-900 rounded-xl border border-gray-200 dark:border-neutral-800">
+            <span class="text-xs font-semibold text-gray-500 dark:text-neutral-400 uppercase tracking-wider block">Nomor Induk Berusaha /Business Identification Number</span>
+            <span class="text-sm font-bold text-gray-900 dark:text-white block mt-1">{{ item.nomor }}</span>
+            <span class="text-xs text-gray-600 dark:text-neutral-400 block">{{ item.instansi }}</span>
           </div>
         {% endfor %}
       {% endif %}
 
       {% if site.legalitas.halal %}
         {% for item in site.legalitas.halal %}
-          <div class="w-[280px] flex-shrink-0 p-4 bg-emerald-50/50 rounded-xl border border-emerald-100">
-            <span class="text-xs font-semibold text-emerald-600 uppercase tracking-wider block">Sertifikat Halal /Halal certificate</span>
-            <a class="text-sm font-bold text-gray-800 block mt-1" href="{{ item.url}}" target="_blank">{{ item.nomor }}</a>
-            <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
+          <div class="w-[280px] flex-shrink-0 p-4 bg-neutral-100 dark:bg-neutral-800 rounded-xl border border-neutral-300 dark:border-neutral-700">
+            <span class="text-xs font-bold text-black dark:text-white uppercase tracking-wider block">Sertifikat Halal /Halal certificate</span>
+            <a class="text-sm font-bold text-black dark:text-white hover:underline block mt-1" href="{{ item.url}}" target="_blank">{{ item.nomor }}</a>
+            <span class="text-xs text-gray-600 dark:text-neutral-400 block">{{ item.instansi }}</span>
           </div>
         {% endfor %}
       {% endif %}
 
       {% if site.legalitas.merk %}
         {% for item in site.legalitas.merk %}
-          <div class="w-[280px] flex-shrink-0 p-4 bg-gray-50 rounded-xl border border-gray-100">
-            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">Merek Terdaftar /Registered Trademark</span>
-            <a class="text-sm font-bold text-gray-800 block mt-1" href="{{ item.url}}" target="_blank">{{ item.nomor }}</a>
-            <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
-          </div>
-        {% endfor %}
-      {% endif %}
-
-      {% if site.legalitas.pkp %}
-        {% for item in site.legalitas.pkp %}
-          <div class="w-[280px] flex-shrink-0 p-4 bg-gray-50 rounded-xl border border-gray-100">
-            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">Penyuluhan Keamanan Pangan (PKP) / Food Safety Counseling</span>
-            <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
-            <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
+          <div class="w-[280px] flex-shrink-0 p-4 bg-white dark:bg-neutral-900 rounded-xl border border-gray-200 dark:border-neutral-800">
+            <span class="text-xs font-semibold text-gray-500 dark:text-neutral-400 uppercase tracking-wider block">Merek Terdaftar /Registered Trademark</span>
+            <a class="text-sm font-bold text-gray-900 dark:text-white hover:underline block mt-1" href="{{ item.url}}" target="_blank">{{ item.nomor }}</a>
+            <span class="text-xs text-gray-600 dark:text-neutral-400 block">{{ item.instansi }}</span>
           </div>
         {% endfor %}
       {% endif %}
       
+      {% if site.legalitas.pkp %}
+        {% for item in site.legalitas.pkp %}
+          <div class="w-[280px] flex-shrink-0 p-4 bg-white dark:bg-neutral-900 rounded-xl border border-gray-200 dark:border-neutral-800">
+            <span class="text-xs font-semibold text-gray-500 dark:text-neutral-400 uppercase tracking-wider block">Penyuluhan Keamanan Pangan (PKP) / Food Safety Counseling</span>
+            <span class="text-sm font-bold text-gray-900 dark:text-white block mt-1">{{ item.nomor }}</span>
+            <span class="text-xs text-gray-600 dark:text-neutral-400 block">{{ item.instansi }}</span>
+          </div>
+        {% endfor %}
+      {% endif %}
+
       {% if site.legalitas.pirt %}
         {% for item in site.legalitas.pirt %}
-          <div class="w-[280px] flex-shrink-0 p-4 bg-gray-50 rounded-xl border border-gray-100">
-            <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider block">SPP-IRT / Home Industry Food Production</span>
-            <span class="text-sm font-bold text-gray-800 block mt-1">{{ item.nomor }}</span>
-            <span class="text-xs text-gray-500 block">{{ item.instansi }}</span>
+          <div class="w-[280px] flex-shrink-0 p-4 bg-white dark:bg-neutral-900 rounded-xl border border-gray-200 dark:border-neutral-800">
+            <span class="text-xs font-semibold text-gray-500 dark:text-neutral-400 uppercase tracking-wider block">SPP-IRT / Home Industry Food Production</span>
+            <span class="text-sm font-bold text-gray-900 dark:text-white block mt-1">{{ item.nomor }}</span>
+            <span class="text-xs text-gray-600 dark:text-neutral-400 block">{{ item.instansi }}</span>
           </div>
         {% endfor %}
       {% endif %}
