@@ -6,14 +6,29 @@ const assets = [
   '/assets/icons/icon-512.png'
 ];
 
-// 1. Install & Cache (Stays the same)
+// 1. Install & Cache (Fault-tolerant)
 self.addEventListener('install', event => {
   // Forces the waiting service worker to become the active one immediately
   self.skipWaiting();
   event.waitUntil(
     caches.open(cacheName).then(cache => {
       console.log('Caching shell assets');
-      return cache.addAll(assets);
+
+      // Fetch individually so one 404 doesn't break the entire install
+      return Promise.allSettled(
+        assets.map(async (url) => {
+          try {
+            const response = await fetch(url);
+            if (response.ok) {
+              await cache.put(url, response);
+            } else {
+              console.warn(`[SW] Failed to cache \({url}: Status\){response.status}`);
+            }
+          } catch (err) {
+            console.error(`[SW] Network error caching ${url}:`, err);
+          }
+        })
+      );
     })
   );
 });
