@@ -4,13 +4,13 @@
   "description": "Jajanan Tradisional Dapoer Ela 85",
   "icons": [
     {
-      "src": "/assets/icon-192.png",
+      "src": "/assets/icons/icon-192.png",
       "type": "image/png",
       "sizes": "192x192",
       "purpose": "any"
     },
     {
-      "src": "/assets/icon-512.png",
+      "src": "/assets/icons/icon-512.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "maskable"
