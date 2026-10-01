@@ -2,9 +2,8 @@ const cacheName = 'dapoer-ela-v1.1';
 const assets = [
   '/',
   '/index.html',
-  '/assets/css/style.css',
-  '/assets/icon-192.png',
-  '/assets/icon-512.png'
+  '/assets/icons/icon-192.png',
+  '/assets/icons/icon-512.png'
 ];
 
 // 1. Install & Cache (Stays the same)
